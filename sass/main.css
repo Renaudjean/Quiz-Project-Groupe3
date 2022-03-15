@@ -42,16 +42,9 @@ ol, ul {
 }
 
 #header .container {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#header #header__back {
-  font-size: 20px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
 }
 
 .login__link {
@@ -66,46 +59,6 @@ ol, ul {
   font-size: 20px;
   margin-left: 4px;
   color: #FFFFFF;
-}
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-}
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-#quiz__main .container {
-  background-color: #0D263A;
-  margin-top: 60px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 50px;
-  height: 100px;
-  border-radius: 15px;
 }
 
 body {
@@ -124,27 +77,8 @@ body {
   display: none;
 }
 
-.hidden {
-  visibility: hidden;
-}
-
 .container {
   width: 80%;
   margin: 0 auto;
-}
-
-h1 {
-  font-size: 50px;
-  font-weight: 800;
-}
-
-h2 {
-  font-size: 35px;
-  font-weight: 500;
-}
-
-h3 {
-  font-size: 28px;
-  font-weight: 600;
 }
 /*# sourceMappingURL=main.css.map */
