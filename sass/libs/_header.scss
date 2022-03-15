@@ -10,7 +10,12 @@
     }
 
     .container {
-        justify-content: end;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #header__back {
+        font-size: 20px;
     }
 }
 
