@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 14 mars 2022 à 13:57
+-- Généré le : mar. 15 mars 2022 à 09:44
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `account`;
 CREATE TABLE IF NOT EXISTS `account` (
   `AC_ID` int NOT NULL AUTO_INCREMENT,
+  `Email` varchar(255) NOT NULL,
   `UserName` varchar(255) NOT NULL,
   `FirstName` varchar(255) NOT NULL,
   `LastName` varchar(255) NOT NULL,
@@ -124,6 +125,7 @@ DROP TABLE IF EXISTS `score`;
 CREATE TABLE IF NOT EXISTS `score` (
   `SC_ID` int NOT NULL AUTO_INCREMENT,
   `Total_Score` int NOT NULL,
+  `Total_Time` decimal(10,0) NOT NULL,
   `Quiz` int NOT NULL COMMENT 'Quiz_ID',
   PRIMARY KEY (`SC_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
