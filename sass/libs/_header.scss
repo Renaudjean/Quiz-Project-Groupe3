@@ -1,0 +1,31 @@
+#header {
+    background-color: $green;
+    padding: 17px 0;
+
+    .logo {
+        position: absolute;
+        top: 17px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .container {
+        justify-content: end;
+    }
+}
+
+.login {
+
+    &__link {
+        padding: 10px;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    &__p {
+        font-size: 20px;
+        margin-left: 4px;
+        color: $white;
+    }
+}
+
