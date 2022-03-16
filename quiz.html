@@ -13,7 +13,7 @@
 <body>
     <header id="header">
         <div class="container dflex">
-            <p id="header__back"> < Back to menu</p>
+            <a href="index.html" id="header__back">< Back to menu</a>
             <figure class="logo">
                 <a href="index.html">
                     <img src="./img/logo.svg" alt="Logo">
@@ -22,14 +22,74 @@
             <div class="login">
                 <a class="login__link dflex" href="#">
                     <img src="./img/user.svg" alt="User">
-                    <p class="login__p">Log in</p>
+                    <p class="login__p">Log in 
+                        <span class="login__arrow dnone"></span>
+                    </p>
                 </a>
+                    <div class="login__menu dnone" id="login__menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#">My quizes</a>
+                                </li>
+                                <li>
+                                    <a href="#">My scores</a>
+                                </li>
+                                <li>
+                                    <a href="#">Log out ></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                
             </div>
         </div>
     </header>
     <main id="quiz__main">
         <div class="container">
-
+            <div class="stats dflex">
+                <div class="stats__questions">
+                    <p class="p-regular">Question <br><span id="stats__questions-left">5</span>/<span id="stats__questions-exist">10</span></p>
+                </div>
+                <div class="stats__counter dflex">
+                    <div class="stats__tracker correct"></div>
+                    <div class="stats__tracker wrong"></div>
+                    <div class="stats__tracker active"></div>
+                    <div class="stats__tracker"></div>
+                    <div class="stats__tracker"></div>
+                    <div class="stats__tracker"></div>
+                    <div class="stats__tracker"></div>
+                    <div class="stats__tracker"></div>
+                    <div class="stats__tracker"></div>
+                    <div class="stats__tracker"></div>
+                </div>
+                <div class="stats__time">
+                    <p class="p-regular">Time left... <br><span id="stats__time-left">09s</span></p>
+                </div>
+            </div>
+            <div id="question" class="question">
+                <h2 id="question__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, eveniet voluptatibus. Aut, amet aspernatur, dolor quis ?</h2>
+                <div class="question__wrapper dflex">
+                    <div class="question__photo">
+                        <img id="question__img" src="img/question-img-test.jpg" alt="Question image">
+                    </div>
+                    <div class="question__answers-wrapper dflex">
+                        <div class="question__option active-option">
+                            <p class="p-regular" id="option1">Lorem ipsum dolor sit amet</p>
+                        </div>
+                        <div class="question__option correct-option">
+                            <p class="p-regular" id="option2">Lorem ipsum dolor sit amet</p>
+                        </div>
+                        <div class="question__option wrong-option">
+                            <p class="p-regular" id="option3">Lorem ipsum dolor sit amet</p>
+                        </div>
+                        <div class="question__option">
+                            <p class="p-regular" id="option4">Lorem ipsum dolor sit amet</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary" id="question-btn">See answer</button>
+            </div>
         </div>
     </main>
 </body>

@@ -1,12 +1,144 @@
-@import "config";
+/*__________page_quiz__________*/
+
+//stats
 
 #quiz__main {
     .container {
         background-color: $dark;
-        margin-top: 60px;
+        margin: 40px auto;
         box-sizing: border-box;
-        padding: 50px;
-        height: 100px;
+        padding: 40px 50px;
         border-radius: 15px;
     }
 }
+
+.stats {
+    justify-content: space-between;
+    align-items: center;
+
+
+    &__questions, &__time {
+        background-color: $primary;
+        padding: 14px 30px;
+        width: 20%;
+        border-radius: 15px;
+    }
+
+    &__counter {
+        margin: 0 auto;
+        padding: 0 70px;
+        width: 80%;
+        justify-content: space-between;
+    }
+
+    &__tracker {
+        opacity: 80%;
+        height: 8px;
+        width: 9%;
+        background-color: rgba(255, 255, 255, 0.25);
+        border-radius: 5px;
+
+        &.correct {
+            background-color: $green;
+        }
+
+        &.wrong {
+            background-color: $red;
+        }
+
+        &.active {
+            background-color: $white;
+        }
+    }
+}
+
+p.p-regular {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+
+    #stats__ {
+        &questions-left, &time-left {
+            font-weight: 500;
+            font-size: 24px;
+        }
+    }
+}
+
+// question
+
+.question {
+    h2 {
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    &__wrapper {
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 45px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__photo, &__answers-wrapper {
+        width: 48.5%;
+    }
+
+    &__answers-wrapper {
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__option {
+        background-color: $primary;
+        padding: 23px 30px;
+        margin: 12px 0;
+        border-radius: 15px;
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.03);
+        }
+
+        &.active-option {
+            box-shadow:
+                0 0 1px $white,
+                0 0 5px $white,
+                0 0 10px $white;
+        }
+
+        &.correct-option {
+            background-color: rgba($green, 0.7);
+            box-shadow:
+                0 0 1px $white,
+                0 0 5px $white,
+                0 0 5px $green,
+                0 0 10px $white;
+        }
+
+        &.wrong-option {
+            background-color: rgba($red, 0.8);
+            box-shadow:
+                0 0 1px $white,
+                0 0 5px $red,
+                0 0 5px $white,
+                0 0 10px $red;
+        }
+
+        p {
+            text-align: left;
+        }
+    }
+
+    button {
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+// ________________

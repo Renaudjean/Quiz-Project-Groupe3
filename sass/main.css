@@ -1,3 +1,4 @@
+/*_____________reset_css_____________*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -28,6 +29,7 @@ ol, ul {
   list-style: none;
 }
 
+/*_________header_section_________*/
 #header {
   background-color: #188D8D;
   padding: 17px 0;
@@ -52,6 +54,9 @@ ol, ul {
 
 #header #header__back {
   font-size: 20px;
+  padding: 10px;
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 .login__link {
@@ -60,6 +65,7 @@ ol, ul {
       -ms-flex-align: center;
           align-items: center;
   text-decoration: none;
+  position: relative;
 }
 
 .login__p {
@@ -68,46 +74,192 @@ ol, ul {
   color: #FFFFFF;
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
+.login__p .login__arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  position: relative;
+  top: 17px;
+  left: 8px;
 }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-#quiz__main .container {
-  background-color: #0D263A;
-  margin-top: 60px;
+.login__menu {
+  position: absolute;
+  top: 86px;
+  right: 7%;
+  padding: 10px 60px 10px 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 50px;
-  height: 100px;
+  background-color: #188D8D;
+  border-radius: 0 0 15px 15px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.login__menu nav > ul > li {
+  margin: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.login__menu nav > ul > li > a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.login__menu nav > ul > li:hover > a {
+  color: #F7C14D;
+  text-decoration: underline;
+}
+
+/*__________page_quiz__________*/
+#quiz__main .container {
+  background-color: #0D263A;
+  margin: 40px auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 40px 50px;
   border-radius: 15px;
 }
 
+.stats {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.stats__questions, .stats__time {
+  background-color: #1E364B;
+  padding: 14px 30px;
+  width: 20%;
+  border-radius: 15px;
+}
+
+.stats__counter {
+  margin: 0 auto;
+  padding: 0 70px;
+  width: 80%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.stats__tracker {
+  opacity: 80%;
+  height: 8px;
+  width: 9%;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+}
+
+.stats__tracker.correct {
+  background-color: #188D8D;
+}
+
+.stats__tracker.wrong {
+  background-color: #CF614C;
+}
+
+.stats__tracker.active {
+  background-color: #FFFFFF;
+}
+
+p.p-regular {
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+}
+
+p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.question h2 {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.question__wrapper {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 45px;
+}
+
+.question__wrapper img {
+  width: 100%;
+}
+
+.question__photo, .question__answers-wrapper {
+  width: 48.5%;
+}
+
+.question__answers-wrapper {
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.question__option {
+  background-color: #1E364B;
+  padding: 23px 30px;
+  margin: 12px 0;
+  border-radius: 15px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+.question__option:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+.question__option.active-option {
+  -webkit-box-shadow: 0 0 1px #FFFFFF, 0 0 5px #FFFFFF, 0 0 10px #FFFFFF;
+          box-shadow: 0 0 1px #FFFFFF, 0 0 5px #FFFFFF, 0 0 10px #FFFFFF;
+}
+
+.question__option.correct-option {
+  background-color: rgba(24, 141, 141, 0.7);
+  -webkit-box-shadow: 0 0 1px #FFFFFF, 0 0 5px #FFFFFF, 0 0 5px #188D8D, 0 0 10px #FFFFFF;
+          box-shadow: 0 0 1px #FFFFFF, 0 0 5px #FFFFFF, 0 0 5px #188D8D, 0 0 10px #FFFFFF;
+}
+
+.question__option.wrong-option {
+  background-color: rgba(207, 97, 76, 0.8);
+  -webkit-box-shadow: 0 0 1px #FFFFFF, 0 0 5px #CF614C, 0 0 5px #FFFFFF, 0 0 10px #CF614C;
+          box-shadow: 0 0 1px #FFFFFF, 0 0 5px #CF614C, 0 0 5px #FFFFFF, 0 0 10px #CF614C;
+}
+
+.question__option p {
+  text-align: left;
+}
+
+.question button {
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+/*______________general_css________________*/
 body {
   font-family: 'Exo 2', sans-serif;
   background-color: #1E364B;
@@ -146,5 +298,59 @@ h2 {
 h3 {
   font-size: 28px;
   font-weight: 600;
+}
+
+.p-big {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.p-regular {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.p-small {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.btn-primary {
+  font-size: 24px;
+  font-weight: 700;
+  background-color: #F7C14D;
+  color: #1E364B;
+  padding: 18px 30px 20px;
+  border: none;
+  border-radius: 30px;
+  font-family: 'Exo 2', sans-serif;
+  cursor: pointer;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -webkit-box-shadow: 0 0 1px #FFFFFF, 0 0 2px #FFFFFF, 0 0 5px #ffbf35, 0 0 10px #ffbf35, 0 0 15px #FFFFFF;
+          box-shadow: 0 0 1px #FFFFFF, 0 0 2px #FFFFFF, 0 0 5px #ffbf35, 0 0 10px #ffbf35, 0 0 15px #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #ffbf35;
+  -webkit-box-shadow: 0 0 1px #FFFFFF, 0 0 5px #ffbf35, 0 0 10px #FFFFFF, 0 0 15px #ffbf35, 0 0 20px #ffbf35;
+          box-shadow: 0 0 1px #FFFFFF, 0 0 5px #ffbf35, 0 0 10px #FFFFFF, 0 0 15px #ffbf35, 0 0 20px #ffbf35;
+}
+
+.btn-secondary {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 15px 19px 17px;
+  border: 3px solid #F7C14D;
+  border-radius: 50px;
+  color: #F7C14D;
+  text-decoration: none;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background-color: #F7C14D;
+  color: #1E364B;
 }
 /*# sourceMappingURL=main.css.map */
