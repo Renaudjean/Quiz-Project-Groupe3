@@ -47,7 +47,7 @@
     margin-bottom: 1rem;
 }
 
-.cont-h2-p-a {
+.quizz_content {
     padding-bottom: 20px;
     width: 50%;
 }
@@ -69,6 +69,6 @@
     transition: all 0.3s linear;
 }
 
-.quizz:hover > .cont-h2-p-a > .p-quiz {
+.quizz:hover > .quizz_content > .p-quiz {
     opacity: 1;
 }
