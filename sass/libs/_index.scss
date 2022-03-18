@@ -1,7 +1,10 @@
+/*_________index_html_________*/
+
 .fond {
     background-color: $dark;
-    margin-top: 60px;
+    margin: 40px auto;
     border-radius: 20px;
+    padding-bottom: 1px;
 }
 
 .h1-quiz {
@@ -14,7 +17,7 @@
 
 .flex-quiz {
     display: flex;
-    margin: 4rem 9rem;
+    margin: 50px 100px;
     justify-content: space-between;
     flex-wrap: wrap;
 }
@@ -22,7 +25,6 @@
 .quizz {
     display: flex;
     background-color: $primary;
-    height: 20%;
     width: 49%;
     border-radius: 20px;
     padding: 35px;
@@ -32,13 +34,13 @@
     margin-bottom: 30px;
     transition: all 0.3s ease-in-out;
     &:hover {
-        transform: scale(1.1);
-        box-shadow: 5px 5px 20px rgb(20, 20, 20);
+        transform: scale(1.05);
+        box-shadow: 0px 5px 20px 0px rgba(1, 2, 19, 0.3);
     }
 }
 
 .img-quiz {
-    width: 40%;
+    width: 45%;
 }
 
 .h2-quiz {
@@ -50,21 +52,11 @@
     width: 50%;
 }
 
-.btn-choose {
-    background-color: $primary;
-    color: $yellow;
-    border: 3px solid $yellow;
-    border-radius: 50px;
-    padding: 15px 28px 17px;
-    font-weight: 700;
-    text-decoration: none;
-    margin-bottom: 30px;
-}
-
 .p-quiz {
     opacity: 0;
     margin-bottom: 40px;
     transition: all 0.3s linear;
+    font-size: 20px;
 }
 
 .quizz:hover > .quizz_content > .p-quiz {
