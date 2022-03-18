@@ -3,6 +3,9 @@
 @import "libs/quiz";
 @import "libs/index";
 
+
+
+/*______________general_css________________*/
 body {
     font-family: "Exo 2", sans-serif;
     background-color: $primary;
@@ -40,3 +43,65 @@ h3 {
     font-size: 28px;
     font-weight: 600;
 }
+
+.p-big {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.p-regular {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.p-small {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.btn-primary {
+    font-size: 24px;
+    font-weight: 700;
+    background-color: $yellow;
+    color: $primary;
+    padding: 18px 30px 20px;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Exo 2', sans-serif;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    box-shadow:
+        0 0 1px $white,
+        0 0 2px $white,
+        0 0 5px $golden,
+        0 0 10px $golden,
+        0 0 15px $white;
+    
+    &:hover {
+        background-color: $golden;
+        box-shadow:
+            0 0 1px $white,
+            0 0 5px $golden,
+            0 0 10px $white,
+            0 0 15px $golden,
+            0 0 20px $golden;
+    }
+}
+
+.btn-secondary {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 15px 19px 17px;
+    border: 3px solid $yellow;
+    border-radius: 50px;
+    color: $yellow;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        background-color: $yellow;
+        color: $primary;
+    }
+}
+
+// ______________________
