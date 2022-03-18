@@ -259,41 +259,12 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
           transform: translateX(-50%);
 }
 
-/*_____________reset_css_____________*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-}
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-ol, ul {
-  list-style: none;
-}
-
+/*_________index_html_________*/
 .fond {
   background-color: #0D263A;
-  margin-top: 60px;
+  margin: 40px auto;
   border-radius: 20px;
+  padding-bottom: 1px;
 }
 
 .h1-quiz {
@@ -309,7 +280,7 @@ ol, ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 4rem 9rem;
+  margin: 50px 100px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -322,7 +293,6 @@ ol, ul {
   display: -ms-flexbox;
   display: flex;
   background-color: #1E364B;
-  height: 20%;
   width: 49%;
   border-radius: 20px;
   padding: 35px;
@@ -340,14 +310,14 @@ ol, ul {
 }
 
 .quizz:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-  -webkit-box-shadow: 5px 5px 20px #141414;
-          box-shadow: 5px 5px 20px #141414;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-box-shadow: 0px 5px 20px 0px rgba(1, 2, 19, 0.3);
+          box-shadow: 0px 5px 20px 0px rgba(1, 2, 19, 0.3);
 }
 
 .img-quiz {
-  width: 40%;
+  width: 45%;
 }
 
 .h2-quiz {
@@ -359,28 +329,19 @@ ol, ul {
   width: 50%;
 }
 
-.btn-choose {
-  background-color: #1E364B;
-  color: #F7C14D;
-  border: 3px solid #F7C14D;
-  border-radius: 50px;
-  padding: 15px 28px 17px;
-  font-weight: 700;
-  text-decoration: none;
-  margin-bottom: 30px;
-}
-
 .p-quiz {
   opacity: 0;
   margin-bottom: 40px;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
+  font-size: 20px;
 }
 
 .quizz:hover > .quizz_content > .p-quiz {
   opacity: 1;
 }
 
+/*_________login_and_register_section_________*/
 /*______________general_css________________*/
 body {
   font-family: "Exo 2", sans-serif;
