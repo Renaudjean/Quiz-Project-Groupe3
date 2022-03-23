@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 23 mars 2022 à 10:13
+-- Généré le : mar. 22 mars 2022 à 09:48
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.3.21
 
@@ -202,29 +202,29 @@ CREATE TABLE IF NOT EXISTS `question` (
 --
 
 INSERT INTO `question` (`Question_ID`, `Question`, `Question_Photo`, `Answer`, `Quiz_ID`) VALUES
-(1, 'What is the capital of France ?', 'assets/img/img-question/question-1-1-france.jpg', 3, 1),
-(2, 'What is the capital of Swiss ?', 'assets/img/img-question/question-1-2-swiss.jpg', 6, 1),
-(3, 'What is the capital of Belgium ?', 'assets/img/img-question/question-1-3-belgium.jpg', 9, 1),
-(4, 'What is the capital of Italy ?', 'assets/img/img-question/question-1-4-italy.jpg', 16, 1),
-(5, 'What is the capital of England ?', 'assets/img/img-question/question-1-5-england.jpg', 17, 1),
-(6, 'What is the capital of Spain ?', 'assets/img/img-question/question-1-6-spain.jpg', 22, 1),
-(7, 'What is the name of the big bad in the movie Avengers: Age of ultron ?', 'assets/img/img-question/question-2-7-avenger.jpg', 27, 2),
-(8, 'Who is the godfather of Harry Potter ?', 'assets/img/img-question/question-2-8-hp.jpg', 32, 2),
-(9, 'In the movie the Lord of the Rings what is the name of the demon to meet in Moria ?', 'assets/img/img-question/question-2-9-lotr.jpg', 34, 2),
-(10, 'In the movie star wars who are the parents of Kylo Ren ?', 'assets/img/img-question/question-2-10-sw.jpg', 37, 2),
-(11, 'What is the name of the big bad in the movie Avengers: Infinity War ?', 'assets/img/img-question/question-2-11-avenger.jpg', 41, 2),
-(12, 'In the movie Matrix which animal must follow Neo ?', 'assets/img/img-question/question-2-12-matrix.jpg', 46, 2),
-(13, 'What Movie Quentin Tarantino Didn\'t Direct ?', 'assets/img/img-question/question-2-13-tarantino.jpg', 51, 2),
-(14, 'What movie is this picture from ?', 'assets/img/img-question/question-2-14-Meg.jpg', 56, 2),
-(15, 'What is the most viewed movie in the world ?', 'assets/img/img-question/question-2-15-viewed.jpg', 57, 2),
-(16, 'Which actor to play in Forest Gump ?', 'assets/img/img-question/question-2-16-forest-gump.jpg', 62, 2),
-(17, 'Who said \'It\'s possible that ordinary people choose to be extraordinary\' ?', 'assets/img/img-question/question-3-17-musk.jpg', 65, 3),
-(18, 'What is the first Chinese actor to put his fingerprints in the famous cement of the Chinese Theater in Hollywood ?', 'assets/img/img-question/question-3-18-chan.jpg', 70, 3),
-(19, 'Who is the highest paid athlete in the world ?', 'assets/img/img-question/question-3-19-athlete.jpg', 75, 3),
-(20, 'Who by observing the fall of an apple would have had the illumination which was to lead him to formulate his theory of universal gravitation ?', 'assets/img/img-question/question-3-20-apple.jpg', 80, 3),
-(21, 'Where did Napoléon Bonaparte die ?', 'assets/img/img-question/question-3-21-napoleon.jpg', 81, 3),
-(22, 'Who is the 44th Président of the United States ?', 'assets/img/img-question/question-3-22-president.jpg', 87, 3),
-(23, 'Which actor has never had an Oscar ?', 'assets/img/img-question/question-3-23-oscar.jpg', 90, 3);
+(1, 'What is the capital of France ?', '', 3, 1),
+(2, 'What is the capital of Swiss ?', '', 6, 1),
+(3, 'What is the capital of Belgium ?', '', 9, 1),
+(4, 'What is the capital of Italy ?', '', 16, 1),
+(5, 'What is the capital of England ?', '', 17, 1),
+(6, 'What is the capital of Spain ?', '', 22, 1),
+(7, 'What is the name of the big bad in the movie Avengers: Age of ultron ?', '', 27, 2),
+(8, 'Who is the godfather of Harry Potter ?', '', 32, 2),
+(9, 'In the movie the Lord of the Rings what is the name of the demon to meet in Moria ?', '', 34, 2),
+(10, 'In the movie star wars who are the parents of Kylo Ren ?', '', 37, 2),
+(11, 'What is the name of the big bad in the movie Avengers: Infinity War ?', '', 41, 2),
+(12, 'In the movie Matrix which animal must follow Neo ?', '', 46, 2),
+(13, 'What Movie Quentin Tarantino Didn\'t Direct ?', '', 51, 2),
+(14, 'What movie is this picture from ?', '', 56, 2),
+(15, 'What is the most viewed movie in the world ?', '', 57, 2),
+(16, 'Which actor to play in Forest Gump ?', '', 62, 2),
+(17, 'Who said \'It\'s possible that ordinary people choose to be extraordinary\' ?', '', 65, 3),
+(18, 'What is the first Chinese actor to put his fingerprints in the famous cement of the Chinese Theater in Hollywood ?', '', 70, 3),
+(19, 'Who is the highest paid athlete in the world ?', '', 75, 3),
+(20, 'Who by observing the fall of an apple would have had the illumination which was to lead him to formulate his theory of universal gravitation ?', '', 80, 3),
+(21, 'Where did Napoléon Bonaparte die ?', '', 81, 3),
+(22, 'Who is the 44th Président of the United States ?', '', 87, 3),
+(23, 'Which actor has never had an Oscar ?', '', 90, 3);
 
 -- --------------------------------------------------------
 
@@ -247,9 +247,9 @@ CREATE TABLE IF NOT EXISTS `quiz` (
 --
 
 INSERT INTO `quiz` (`Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo`, `Score`) VALUES
-(1, 'Capitals', 'The capitals of the world not secret for you test yourself now ?', '/assets/img/img-quiz/quiz-capitals.jpg', 0),
-(2, 'Movies', 'A quiz on your film knowledge ?', '/assets/img/img-quiz/quiz-movies.jpg', 0),
-(3, 'Personality', 'Do you know the great personalities of this world ?', '/assets/img/img-quiz/quiz-personality.jpg', 0);
+(1, 'Capitals', 'The capitals of the world not secret for you test yourself now ?', '', 0),
+(2, 'Movies', 'A quiz on your film knowledge ?', '', 0),
+(3, 'Personality', 'Do you know the great personalities of this world ?', '', 0);
 
 -- --------------------------------------------------------
 
