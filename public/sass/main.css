@@ -347,6 +347,72 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 }
 
 /*_________login_and_register_section_________*/
+.container.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 50px auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container.login .bloc1,
+.container.login .bloc2 {
+  background-color: #0d263a;
+  padding: 60px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 20px;
+  width: 48%;
+  text-align: center;
+}
+
+.container.login .bloc1 .form.login,
+.container.login .bloc2 .form.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 50px 50px 50px;
+}
+
+.container.login .bloc1 .form.login input,
+.container.login .bloc2 .form.login input {
+  border: none;
+  margin: 10px 0;
+  padding: 15px;
+  background: #1E364B;
+  border-radius: 15px;
+}
+
+.container.login .bloc1 .form.login input::-webkit-input-placeholder,
+.container.login .bloc2 .form.login input::-webkit-input-placeholder {
+  padding-left: 20px;
+  color: white;
+}
+
+.container.login .bloc1 .form.login input:-ms-input-placeholder,
+.container.login .bloc2 .form.login input:-ms-input-placeholder {
+  padding-left: 20px;
+  color: white;
+}
+
+.container.login .bloc1 .form.login input::-ms-input-placeholder,
+.container.login .bloc2 .form.login input::-ms-input-placeholder {
+  padding-left: 20px;
+  color: white;
+}
+
+.container.login .bloc1 .form.login input::placeholder,
+.container.login .bloc2 .form.login input::placeholder {
+  padding-left: 20px;
+  color: white;
+}
+
 /* ___________page_admin_________ */
 .fond .cont_add-new_quiz {
   padding: 50px 110px;

@@ -6,5 +6,19 @@
 </head>
 <body>
     <%- include('page/templates/header-shown') %>
+    <main>
+        <div class="container login">
+            <div class="bloc1">
+                <h2 class="h2 login">Already have an account? </h2>
+                <form class="form login" method="post" action="/index.ejs">
+                    <input type="text" id="user" placeholder="Your username" required>
+                    <input type="password" id="password" placeholder="Your password" required>
+                </form>
+            </div>
+            <div class="bloc2">
+                <h2>I don’t have an account yet</h2>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
