@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+²<!DOCTYPE html>
 <html lang="en">
 <head>
     <%- include ('page/templates/head')  %> 
    
-    <title>QUIZZDOM | Play</title>
+    <title>QUIZZDOM | Challenge yourself</title>
 </head>
 <body>
     <%- include('page/templates/header-shown') %>
@@ -13,10 +13,10 @@
                 <div class="stats__questions">
                     <p class="p-regular">Question <br><span id="stats__questions-left">5</span>/<span id="stats__questions-exist">10</span></p>
                 </div>
-                <div class="stats__counter dflex">
-                    <div class="stats__tracker correct"></div>
-                    <div class="stats__tracker wrong"></div>
-                    <div class="stats__tracker active"></div>
+                <div class="stats__counter dflex" id="stats__counter">
+                    <div class="stats__tracker"></div>
+                    <div class="stats__tracker"></div>
+                    <div class="stats__tracker"></div>
                     <div class="stats__tracker"></div>
                     <div class="stats__tracker"></div>
                     <div class="stats__tracker"></div>
@@ -26,7 +26,7 @@
                     <div class="stats__tracker"></div>
                 </div>
                 <div class="stats__time">
-                    <p class="p-regular">Time left... <br><span id="stats__time-left">09s</span></p>
+                    <p class="p-regular">Time left... <br><span id="stats__time-left">09</span>s</p>
                 </div>
             </div>
             <div id="question" class="question">
@@ -36,17 +36,17 @@
                         <img id="question__img" src="/assets/img/question-img-test.jpg" alt="Question image">
                     </div>
                     <div class="question__answers-wrapper dflex">
-                        <div class="question__option active-option">
-                            <p class="p-regular" id="option1">Lorem ipsum dolor sit amet</p>
+                        <div class="question__option p-regular" id="option1" data-id="1">
+                            Lorem ipsum dolor sit amet
                         </div>
-                        <div class="question__option correct-option">
-                            <p class="p-regular" id="option2">Lorem ipsum dolor sit amet</p>
+                        <div class="question__option p-regular" id="option2" data-id="2">
+                            Lorem ipsum dolor sit amet
                         </div>
-                        <div class="question__option wrong-option">
-                            <p class="p-regular" id="option3">Lorem ipsum dolor sit amet</p>
+                        <div class="question__option p-regular" id="option3" data-id="3">
+                            Lorem ipsum dolor sit amet
                         </div>
-                        <div class="question__option">
-                            <p class="p-regular" id="option4">Lorem ipsum dolor sit amet</p>
+                        <div class="question__option p-regular" id="option4" data-id="4">
+                            Lorem ipsum dolor sit amet
                         </div>
                     </div>
                 </div>
@@ -54,5 +54,6 @@
             </div>
         </div>
     </main>
+    <script src="/assets/quiz.js"></script>
 </body>
 </html>

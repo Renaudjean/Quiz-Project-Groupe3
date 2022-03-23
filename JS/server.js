@@ -16,8 +16,8 @@ app.use('/assets',express.static('public'));
 //listen on environment 5000
 app.get('/', (req, response) => {
     response.render("../index");
-    })
+    })²
 app.get('/quiz', (req, response) => {
     response.render("../quiz");
     })
-app.listen(port, ()=> console.log(`listening on ${port}`));
+app.listen(port, () => console.log(`listening on ${port}`));

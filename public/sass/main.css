@@ -436,4 +436,9 @@ h3 {
   background-color: #F7C14D;
   color: #1E364B;
 }
+
+/*______________js_classes________________*/
+.pi-none {
+  pointer-events: none;
+}
 /*# sourceMappingURL=main.css.map */
