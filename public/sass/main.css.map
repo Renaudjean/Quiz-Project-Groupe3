@@ -7,7 +7,8 @@
         "libs/_header.scss",
         "libs/_quiz.scss",
         "libs/_index.scss",
-        "libs/_login.scss"
+        "libs/_login.scss",
+        "libs/_admin.scss"
     ],
     "names": [],
     "file": "main.css"

@@ -8,11 +8,11 @@ const { Router } = require('express');
 const conn = require('../database/database');
 let app = express();
 let port = process.env.PORT || 5000;
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 // view engine setup
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/assets',express.static('public'));
+app.use("/assets", express.static("public"));
 //mySQL
 
 

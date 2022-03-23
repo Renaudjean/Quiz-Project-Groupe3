@@ -342,9 +342,62 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 }
 
 /*_________login_and_register_section_________*/
+/* ___________page_admin_________ */
+.fond .cont_add-new_quiz {
+  padding: 50px 110px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.fond .p_admin {
+  font-size: 24px;
+  font-weight: 400;
+  padding-left: 110px;
+}
+
+.quizz_content.admin {
+  text-align: center;
+  width: 100%;
+}
+
+.quizz_content.admin .h2-quiz.ad {
+  margin-bottom: 50px;
+}
+
+.quizz_content.admin .btn-secondary.edit {
+  padding: 15px 60px 17px;
+  border: 3px solid #188D8D;
+  color: #188D8D;
+  margin: 10px;
+}
+
+.quizz_content.admin .btn-secondary.edit:hover {
+  background-color: #188D8D;
+  color: #FFFFFF;
+}
+
+.quizz_content.admin .btn-secondary.delete {
+  padding: 15px 50px 17px;
+  border: 3px solid #CF614C;
+  color: #CF614C;
+  margin: 10px;
+}
+
+.quizz_content.admin .btn-secondary.delete:hover {
+  background-color: #CF614C;
+  color: #FFFFFF;
+}
+
 /*______________general_css________________*/
 body {
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   background-color: #1E364B;
   color: #FFFFFF;
 }
@@ -406,10 +459,11 @@ h3 {
   padding: 18px 30px 20px;
   border: none;
   border-radius: 30px;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
+  text-decoration: none;
   cursor: pointer;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   -webkit-box-shadow: 0 0 1px #FFFFFF, 0 0 2px #FFFFFF, 0 0 5px #ffbf35, 0 0 10px #ffbf35, 0 0 15px #FFFFFF;
           box-shadow: 0 0 1px #FFFFFF, 0 0 2px #FFFFFF, 0 0 5px #ffbf35, 0 0 10px #ffbf35, 0 0 15px #FFFFFF;
 }
@@ -428,8 +482,8 @@ h3 {
   border-radius: 50px;
   color: #F7C14D;
   text-decoration: none;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn-secondary:hover {
