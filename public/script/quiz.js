@@ -85,40 +85,19 @@ const cleanOptionStyles = (arr) => {
 
 
 // _____loading of the question_____________________________
-
 const load = () => {
     cleanTracker(statsTrackers[0/* number of question */]);
     cleanOptionStyles(answerOptions);
-
     let questions = [];
-
-    //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
     let quizId= document.querySelector("#quiz__main").dataset.id;
-    let questionID = document.querySelector("#question__text").dataset.qId;
-    //It then generates the question through here
     fetch('/question/'+quizId)
-
-    //Turn the get the Json token delcared in api.js
     .then((res) => res.json())
-
-    //Use the now JSON token to summon the question
     .then((res) => {
         questions = res;        
         questionText.innerHTML = questions[0].Question;
-    
-    }
-    
-    )
-    let answer= [];
-    fetch('/answer/'+questionID)
-    .then((res) => res.json())
-    .then((res) =>{
-        answer = res;
-        option1.innerHTML = answer[0].Answer;
-        option2.innerHTML = answer[1].Answer;
-        option3.innerHTML = answer[2].Answer;
-        option4.innerHTML = answer[3].Answer;
     })
+    // questionText.innerHTML = /* DB connection where n°question === questionCount */;
+
     // option1.innerHTML = /* DB connection */;
     // option2.innerHTML = /* DB connection */;
     // option3.innerHTML = /* DB connection */;
