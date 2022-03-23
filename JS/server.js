@@ -15,9 +15,32 @@ app.use('/assets',express.static('public'));
 
 //listen on environment 5000
 app.get('/', (req, response) => {
+<<<<<<< Updated upstream
     response.render("../index");
     })
 app.get('/quiz', (req, response) => {
     response.render("../quiz");
     })
 app.listen(port, () => console.log(`listening on ${port}`));
+=======
+    let row;
+    let holder;
+    let i = 0;
+
+    let Quiz_Name = [], Quiz_Description= [], Quiz_Photo= [];
+
+    db.query('SELECT `Quiz_Name`, `Quiz_Description`, `Quiz_Photo` FROM `quiz`', function (err, row, fields){
+        if (err) throw err;
+        console.log(row);
+        response.render("../index", {quiz: row});
+                
+            })
+})
+
+app.get('/quiz', (req, response) => {
+    response.render("../quiz");
+    })
+
+    //listen on environment 5000
+app.listen(port, () => console.log(`listening on ${port}`));
+>>>>>>> Stashed changes

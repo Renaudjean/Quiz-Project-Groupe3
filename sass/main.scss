@@ -3,11 +3,20 @@
 @import "libs/quiz";
 
 
+
+
 /*______________general_css________________*/
 body {
     font-family: 'Exo 2', sans-serif;
     background-color: $primary;
     color: $white;
+}
+
+* {
+    &::selection {
+        color: $dark;
+        background: rgba($white, 0.75);
+    }
 }
 
 .dflex {
@@ -23,7 +32,7 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 1170px;
     margin: 0 auto;
 }
 
@@ -64,7 +73,7 @@ h3 {
     color: $primary;
     padding: 18px 30px 20px;
     border: none;
-    border-radius: 30px;
+    border-radius: 50px;
     font-family: 'Exo 2', sans-serif;
     cursor: pointer;
     transition: all .2s ease-in-out;
@@ -103,8 +112,12 @@ h3 {
 }
 
 <<<<<<< Updated upstream:sass/main.scss
+<<<<<<< Updated upstream:sass/main.scss
 =======
 // ______________________
+=======
+
+>>>>>>> Stashed changes:public/sass/main.scss
 
 /*______________js_classes________________*/
 
@@ -112,5 +125,12 @@ h3 {
     pointer-events: none;
 }
 
+<<<<<<< Updated upstream:sass/main.scss
 >>>>>>> Stashed changes:public/sass/main.scss
 // ______________________
+=======
+
+// ______________________
+
+@import "libs/media";
+>>>>>>> Stashed changes:public/sass/main.scss
