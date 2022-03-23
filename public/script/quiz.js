@@ -88,13 +88,20 @@ const cleanOptionStyles = (arr) => {
 const load = () => {
     cleanTracker(statsTrackers[0/* number of question */]);
     cleanOptionStyles(answerOptions);
+    let questions = [];
+    let quizId= document.querySelector("#quiz__main").dataset.id;
+    fetch('/question/'+quizId)
+    .then((res) => res.json())
+    .then((res) => {
+        questions = res;        
+        questionText.innerHTML = questions[0].Question;
+    })
+    // questionText.innerHTML = /* DB connection where n°question === questionCount */;
 
-    questionText.innerHTML = /* DB connection where n°question === questionCount */;
-
-    option1.innerHTML = /* DB connection */;
-    option2.innerHTML = /* DB connection */;
-    option3.innerHTML = /* DB connection */;
-    option4.innerHTML = /* DB connection */;
+    // option1.innerHTML = /* DB connection */;
+    // option2.innerHTML = /* DB connection */;
+    // option3.innerHTML = /* DB connection */;
+    // option4.innerHTML = /* DB connection */;
 
 }
 
