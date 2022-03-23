@@ -264,6 +264,145 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
           transform: translateX(-50%);
 }
 
+<<<<<<< Updated upstream:sass/main.css
+=======
+/*_________index_html_________*/
+.fond {
+  background-color: #0D263A;
+  margin: 40px auto;
+  border-radius: 20px;
+  padding-bottom: 1px;
+}
+
+.h1-quiz {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.h1-quiz span {
+  color: #F7C14D;
+}
+
+.flex-quiz {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 50px 100px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.quizz {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #1E364B;
+  width: 49%;
+  border-radius: 20px;
+  padding: 35px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.quizz:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-box-shadow: 0px 5px 20px 0px rgba(1, 2, 19, 0.3);
+          box-shadow: 0px 5px 20px 0px rgba(1, 2, 19, 0.3);
+}
+
+.img-quiz {
+  width: 48%;
+}
+
+.h2-quiz {
+  margin-bottom: 1rem;
+}
+
+.quizz_content {
+  padding-bottom: 20px;
+  width: 47%;
+}
+
+.p-quiz {
+  opacity: 0;
+  margin-bottom: 40px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  font-size: 18px;
+}
+
+.quizz:hover > .quizz_content > .p-quiz {
+  opacity: 1;
+}
+
+/*_________login_and_register_section_________*/
+/* ___________page_admin_________ */
+.fond .cont_add-new_quiz {
+  padding: 50px 110px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.fond .p_admin {
+  font-size: 24px;
+  font-weight: 400;
+  padding-left: 110px;
+}
+
+.quizz_content.admin {
+  text-align: center;
+  width: 100%;
+}
+
+.quizz_content.admin .h2-quiz.ad {
+  margin-bottom: 50px;
+}
+
+.quizz_content.admin .btn-secondary.edit {
+  padding: 15px 60px 17px;
+  border: 3px solid #188D8D;
+  color: #188D8D;
+  margin: 10px;
+}
+
+.quizz_content.admin .btn-secondary.edit:hover {
+  background-color: #188D8D;
+  color: #FFFFFF;
+}
+
+.quizz_content.admin .btn-secondary.delete {
+  padding: 15px 50px 17px;
+  border: 3px solid #CF614C;
+  color: #CF614C;
+  margin: 10px;
+}
+
+.quizz_content.admin .btn-secondary.delete:hover {
+  background-color: #CF614C;
+  color: #FFFFFF;
+}
+
+>>>>>>> Stashed changes:public/sass/main.css
 /*______________general_css________________*/
 body {
   font-family: 'Exo 2', sans-serif;
@@ -380,6 +519,20 @@ h3 {
   .container {
     width: 850px;
   }
+  .quizz {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .quizz .img-quiz {
+    width: 100%;
+  }
+  .quizz_content {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
   .question__photo {
     width: 45%;
   }
@@ -415,6 +568,9 @@ h3 {
 @media screen and (max-width: 768px) {
   .container {
     width: 540px;
+  }
+  .quizz {
+    width: 100%;
   }
   .stats__time p.p-regular, .stats__questions p.p-regular {
     font-size: 14px;

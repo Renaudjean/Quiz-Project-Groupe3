@@ -6,6 +6,21 @@
         width: 850px;
     }
 
+    // index page ________________
+    .quizz {
+        flex-direction: column;
+
+        .img-quiz {
+            width: 100%;
+        }
+
+        &_content {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+    }
+
     // quiz page ________________
     .question {
         &__photo {
@@ -49,6 +64,11 @@
 @media screen and (max-width: 768px) {
     .container {
         width: 540px;
+    }
+
+    // index page ________________
+    .quizz {
+        width: 100%;
     }
     
     // quiz page ________________

@@ -41,7 +41,7 @@ const cleanTracker = t => {
     t.classList.remove('wrong');
 }
 
-// _____timer _____________________________
+
 
 
 // _____functions connencted to answer options : changing styles _____________________________
@@ -86,6 +86,25 @@ const cleanOptionStyles = (arr) => {
 
 // _____loading of the question_____________________________
 const load = () => {
+
+    // _____ timer on every load() launch ____________________________
+    timeLeft.innerText = '20';
+    let timeCounter = 19;
+    timerFunction = setInterval(() => {
+    let seconds = parseInt(timeCounter % 60, 10);
+
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    timeLeft.innerText = `${seconds}`;
+    timeCounter = timeCounter <= 0 ? 0 : timeCounter - 1;
+    // stop timer if the time is up, mekes an alert -> gotta change that!
+    if (seconds === "00") {
+        alert('oops');
+        clearInterval(timerFunction);
+    }
+    }, 1000);
+    //_____________________________
+
     cleanTracker(statsTrackers[0/* number of question */]);
     cleanOptionStyles(answerOptions);
 
@@ -111,6 +130,7 @@ btnQuiz.addEventListener('click', () => {
             goGreen(answerOptions[4-1]/* = correct answer from DB - 1 */);
             trackerRed(statsTrackers[0/* number of question */]);
         }
+        clearInterval(timerFunction); // interval stops when question answered
         blockOptions(answerOptions);
         btnQuiz.innerHTML = "Next question";
         /* timer stop */
