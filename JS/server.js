@@ -21,7 +21,6 @@ app.get('/', (req, response) => {
     let row;
     let holder;
     let i =0;
-
     let Quiz_Name = [], Quiz_Description= [], Quiz_Photo= [];
 
     db.query('SELECT `Quiz_Name`, `Quiz_Description`, `Quiz_Photo` FROM `quiz`', function (err, row, fields){

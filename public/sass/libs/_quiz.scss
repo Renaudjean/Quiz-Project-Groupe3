@@ -19,7 +19,8 @@
 
     &__questions, &__time {
         background-color: $primary;
-        padding: 14px 30px;
+        padding: 14px 18px;
+        box-sizing: border-box;
         width: 20%;
         border-radius: 15px;
     }
@@ -37,6 +38,7 @@
         width: 9%;
         background-color: rgba(255, 255, 255, 0.25);
         border-radius: 5px;
+        transition: all .2s ease-in-out;
 
         &.correct {
             background-color: $green;
@@ -83,11 +85,12 @@ p.p-regular {
         }
     }
 
-    &__photo, &__answers-wrapper {
-        width: 48.5%;
+    &__photo {
+        width: 40%;
     }
 
     &__answers-wrapper {
+        width: 57%;
         height: 100%;
         flex-direction: column;
         justify-content: space-between;

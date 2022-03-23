@@ -5,11 +5,20 @@
 @import "libs/login";
 @import "libs/admin";
 
+
+
 /*______________general_css________________*/
 body {
     font-family: "Exo 2", sans-serif;
     background-color: $primary;
     color: $white;
+}
+
+* {
+    &::selection {
+        color: $dark;
+        background: rgba($white, 0.75);
+    }
 }
 
 .dflex {
@@ -25,7 +34,7 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 1170px;
     margin: 0 auto;
 }
 
@@ -66,9 +75,8 @@ h3 {
     color: $primary;
     padding: 18px 30px 20px;
     border: none;
-    border-radius: 30px;
-    font-family: "Exo 2", sans-serif;
-    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Exo 2', sans-serif;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     box-shadow: 0 0 1px $white, 0 0 2px $white, 0 0 5px $golden,
@@ -97,8 +105,8 @@ h3 {
     }
 }
 
-
 // ______________________
+
 
 /*______________js_classes________________*/
 
@@ -107,3 +115,6 @@ h3 {
 }
 
 
+// ______________________
+
+@import "libs/media";
