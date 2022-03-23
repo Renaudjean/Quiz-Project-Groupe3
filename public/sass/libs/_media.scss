@@ -1,0 +1,130 @@
+/*__________ M E D I A __ Q U E R I E S __________*/
+
+/*992-1200*/
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 850px;
+    }
+
+    // quiz page ________________
+    .question {
+        &__photo {
+            width: 45%;
+        }
+
+        &__answers-wrapper {
+            width: 52%;
+        }
+    }
+}
+
+/*768-992*/
+@media screen and (max-width: 992px) {
+    .container {
+        width: 700px;
+    }
+
+    // quiz page ________________
+    .stats__counter {
+        padding: 0 30px;
+    }
+
+    .question {
+        &__wrapper {
+            flex-direction: column;
+        }
+
+        &__photo {
+            width: 100%;
+            margin: 30px auto;
+        }
+
+        &__answers-wrapper {
+            width: 100%;
+        }
+    }
+}
+
+/*576-768*/
+@media screen and (max-width: 768px) {
+    .container {
+        width: 540px;
+    }
+    
+    // quiz page ________________
+    .stats {
+        &__time, &__questions {
+            p.p-regular {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+/*320-576*/
+@media screen and (max-width: 576px) {
+    .container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+    .p-big {
+        font-size: 19px;
+    }
+    
+    .p-regular {
+        font-size: 16px;
+    }
+    
+    .p-small {
+        font-size: 11px;
+    }
+
+    .btn-primary {
+        font-size: 19px;
+        padding: 16px 25px 18px;
+    }
+
+    .btn-secondary {
+        font-size: 16px;
+        padding: 12px 17px 14px;
+    }
+
+    // header ________________
+    #header__back {
+        visibility: hidden;
+    }
+
+    a.login__link > p {
+        display: none;
+    }
+
+    .login__menu {
+        right: 5%;
+    }
+
+    // quiz page ________________
+    .stats {
+        &__time, &__questions {
+            width: 30%;
+        }
+    }
+}
+
+
+
+
+
+
+
