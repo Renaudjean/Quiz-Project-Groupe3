@@ -89,12 +89,12 @@ const load = () => {
     cleanTracker(statsTrackers[0/* number of question */]);
     cleanOptionStyles(answerOptions);
 
-    // questionText.innerHTML = /* DB connection where n°question === questionCount */;
+    questionText.innerHTML = /* DB connection where n°question === questionCount */;
 
-    // option1.innerHTML = /* DB connection */;
-    // option2.innerHTML = /* DB connection */;
-    // option3.innerHTML = /* DB connection */;
-    // option4.innerHTML = /* DB connection */;
+    option1.innerHTML = /* DB connection */;
+    option2.innerHTML = /* DB connection */;
+    option3.innerHTML = /* DB connection */;
+    option4.innerHTML = /* DB connection */;
 
 }
 
