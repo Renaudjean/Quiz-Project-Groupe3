@@ -28,8 +28,8 @@ app.use('/quiz/:id', (req, response) => {
             })
     })
 
-app.get('/login', (req, response) => {
-   response.render("../login");
+app.get('/score', (req, response) => {
+   response.render("../score");
 })
 
 

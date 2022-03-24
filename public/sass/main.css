@@ -492,6 +492,21 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
   color: #FFFFFF;
 }
 
+/*___________page_score__________*/
+.quizz_content.score {
+  width: 100%;
+}
+
+.dflex.score {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dflex.score img {
+  margin: 5px 5px 5px 0;
+}
+
 /*______________general_css________________*/
 body {
   font-family: "Exo 2", sans-serif;
