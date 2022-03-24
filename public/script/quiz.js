@@ -94,7 +94,7 @@ const load = () => {
 
     //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
     let quizId= document.querySelector("#quiz__main").dataset.id;
-    let questionID = document.querySelector("#question__text").dataset.qId;
+   
     //It then generates the question through here
     fetch('/question/'+quizId)
 
@@ -110,10 +110,13 @@ const load = () => {
     
     )
     let answer= [];
-    fetch('/answer/'+questionID)
+    let questionId= document.querySelector("#question__text").dataset.id;
+    
+    fetch('/answer/'+questionId)
     .then((res) => res.json())
     .then((res) =>{
         answer = res;
+        console.log(answer[0]);
         option1.innerHTML = answer[0].Answer;
         option2.innerHTML = answer[1].Answer;
         option3.innerHTML = answer[2].Answer;

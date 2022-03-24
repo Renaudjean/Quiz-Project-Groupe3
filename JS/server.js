@@ -20,15 +20,15 @@ app.use("/assets", express.static("public"));
 app.use('/', router)
 
 app.use('/quiz/:id', (req, response) => {
-    db.query('SELECT `Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo` FROM `quiz` WHERE Quiz_ID=?',[req.params.id], function (err, row, fields){
-            if (err) throw err;
-            response.render("../quiz", {quiz: row[0]});       
-            })
-    db.query('SELECT `Question_ID`, `Question`, `Question_Photo`, `Answer`, `Quiz_ID` FROM `question` WHERE Question_ID=?',[req.params.id], function (err, row, fields){
+    db.query('SELECT `Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo` FROM `quiz` WHERE Quiz_ID=?',[req.params.id], function (err, quizName, fields){
+            if (err) throw err;   
+            console.log(quizName);
+             db.query('SELECT  `ANS_ID`, `Answer`, `Option_Number`, `Correct_Or_Not`, `Question` FROM `answer` WHERE Question=?',[req.params.id], function (err, row, fields){
             if (err) throw err;
             console.log(row);
-            response.render("../quiz", {question: row[0]});       
+            response.render("../quiz", {QA: row[0] , quiz: quizName[0]});       
             })
+        })
     })
 
 
