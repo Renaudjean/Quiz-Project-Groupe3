@@ -366,7 +366,7 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #0d263a;
+  background-color: #0D263A;
   padding: 60px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -392,6 +392,7 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
   font-family: "Exo 2", sans-serif;
   border: none;
   margin: 10px 0;
+  color: white;
   padding: 15px;
   background: #314657;
   border-radius: 15px;
@@ -399,25 +400,25 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 
 .container.login .bloc1 .form.login input::-webkit-input-placeholder,
 .container.login .bloc2 .form.login input::-webkit-input-placeholder {
-  padding-left: 20px;
+  padding: 0 20px;
   color: white;
 }
 
 .container.login .bloc1 .form.login input:-ms-input-placeholder,
 .container.login .bloc2 .form.login input:-ms-input-placeholder {
-  padding-left: 20px;
+  padding: 0 20px;
   color: white;
 }
 
 .container.login .bloc1 .form.login input::-ms-input-placeholder,
 .container.login .bloc2 .form.login input::-ms-input-placeholder {
-  padding-left: 20px;
+  padding: 0 20px;
   color: white;
 }
 
 .container.login .bloc1 .form.login input::placeholder,
 .container.login .bloc2 .form.login input::placeholder {
-  padding-left: 20px;
+  padding: 0 20px;
   color: white;
 }
 
