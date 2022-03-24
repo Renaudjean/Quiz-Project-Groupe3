@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('page/templates/head')  %> 
+    <title>QUIZZDOM | Game over</title>
+</head>
+<body>
+   <%- include('page/templates/header-shown') %>
+    <main id="endgame__main">
+        <div class="container dflex">
+            <div class="bg-div"></div>
+            <div class="endgame__score">
+                <h2 id="endgame__phrase">Wow, your score is</h2>
+                <h1><span id="endgame__you-got">8</span>/<span id="endgame__got-from">10</span></h1>
+                <h2>which makes</h2>
+            </div>
+            <div class="endgame__stars dflex">
+                <div class="endgame__star star-1 dflex">
+                    <h2 id="endgame__percent">80%</h2>
+                </div>
+                <div class="endgame__star star-2">
+                    <p class="p-small">Average <br> response time</p>
+                    <p class="p-big"><span id="endgame__avr-time">6.56</span>s</p>
+                </div>
+            </div>
+            <div class="endgame__stats">
+                <div class="dflex">
+                    <h3>Average score is:</h3>
+                    <h3><span id="avr-percent">70</span>%</h3>
+                </div>
+                <div class="dflex">
+                    <h3>Average response time:</h3>
+                    <h3><span id="avr-resp-time">5.34</span>s per question</h3>
+                </div>                
+            </div>
+            <div class="endgame__buttons">
+                <a href="#" class="p-regular">Replay?</a>
+                <a href="/" class="btn-primary">Back to menu</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
+

@@ -19,6 +19,10 @@ time, mark, audio, video {
   font: inherit;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -264,7 +268,6 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
           transform: translateX(-50%);
 }
 
-
 /*_________index_html_________*/
 .fond {
   background-color: #0D263A;
@@ -401,6 +404,132 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
   color: #FFFFFF;
 }
 
+/*__________page_end-game__________*/
+.bg-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: center/cover no-repeat url("/assets/img/quiz-end.jpg");
+  z-index: -1;
+  border-radius: 15px;
+}
+
+.bg-div::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  z-index: -1000;
+}
+
+#endgame__main .container {
+  position: relative;
+  margin: 40px auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 60px 50px;
+  border-radius: 15px;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.endgame__score {
+  text-align: center;
+}
+
+.endgame__score h1 {
+  margin: 16px auto;
+}
+
+.endgame__stars {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 30px auto;
+}
+
+.endgame__star {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.endgame__star #endgame__percent {
+  color: #1E364B;
+  font-weight: 800;
+}
+
+.endgame__star.star-1 {
+  height: 140px;
+  width: 140px;
+  background: center/cover no-repeat url("/assets/img/endgame-star.svg");
+  margin-right: 15px;
+}
+
+.endgame__star.star-2 {
+  height: 120px;
+  width: 120px;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.endgame__star.star-2 p {
+  text-align: center;
+  color: #1E364B;
+  font-weight: 600;
+}
+
+.endgame__star.star-2 p.p-big {
+  font-weight: 800;
+}
+
+.endgame__stats > div {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 15px;
+}
+
+.endgame__stats > div h3:first-child {
+  margin-right: 25px;
+}
+
+.endgame__buttons {
+  margin: 50px auto 80px;
+}
+
+.endgame__buttons a.p-regular {
+  color: #FFFFFF;
+  margin-right: 25px;
+  padding: 15px;
+}
 
 /*______________general_css________________*/
 body {

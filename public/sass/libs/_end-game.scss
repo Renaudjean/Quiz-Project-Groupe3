@@ -1,0 +1,114 @@
+/*__________page_end-game__________*/
+
+.bg-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: center/cover no-repeat url("/assets/img/quiz-end.jpg");
+    // background: center/cover no-repeat url("/assets/img/img-quiz/quiz-capitals.jpg");
+    z-index: -1;
+    border-radius: 15px;
+
+    &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            z-index: -1000;
+        }
+}
+
+#endgame__main {
+    .container {
+        position: relative;        
+        margin: 40px auto;
+        box-sizing: border-box;
+        padding: 60px 50px;
+        border-radius: 15px;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.endgame {
+    &__score {
+        text-align: center;
+
+        h1 {
+            margin: 16px auto;
+        }
+    }
+
+    &__stars {
+        align-items: center;
+        margin: 30px auto;
+    }
+
+    &__star {
+        box-sizing: border-box;
+        border-radius: 100%;
+        justify-content: center;
+        align-items: center;
+
+        #endgame__percent {
+            color: $primary;
+            font-weight: 800;
+        }
+
+        &.star-1 {
+            height: 140px;
+            width: 140px;
+            background: center/cover no-repeat url("/assets/img/endgame-star.svg");
+            margin-right: 15px;
+        }
+
+        &.star-2 {
+            height: 120px;
+            width: 120px;
+            background-color: rgba($white, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            p {
+                text-align: center;
+                color: $primary;
+                font-weight: 600;
+            }
+
+            p.p-big {
+                font-weight: 800;
+            }
+        }
+    }
+
+    &__stats {
+        &> div {
+            justify-content: center;
+            margin-bottom: 15px;
+
+            h3:first-child {
+                margin-right: 25px;
+            }
+        }
+    }
+
+    &__buttons {
+        margin: 50px auto 80px;
+
+        a.p-regular {
+            color: $white;
+            margin-right: 25px;
+            padding: 15px;
+        }
+    }
+}
+
+
