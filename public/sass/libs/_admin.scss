@@ -1,0 +1,46 @@
+/* ___________page_admin_________ */
+
+.fond {
+    .cont_add-new_quiz {
+        padding: 50px 110px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .p_admin {
+        font-size: 24px;
+        font-weight: 400;
+        padding-left: 110px;
+    }
+}
+
+.quizz_content.admin {
+    text-align: center;
+    width: 100%;
+
+    .h2-quiz.ad {
+        margin-bottom: 50px;
+    }
+
+    .btn-secondary.edit {
+        padding: 15px 60px 17px;
+        border: 3px solid $green;
+        color: $green;
+        margin: 10px;
+        &:hover {
+            background-color: $green;
+            color: $white;
+        }
+    }
+
+    .btn-secondary.delete {
+        padding: 15px 50px 17px;
+        border: 3px solid $red;
+        color: $red;
+        margin: 10px;
+        &:hover {
+            background-color: $red;
+            color: $white;
+        }
+    }
+}

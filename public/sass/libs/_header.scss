@@ -1,0 +1,83 @@
+/*_________header_section_________*/
+
+#header {
+    background-color: $green;
+    padding: 17px 0;
+
+    .logo {
+        position: absolute;
+        top: 17px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .container {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #header__back {
+        font-size: 20px;
+        padding: 10px;
+        text-decoration: none;
+        color: $white;
+    }
+}
+
+.login {    
+
+    &__link {
+        padding: 10px;
+        align-items: center;
+        text-decoration: none;
+        position: relative;
+    }
+
+    &__p {
+        font-size: 20px;
+        margin-left: 4px;
+        color: $white;
+
+        .login__arrow {
+            width: 0; 
+            height: 0; 
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #fff;
+            position: relative;
+            top: 17px;
+            left: 8px;
+        }
+    }
+
+    &__menu {
+        position: absolute;
+        top: 86px;
+        right: 7%;
+        padding: 10px 60px 10px 20px;
+        box-sizing: border-box;
+        background-color: $green;
+        border-radius: 0 0 15px 15px;
+        transition: all .2s ease-in-out;
+
+        nav > ul > li {
+            margin: 30px;
+            box-sizing: border-box;
+        }
+
+        nav > ul > li > a {
+            color: $white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 10px;
+        }
+
+        nav > ul > li:hover > a {
+            color: $yellow;
+            text-decoration: underline;
+        }
+    }
+}
+
+// ________________________________
