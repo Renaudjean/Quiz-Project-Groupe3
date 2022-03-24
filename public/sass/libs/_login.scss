@@ -6,6 +6,8 @@
     justify-content: space-between;
     .bloc1,
     .bloc2 {
+        display: flex;
+        flex-direction: column;
         background-color: #0d263a;
         padding: 60px;
         box-sizing: border-box;
@@ -19,16 +21,28 @@
             flex-direction: column;
             padding: 50px 50px 50px;
             input {
+                font-family: "Exo 2", sans-serif;
                 border: none;
                 margin: 10px 0;
                 padding: 15px;
-                background:$primary;
+                background:#314657;
                 border-radius: 15px;
                 &::placeholder {
                     padding-left: 20px;
                     color: white;
                 }
             }
+        }
+        .btn-secondary.sign {
+            background-color: #0d263a;
+            margin: 0 150px 20px;
+            &:hover {
+                background-color: $yellow;
+            }
+        }
+        .forgot-pass {
+            text-decoration: none;
+            color: white;
         }
     }
 }

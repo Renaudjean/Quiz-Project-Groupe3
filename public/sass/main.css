@@ -359,6 +359,13 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 
 .container.login .bloc1,
 .container.login .bloc2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background-color: #0d263a;
   padding: 60px;
   -webkit-box-sizing: border-box;
@@ -382,10 +389,11 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 
 .container.login .bloc1 .form.login input,
 .container.login .bloc2 .form.login input {
+  font-family: "Exo 2", sans-serif;
   border: none;
   margin: 10px 0;
   padding: 15px;
-  background: #1E364B;
+  background: #314657;
   border-radius: 15px;
 }
 
@@ -410,6 +418,23 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 .container.login .bloc1 .form.login input::placeholder,
 .container.login .bloc2 .form.login input::placeholder {
   padding-left: 20px;
+  color: white;
+}
+
+.container.login .bloc1 .btn-secondary.sign,
+.container.login .bloc2 .btn-secondary.sign {
+  background-color: #0d263a;
+  margin: 0 150px 20px;
+}
+
+.container.login .bloc1 .btn-secondary.sign:hover,
+.container.login .bloc2 .btn-secondary.sign:hover {
+  background-color: #F7C14D;
+}
+
+.container.login .bloc1 .forgot-pass,
+.container.login .bloc2 .forgot-pass {
+  text-decoration: none;
   color: white;
 }
 
