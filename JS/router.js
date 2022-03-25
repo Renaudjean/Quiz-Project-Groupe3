@@ -9,6 +9,7 @@ let {answer_Gen} = require('./api_answers.js')
 router.get('/', quiz_Gen);
 router.get('/question/:id',question_Gen);
 router.get('/answer/:id',answer_Gen);
+router.get('/login/check', )
 
 
 module.exports = router;

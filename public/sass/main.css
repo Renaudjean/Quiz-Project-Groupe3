@@ -624,7 +624,7 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 }
 
 /*___________page_score__________*/
-.quizz_content.score {
+.score_content {
   width: 100%;
 }
 
