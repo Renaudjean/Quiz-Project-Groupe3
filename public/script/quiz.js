@@ -85,17 +85,15 @@ const cleanOptionStyles = (arr) => {
 
 
 // _____loading of the question_____________________________
-
+let questions = [];
+let answer= [];
 const load = () => {
-
     // _____ timer on every load() launch ____________________________
     timeLeft.innerText = '20';
     let timeCounter = 19;
     timerFunction = setInterval(() => {
     let seconds = parseInt(timeCounter % 60, 10);
-
     seconds = seconds < 10 ? "0" + seconds : seconds;
-
     timeLeft.innerText = `${seconds}`;
     timeCounter = timeCounter <= 0 ? 0 : timeCounter - 1;
     // stop timer if the time is up, mekes an alert -> gotta change that!
@@ -105,12 +103,12 @@ const load = () => {
     }
     }, 1000);
     //_____________________________
-
     cleanTracker(statsTrackers[0/* number of question */]);
-    cleanOptionStyles(answerOptions);
+     cleanOptionStyles(answerOptions);
+     questionAnswers();
+}
 
-    let questions = [];
-
+function questionAnswers(){
     //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
     let quizId= document.querySelector("#quiz__main").dataset.id;
     //It then generates the question through here
@@ -120,10 +118,10 @@ const load = () => {
     //Use the now JSON token to summon the question
     .then((res) => {
         questions = res;        
-        questionText.innerHTML = questions[6].Question;
+        questionText.innerHTML = questions[3].Question;
         console.table(questions);
-        let answer= [];
-        let questionId= questions[6].Question_ID;
+    
+        let questionId= questions[3].Question_ID;
         console.log(questionId);
         fetch('/answer/'+questionId)
         .then((res) => res.json())
@@ -134,12 +132,9 @@ const load = () => {
             option2.innerHTML = answer[1].Answer;
             option3.innerHTML = answer[2].Answer;
             option4.innerHTML = answer[3].Answer;
+            
         })
-    }
-    
-    )
-   
-   
+    })
 }
 
 
