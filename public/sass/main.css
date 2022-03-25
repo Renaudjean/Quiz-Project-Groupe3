@@ -347,6 +347,98 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 }
 
 /*_________login_and_register_section_________*/
+.container.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 50px auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container.login .bloc1,
+.container.login .bloc2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #0D263A;
+  padding: 60px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 20px;
+  width: 48%;
+  text-align: center;
+}
+
+.container.login .bloc1 .form.login,
+.container.login .bloc2 .form.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 50px 50px 50px;
+}
+
+.container.login .bloc1 .form.login input,
+.container.login .bloc2 .form.login input {
+  font-family: "Exo 2", sans-serif;
+  border: none;
+  margin: 10px 0;
+  color: white;
+  padding: 15px;
+  background: #314657;
+  border-radius: 15px;
+}
+
+.container.login .bloc1 .form.login input::-webkit-input-placeholder,
+.container.login .bloc2 .form.login input::-webkit-input-placeholder {
+  padding: 0 20px;
+  color: white;
+}
+
+.container.login .bloc1 .form.login input:-ms-input-placeholder,
+.container.login .bloc2 .form.login input:-ms-input-placeholder {
+  padding: 0 20px;
+  color: white;
+}
+
+.container.login .bloc1 .form.login input::-ms-input-placeholder,
+.container.login .bloc2 .form.login input::-ms-input-placeholder {
+  padding: 0 20px;
+  color: white;
+}
+
+.container.login .bloc1 .form.login input::placeholder,
+.container.login .bloc2 .form.login input::placeholder {
+  padding: 0 20px;
+  color: white;
+}
+
+.container.login .bloc1 .btn-secondary.sign,
+.container.login .bloc2 .btn-secondary.sign {
+  background-color: #0d263a;
+  margin: 0 150px 20px;
+}
+
+.container.login .bloc1 .btn-secondary.sign:hover,
+.container.login .bloc2 .btn-secondary.sign:hover {
+  background-color: #F7C14D;
+}
+
+.container.login .bloc1 .forgot-pass,
+.container.login .bloc2 .forgot-pass {
+  text-decoration: none;
+  color: white;
+}
+
 /* ___________page_admin_________ */
 .fond .cont_add-new_quiz {
   padding: 50px 110px;
@@ -398,6 +490,21 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 .quizz_content.admin .btn-secondary.delete:hover {
   background-color: #CF614C;
   color: #FFFFFF;
+}
+
+/*___________page_score__________*/
+.quizz_content.score {
+  width: 100%;
+}
+
+.dflex.score {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dflex.score img {
+  margin: 5px 5px 5px 0;
 }
 
 /*______________general_css________________*/

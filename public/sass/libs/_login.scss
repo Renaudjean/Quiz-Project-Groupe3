@@ -1,1 +1,50 @@
 /*_________login_and_register_section_________*/
+
+.container.login {
+    display: flex;
+    margin: 50px auto;
+    justify-content: space-between;
+    .bloc1,
+    .bloc2 {
+        display: flex;
+        flex-direction: column;
+        background-color: $dark;
+        padding: 60px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        width: 48%;
+        text-align: center;
+        .form.login {
+            display: flex;
+            flex-direction: column;
+            padding: 50px 50px 50px;
+            input {
+                font-family: "Exo 2", sans-serif;
+                border: none;
+                margin: 10px 0;
+                color: white;
+                padding: 15px;
+                background: #314657;
+                border-radius: 15px;
+                &::placeholder {
+                    padding: 0 20px;
+                    color: white;
+                }
+                // #input-choose-pass::after {
+                //     background: url(/assets/img/password-icon-view.svg);
+                // }
+            }
+        }
+        .btn-secondary.sign {
+            background-color: #0d263a;
+            margin: 0 150px 20px;
+            &:hover {
+                background-color: $yellow;
+            }
+        }
+        .forgot-pass {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
