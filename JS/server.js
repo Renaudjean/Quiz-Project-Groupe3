@@ -35,10 +35,16 @@ app.use('/quiz/:id', (req, response) => {
 
 app.use('/end-game', (req, response) => {
     response.render("../end-game");
+})
 app.get('/score', (req, response) => {
    response.render("../score");
 })
+app.get("/login", (req, response) => {
+    response.render("../login");
+});
+app.get("/admin", (req, response) => {
+    response.render("../admin");
+});
 
-
-    //listen on environment 5000
+//listen on environment 5000
 app.listen(port, ()=> console.log(`listening on ${port}`));
