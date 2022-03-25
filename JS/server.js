@@ -7,6 +7,8 @@ let app = express();
 let router = require('./router.js');
 let db= require('../database/database');
 const conn = require('../database/database');
+const { read } = require('fs');
+const { response } = require('express');
 
 app.set("view engine", "ejs");
 // view engine setup
@@ -33,6 +35,8 @@ app.use('/quiz/:id', (req, response) => {
 
 app.use('/end-game', (req, response) => {
     response.render("../end-game");
+app.get('/score', (req, response) => {
+   response.render("../score");
 })
 
 
