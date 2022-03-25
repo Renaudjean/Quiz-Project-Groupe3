@@ -79,6 +79,18 @@
             }
         }
     }
+
+    // end-game page ________________
+    .endgame__stats {
+        h3 {
+            font-size: 22px;
+        }
+        
+        &> div {
+            justify-content: start;
+        }
+    }
+
 }
 
 /*320-576*/
@@ -138,6 +150,17 @@
     .stats {
         &__time, &__questions {
             width: 30%;
+        }
+    }
+
+    // end-game page ________________
+    .endgame__buttons {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+
+        a.p-regular {
+            margin: 30px auto 0;
         }
     }
 }
