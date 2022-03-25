@@ -34,7 +34,8 @@ app.use('/quiz/:id', (req, response) => {
     })
 
 app.use('/end-game', (req, response) => {
-    response.render("../end-game");
+    response.render("../end-game"); 
+})
 app.get('/score', (req, response) => {
    response.render("../score");
 })
