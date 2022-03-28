@@ -1,5 +1,5 @@
 let db= require('../database/database');
-const conn = require('../database/database');
+
 
 
 module.exports.question_Gen = (req, response) => {

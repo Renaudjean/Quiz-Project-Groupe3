@@ -15,37 +15,21 @@
                 </div>
                 <p class="p_admin">Quizes you’ve already added:</p>
                 <div class="flex-quiz">
-                    <div class="quizz ad">
-                        <div class="quizz_content admin">
-                            <h2 class="h2-quiz ad">Quiz Capitals</h2>
-                            <a href="#" class="btn-secondary edit">Edit</a>
-                            <a href="#" class="btn-secondary delete">Delete</a>
+                    <% for(q of quiz) { %> 
+                        <div class="quizz">
+                            <img src="<%= q.Quiz_Photo %>" alt="Quiz <%= q.Quiz_Name %>" class="img-quiz">
+                            <div class="quizz_content">
+                                <h2 class="h2-quiz"><%= q.Quiz_Name %></h2>
+                                <p class="p-quiz"><%= q.Quiz_Description%></p>
+                                <a href="quiz/<%= q.Quiz_ID%>" class="btn-secondary edit">Edit</a>
+                                <a href="quiz/<%= q.Quiz_ID%>" class="btn-secondary delete">Delete</a>
                         </div>
-                    </div>
-                    <div class="quizz ad">
-                        <div class="quizz_content admin">
-                            <h2 class="h2-quiz ad">Quiz Movies</h2>
-                            <a href="#" class="btn-secondary edit">Edit</a>
-                            <a href="#" class="btn-secondary delete">Delete</a>
-                        </div>
-                    </div>
-                    <div class="quizz ad">
-                        <div class="quizz_content admin">
-                            <h2 class="h2-quiz ad">Quiz Personality</h2>
-                            <a href="#" class="btn-secondary edit">Edit</a>
-                            <a href="#" class="btn-secondary delete">Delete</a>
-                        </div>
-                    </div>
-                    <div class="quizz ad">
-                        <div class="quizz_content admin">
-                            <h2 class="h2-quiz ad">Quiz to come up</h2>
-                            <a href="#" class="btn-secondary edit">Edit</a>
-                            <a href="#" class="btn-secondary delete">Delete</a>
-                        </div>
-                    </div>
+                    </div> 
+                    <% } %> 
                 </div>
             </div>
         </div>
     </main>
+    <scrip></script>
 </body>
 </html>
