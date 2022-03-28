@@ -7,19 +7,15 @@
 </head>
 <body>
     <%- include('page/templates/header-shown') %>
+    <!-- SCREEN OF QUIZ -->
     <main id="quiz__main" data-id= "<%= quiz.Quiz_ID %>">
-        <div class="container">
+        <div class="container" id="quiz__main-screen">
             <div class="stats dflex">
                 <div class="stats__questions">
-                    <p class="p-regular">Question <br><span id="stats__questions-left">5</span>/<span id="stats__questions-exist">10</span></p>
+                    <p class="p-regular">Question <br><span id="stats__questions-left">1</span>/<span id="stats__questions-exist">10</span></p>
                 </div>
                 <div class="stats__counter dflex" id="stats__counter">
-                    <!-- <div class="stats__tracker dnone"></div> -->
-                    <!-- <div class="stats__tracker"></div>
-                    <div class="stats__tracker"></div>
-                    <div class="stats__tracker"></div>
-                    <div class="stats__tracker"></div>
-                    <div class="stats__tracker"></div> -->
+                    <!-- DIVs created via JavaScript -->
                 </div>
                 <div class="stats__time">
                     <p class="p-regular">Time left... <br><span id="stats__time-left">20</span>s</p>
@@ -32,21 +28,55 @@
                         <img id="question__img" src="<%= QA.Question_Photo %>" alt="Question image">
                     </div>
                     <div class="question__answers-wrapper dflex">
-                        <div class="question__option p-regular" id="option1" data-id="1">
+                        <div class="question__option p-regular" id="option1" data-id="0">
                             
                         </div>
-                        <div class="question__option p-regular" id="option2" data-id="2">
+                        <div class="question__option p-regular" id="option2" data-id="1">
                             
                         </div>
-                        <div class="question__option p-regular" id="option3" data-id="3">
+                        <div class="question__option p-regular" id="option3" data-id="2">
                            
                         </div>
-                        <div class="question__option p-regular" id="option4" data-id="4">
+                        <div class="question__option p-regular" id="option4" data-id="3">
                    
                         </div>
                     </div>
                 </div>
                 <button class="btn-primary" id="question-btn">See answer</button>
+            </div>
+        </div>
+    </main>
+    <!-- SCREEN OF END GAME -->
+    <main id="endgame__main" class="dnone">
+        <div class="container dflex" id="endgame__main-screen">
+            <div class="bg-div" id="bg-div"></div>
+            <div class="endgame__score">
+                <h2 id="endgame__phrase">Wow, your score is</h2>
+                <h1><span id="endgame__you-got">8</span>/<span id="endgame__got-from">10</span></h1>
+                <h2>which makes</h2>
+            </div>
+            <div class="endgame__stars dflex">
+                <div class="endgame__star star-1 dflex">
+                    <h2 id="endgame__percent">80%</h2>
+                </div>
+                <div class="endgame__star star-2">
+                    <p class="p-small">Average <br> response time</p>
+                    <p class="p-big"><span id="endgame__avr-time">6.56</span>s</p>
+                </div>
+            </div>
+            <div class="endgame__stats">
+                <div class="dflex">
+                    <h3>Average score is:</h3>
+                    <h3><span id="avr-percent">70</span>%</h3>
+                </div>
+                <div class="dflex">
+                    <h3>Average response time:</h3>
+                    <h3><span id="avr-resp-time">5.34</span>s per question</h3>
+                </div>                
+            </div>
+            <div class="endgame__buttons">
+                <a href="#" class="p-regular" id="replay-btn">Replay?</a>
+                <a href="/" class="btn-primary">Back to menu</a>
             </div>
         </div>
     </main>

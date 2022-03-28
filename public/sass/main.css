@@ -398,35 +398,32 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 .container.login .bloc2 .form.login input {
   font-family: "Exo 2", sans-serif;
   border: none;
+  font-size: 14px;
   margin: 10px 0;
-  color: white;
-  padding: 15px;
+  color: #FFFFFF;
+  padding: 15px 24px 17px;
   background: #314657;
   border-radius: 15px;
 }
 
 .container.login .bloc1 .form.login input::-webkit-input-placeholder,
 .container.login .bloc2 .form.login input::-webkit-input-placeholder {
-  padding: 0 20px;
-  color: white;
+  color: #FFFFFF;
 }
 
 .container.login .bloc1 .form.login input:-ms-input-placeholder,
 .container.login .bloc2 .form.login input:-ms-input-placeholder {
-  padding: 0 20px;
-  color: white;
+  color: #FFFFFF;
 }
 
 .container.login .bloc1 .form.login input::-ms-input-placeholder,
 .container.login .bloc2 .form.login input::-ms-input-placeholder {
-  padding: 0 20px;
-  color: white;
+  color: #FFFFFF;
 }
 
 .container.login .bloc1 .form.login input::placeholder,
 .container.login .bloc2 .form.login input::placeholder {
-  padding: 0 20px;
-  color: white;
+  color: #FFFFFF;
 }
 
 .container.login .bloc1 .btn-secondary.sign,
@@ -443,7 +440,8 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 .container.login .bloc1 .forgot-pass,
 .container.login .bloc2 .forgot-pass {
   text-decoration: none;
-  color: white;
+  color: #FFFFFF;
+  padding: 10px;
 }
 
 /* ___________page_admin_________ */
