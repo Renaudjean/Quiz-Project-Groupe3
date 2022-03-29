@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 29 mars 2022 à 07:37
--- Version du serveur :  8.0.21
--- Version de PHP : 7.3.21
+-- Généré le : mar. 29 mars 2022 à 08:38
+-- Version du serveur : 8.0.21
+-- Version de PHP : 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `Correct_Or_Not` tinyint(1) NOT NULL,
   `Question` int NOT NULL COMMENT 'Question_ID',
   PRIMARY KEY (`ANS_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=129 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `answer`
@@ -174,7 +174,43 @@ INSERT INTO `answer` (`ANS_ID`, `Answer`, `Option_Number`, `Correct_Or_Not`, `Qu
 (89, 'Joaquin Phoenix', 1, 0, 23),
 (90, 'Johnny Depp', 2, 1, 23),
 (91, 'Leonardo DiCaprio', 3, 0, 23),
-(92, 'Matthew McConaughey', 4, 0, 23);
+(92, 'Matthew McConaughey', 4, 0, 23),
+(93, 'Naruto', 1, 0, 24),
+(94, 'Saylor Moon', 2, 0, 24),
+(95, 'Dragon Ball', 3, 1, 24),
+(96, 'Pokemon', 4, 0, 24),
+(97, 'Hideaki Anno', 1, 0, 25),
+(98, 'Makoto Shinkai', 2, 1, 25),
+(99, 'Hayao Miyazaki', 3, 0, 25),
+(100, 'Goro Miyazaki', 4, 0, 25),
+(101, '\"Spirited Away\"', 1, 0, 26),
+(102, '\"Your Name\"', 2, 0, 26),
+(103, '\"My Neighbor Totoro\"', 3, 0, 26),
+(104, '\"Princess Mononoke\"', 4, 1, 26),
+(105, 'Vegeta', 1, 0, 27),
+(106, 'Gohan', 2, 0, 27),
+(107, 'Goku', 3, 1, 27),
+(108, 'Trunks', 4, 0, 27),
+(109, 'Ace', 1, 1, 28),
+(110, 'Luffy', 2, 0, 28),
+(111, 'Blackbeard', 3, 0, 28),
+(112, 'Sabo', 4, 0, 28),
+(113, 'Ponyo', 1, 0, 29),
+(114, 'Kiki', 2, 0, 29),
+(115, 'Haku', 3, 0, 29),
+(116, 'Totoro', 4, 1, 29),
+(117, '\"Spirited Away\"', 1, 1, 30),
+(118, '\"Howl\'s Moving Castle\"', 2, 0, 30),
+(119, '\"Kiki\'s Delivery Service\"', 3, 0, 30),
+(120, '\"Tales From Earthsea\"', 4, 0, 30),
+(121, 'Wolf', 1, 0, 31),
+(122, 'Fox', 2, 1, 31),
+(123, 'Cat', 3, 0, 31),
+(124, 'Snake', 4, 0, 31),
+(125, '72', 1, 0, 32),
+(126, '81', 2, 0, 32),
+(127, '90', 3, 1, 32),
+(128, '104', 4, 0, 32);
 
 -- --------------------------------------------------------
 
@@ -204,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `Answer` int NOT NULL COMMENT 'ANS_ID',
   `Quiz_ID` int NOT NULL,
   PRIMARY KEY (`Question_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `question`
@@ -233,7 +269,16 @@ INSERT INTO `question` (`Question_ID`, `Question`, `Question_Photo`, `Answer`, `
 (20, 'Who, after watching an apple fall, had an illumination and formulated his famous gravitational theory?', '/assets/img/img-question/question-20-apple.jpg', 80, 3),
 (21, 'Where did Napoleon Bonaparte die?', '/assets/img/img-question/question-21-napoleon.jpg', 81, 3),
 (22, 'Who is the 44th President of the United States?', '/assets/img/img-question/question-22-president.jpg', 87, 3),
-(23, 'Which actor has never had an Oscar?', '/assets/img/img-question/question-23-oscar.jpg', 90, 3);
+(23, 'Which actor has never had an Oscar?', '/assets/img/img-question/question-23-oscar.jpg', 90, 3),
+(24, 'What is the most popular anime of all times?', '/assets/img/img-question/question-24-anime.jpg', 95, 4),
+(25, '\"5 Centimeters per Second\" is a masterpiece created by..', '/assets/img/img-question/question-25-5cm.jpg', 98, 4),
+(26, 'What anime is this image from?', '/assets/img/img-question/question-26-screenshot.jpg', 104, 4),
+(27, 'Which \"Dragon Ball Z\" character first becomes super saiyan?', '/assets/img/img-question/question-27-dragonball.jpg', 107, 4),
+(28, 'In anime \"One piece\", who dies in the Marineford Battle?', '/assets/img/img-question/question-28-onepiece.jpg', 109, 4),
+(29, 'What is the name of Studio Ghibli’s well-known mascot?', '/assets/img/img-question/question-29-ghibli.jpg', 116, 4),
+(30, 'Yubaba is a witch in which animated film written and directed by Hayao Miyazaki?', '/assets/img/img-question/question-30-yubaba.jpg', 117, 4),
+(31, 'In \"Naruto\", the main character is a host for the powerful Nine-Tales. What creature is the Nine-Tails?', '/assets/img/img-question/question-31-naruto.jpg', 122, 4),
+(32, 'In \"Howl’s Moving Castle\", Sophie is transformed into an old woman by a witch. How old is Sophie as an old woman?', '/assets/img/img-question/question-32-castle.jpeg', 127, 4);
 
 -- --------------------------------------------------------
 
@@ -249,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `quiz` (
   `Quiz_Photo` text NOT NULL,
   `Score` int NOT NULL COMMENT 'SC_ID',
   PRIMARY KEY (`Quiz_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `quiz`
@@ -258,7 +303,8 @@ CREATE TABLE IF NOT EXISTS `quiz` (
 INSERT INTO `quiz` (`Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo`, `Score`) VALUES
 (1, 'Capitals', 'Sure you know all the countries\' capitals of the world? Challenge yourself!', '/assets/img/img-quiz/quiz-capitals.jpg', 0),
 (2, 'Movies', 'Love movies? Me too! Let\'s see if you pay attention while watching!', '/assets/img/img-quiz/quiz-movies.jpg', 0),
-(3, 'Personalities', 'World\'s top influencers and personalities: do you know them?', '/assets/img/img-quiz/quiz-personality.jpg', 0);
+(3, 'Personalities', 'World\'s top influencers and personalities: do you know them?', '/assets/img/img-quiz/quiz-personality.jpg', 0),
+(4, 'Anime', 'Enjoy Japanese anime movies? Let\'s find out if you know the well!', '/assets/img/img-quiz/quiz-anime.jpg\r\n', 0);
 
 -- --------------------------------------------------------
 
