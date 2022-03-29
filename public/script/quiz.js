@@ -126,14 +126,16 @@ const cleanOptionStyles = (arr) => {
  
 // _____loading of the question_____________________________
 
-let answer= [];
-const load = () => {
+const load = (a, b) => {
+
     // _____ timer on every load() launch ____________________________
     timeLeft.innerText = '20';
     let timeCounter = 19;
     timerFunction = setInterval(() => {
     let seconds = parseInt(timeCounter % 60, 10);
+
     seconds = seconds < 10 ? "0" + seconds : seconds;
+
     timeLeft.innerText = `${seconds}`;
     timeCounter = timeCounter <= 0 ? 0 : timeCounter - 1;
     // stop timer if the time is up, mekes an alert -> gotta change that!
@@ -148,30 +150,28 @@ const load = () => {
     }
     }, 1000);
     //_____________________________
-    cleanTracker(statsTrackers[0/* number of question */]);
-     cleanOptionStyles(answerOptions);
-     questionAnswers();
-}
 
-function questionAnswers(){
+    // cleanTracker(statsTrackers[0/* number of question */]);
+    cleanOptionStyles(answerOptions);
+
     //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
-    let quizId= document.querySelector("#quiz__main").dataset.id;
-    
+    let quizId = document.querySelector("#quiz__main").dataset.id;
     //It then generates the question through here
-    fetch('/question/'+quizId)
-   
+    fetch('/question/' + quizId)
     //Turn the get the Json token delcared in api.js
     .then((res) => res.json())
-    
     //Use the now JSON token to summon the question
     .then((res) => {
-        questions = res;        
-        questionText.innerHTML = questions[3].Question;
+        questions = res; 
+        nOfQuestions = questions.length;
+
+        questionText.innerHTML = questions[questionCount].Question;
+        questionImg.src = questions[questionCount].Question_Photo;
         console.table(questions);
-    
-        let questionId= questions[3].Question_ID;
-        console.log(questionId);
-        fetch('/answer/'+questionId)
+        let answer = [];
+        let questionId = questions[questionCount].Question_ID;
+        questionsExist.innerHTML = nOfQuestions;
+        fetch('/answer/' + questionId)
         .then((res) => res.json())
         .then((res) =>{
             answer = res;
@@ -179,9 +179,9 @@ function questionAnswers(){
             option1.innerHTML = answer[0].Answer;
             option2.innerHTML = answer[1].Answer;
             option3.innerHTML = answer[2].Answer;
-            option4.innerHTML = answer[3].Answer;     
+            option4.innerHTML = answer[3].Answer;
         })
-    })
+    })   
 }
 
 
