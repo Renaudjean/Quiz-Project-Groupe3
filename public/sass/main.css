@@ -153,15 +153,16 @@ ol, ul {
   margin: 0 auto;
   padding: 0 70px;
   width: 80%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .stats__tracker {
   opacity: 80%;
   height: 8px;
-  width: 9%;
+  width: 50%;
+  margin: auto 0.5%;
   background-color: rgba(255, 255, 255, 0.25);
   border-radius: 5px;
   -webkit-transition: all .2s ease-in-out;
@@ -208,6 +209,7 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 
 .question__wrapper img {
   width: 100%;
+  border-radius: 8px;
 }
 
 .question__photo {
@@ -289,7 +291,7 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 50px 100px;
+  margin: 50px 60px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -304,7 +306,7 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
   background-color: #1E364B;
   width: 49%;
   border-radius: 20px;
-  padding: 35px;
+  padding: 30px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-pack: justify;
@@ -327,6 +329,7 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 
 .img-quiz {
   width: 48%;
+  border-radius: 5px;
 }
 
 .h2-quiz {
@@ -395,35 +398,32 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 .container.login .bloc2 .form.login input {
   font-family: "Exo 2", sans-serif;
   border: none;
+  font-size: 14px;
   margin: 10px 0;
-  color: white;
-  padding: 15px;
+  color: #FFFFFF;
+  padding: 15px 24px 17px;
   background: #314657;
   border-radius: 15px;
 }
 
 .container.login .bloc1 .form.login input::-webkit-input-placeholder,
 .container.login .bloc2 .form.login input::-webkit-input-placeholder {
-  padding: 0 20px;
-  color: white;
+  color: #FFFFFF;
 }
 
 .container.login .bloc1 .form.login input:-ms-input-placeholder,
 .container.login .bloc2 .form.login input:-ms-input-placeholder {
-  padding: 0 20px;
-  color: white;
+  color: #FFFFFF;
 }
 
 .container.login .bloc1 .form.login input::-ms-input-placeholder,
 .container.login .bloc2 .form.login input::-ms-input-placeholder {
-  padding: 0 20px;
-  color: white;
+  color: #FFFFFF;
 }
 
 .container.login .bloc1 .form.login input::placeholder,
 .container.login .bloc2 .form.login input::placeholder {
-  padding: 0 20px;
-  color: white;
+  color: #FFFFFF;
 }
 
 .container.login .bloc1 .btn-secondary.sign,
@@ -440,7 +440,8 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 .container.login .bloc1 .forgot-pass,
 .container.login .bloc2 .forgot-pass {
   text-decoration: none;
-  color: white;
+  color: #FFFFFF;
+  padding: 10px;
 }
 
 /* ___________page_admin_________ */

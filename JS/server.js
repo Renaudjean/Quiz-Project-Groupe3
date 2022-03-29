@@ -35,9 +35,9 @@ app.use('/quiz/:id', (req, response) => {
         })
     })
 
-app.use('/end-game', (req, response) => {
-    response.render("../end-game"); 
-})
+// app.use('/end-game', (req, response) => {
+//     response.render("../end-game"); 
+// }) // commented this code out because this page now makes part of quiz.ejs
 app.get('/score', (req, response) => {
    response.render("../score");
 })
