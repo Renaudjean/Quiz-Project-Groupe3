@@ -21,6 +21,7 @@ const endGameScreen = document.getElementById('endgame__main'),
       questYouHad = document.getElementById('endgame__got-from'),
       yourPercent = document.getElementById('endgame__percent'),
       endGamePhrase = document.getElementById('endgame__phrase'),
+      endGameAvrTime = document.getElementById('endgame__avr-time'),
       replayBtn = document.getElementById('replay-btn'),
       bg = document.getElementById('bg-div');
 
@@ -138,11 +139,12 @@ const load = (a, b) => {
 
     timeLeft.innerText = `${seconds}`;
     timeCounter = timeCounter <= 0 ? 0 : timeCounter - 1;
-    // stop timer if the time is up, mekes an alert -> gotta change that!
+    // stop timer if the time is up, all options get blocked, are marked as wrong
     if (seconds === "00") {
         clearInterval(timerFunction);
         a.forEach(e => {
             goRed(e);
+            e.classList.add('pi-none');
         })
         btnQuiz.innerHTML = "Next question";
         questionCount++;
@@ -186,6 +188,7 @@ const load = (a, b) => {
 
 
 // _____main function for the button _____________________________
+let timerAverage = 0;
 load(answerOptions, statsTrackers[questionCount]);
 let correctAnswers = 0;
 btnQuiz.addEventListener('click', () => {
@@ -207,10 +210,12 @@ btnQuiz.addEventListener('click', () => {
 
     // verification of the chosen answer is correct on click 
     if (selectedAnswer.classList.contains('active-option')) {
+    // if correct -> apply green classes to tracker, to answer, concatenate correct answers
         if(answer[selectedAnswer.dataset.id].Correct_Or_Not === 1) {
             goGreen(selectedAnswer);
             trackerGreen(statsTrackers[questionCount]);
             correctAnswers++;
+    // otherwise the chosen answer turns red, we find the correct answer and turn it red, tracker goes red
         } else {
             goRed(selectedAnswer);
             if (answer[0].Correct_Or_Not == 1) {
@@ -224,10 +229,13 @@ btnQuiz.addEventListener('click', () => {
             } 
             trackerRed(statsTrackers[questionCount]);
         }
+    // whatewer the response, we stop the timer, disable clicking of answer options, change button text, add the data from timer to timerAverage variable, concatenate the index of the question
         clearInterval(timerFunction); // interval stops when question answered
         blockOptions(answerOptions);
         btnQuiz.innerHTML = "Next question";
+        timerAverage += parseInt(timeLeft.innerText);
         questionCount++;
+    // if the correct answer is shown, we click to "refresh" the question -> adds new question and answers from DB; we take off all additional classes from answer options; change again the button text    
     } else if (btnQuiz.innerHTML === "Next question") {
         load(answerOptions, statsTrackers[questionCount]);
         questionsLeft.innerHTML = questionCount + 1;
@@ -235,29 +243,43 @@ btnQuiz.addEventListener('click', () => {
         btnQuiz.innerHTML = "See answer";
     }
 
+    // if there is no questions left, the button text transforms into "see results"
     if (questionCount === nOfQuestions) {
         btnQuiz.innerHTML = "See results";
     } 
 
+    // once there is no questions left and the "see results" button is clicked, ...
     if (questionCount === nOfQuestions && btnQuiz.innerHTML === "See results") {
         btnQuiz.addEventListener('click', () => {
+            // ... we hide the game screen and show the endgame container
             quizMain.classList.add('dnone');
             endGameScreen.classList.remove('dnone');
 
-            // got to insert the image from the quiz DB -> now is inserted from the second question
-            bg.style.background = 'center/cover no-repeat url("' + questions[1].Question_Photo + '")';
+            // insert the image from the `quiz` DB as bg image for the quiz played
+            fetch('/quizz/' + quizId)
+            .then((res) => res.json())
+            .then((res) => {
+                quiz = res;
+                console.table(quiz); 
+                console.log(quiz[0].Quiz_Photo);
+                bg.style.background = 'center/cover no-repeat url("' + quiz[0].Quiz_Photo + '")';
+            })
 
+            // insertion of instant data into HTML (end game screen)
             yourScore.innerHTML = correctAnswers;
             questYouHad.innerHTML = nOfQuestions;
             let percent = correctAnswers * 100 / nOfQuestions;
             yourPercent.innerHTML = percent.toFixed(0) + '%';
+            endGameAvrTime.innerHTML = (20 - (timerAverage / nOfQuestions)).toFixed(2);
 
+            // modification of starting phrase on endgame screen according to the percentage of correct answers
             if (percent < 35) {
                 endGamePhrase.innerHTML = "Ooooups, your score is";
             } else if (percent > 80) {
                 endGamePhrase.innerHTML = "Awesome! Your score is";
             }
 
+            // refreshes page on "replay btn"
             replayBtn.addEventListener('click', () => {
                 location.reload();
             })
@@ -266,23 +288,4 @@ btnQuiz.addEventListener('click', () => {
 })       
 })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

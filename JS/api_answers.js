@@ -1,4 +1,4 @@
-let db= require('../database/database');
+let db = require('../database/database');
 const conn = require('../database/database');
 
 module.exports.answer_Gen = (req, response) => {
