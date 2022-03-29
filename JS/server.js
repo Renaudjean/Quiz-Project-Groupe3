@@ -44,9 +44,7 @@ app.get('/score', (req, response) => {
 app.get("/login", (req, response) => {
     response.render("../login");
 });
-app.get("/admin", (req, response) => {
-    response.render("../admin");
-});
+
 
 //listen on environment 5000
 app.listen(port, ()=> console.log(`listening on ${port}`));
