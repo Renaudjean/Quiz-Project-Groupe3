@@ -21,6 +21,7 @@ const endGameScreen = document.getElementById('endgame__main'),
       questYouHad = document.getElementById('endgame__got-from'),
       yourPercent = document.getElementById('endgame__percent'),
       endGamePhrase = document.getElementById('endgame__phrase'),
+      endGameAvrTime = document.getElementById('endgame__avr-time'),
       replayBtn = document.getElementById('replay-btn'),
       bg = document.getElementById('bg-div');
 
@@ -186,6 +187,7 @@ const load = (a, b) => {
 
 
 // _____main function for the button _____________________________
+let timerAverage = 0;
 load(answerOptions, statsTrackers[questionCount]);
 let correctAnswers = 0;
 btnQuiz.addEventListener('click', () => {
@@ -227,6 +229,8 @@ btnQuiz.addEventListener('click', () => {
         clearInterval(timerFunction); // interval stops when question answered
         blockOptions(answerOptions);
         btnQuiz.innerHTML = "Next question";
+        timerAverage += parseInt(timeLeft.innerText);
+        console.log(timerAverage);
         questionCount++;
     } else if (btnQuiz.innerHTML === "Next question") {
         load(answerOptions, statsTrackers[questionCount]);
@@ -251,6 +255,8 @@ btnQuiz.addEventListener('click', () => {
             questYouHad.innerHTML = nOfQuestions;
             let percent = correctAnswers * 100 / nOfQuestions;
             yourPercent.innerHTML = percent.toFixed(0) + '%';
+            endGameAvrTime.innerHTML = (20 - (timerAverage / nOfQuestions)).toFixed(2);
+            console.log((timerAverage / nOfQuestions).toFixed(2));
 
             if (percent < 35) {
                 endGamePhrase.innerHTML = "Ooooups, your score is";
@@ -266,23 +272,4 @@ btnQuiz.addEventListener('click', () => {
 })       
 })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
