@@ -13,6 +13,5 @@ router.get('/question/:id',question_Gen);
 router.get('/answer/:id',answer_Gen);
 router.get('/login/check', )
 router.get('/deletequiz/:id',);
-router.get('/correct-answer/:id',answer_Gen)
 
 module.exports = router;
