@@ -32,7 +32,7 @@ function trackerAppend (a) {
         statsCounter.appendChild(tracker);
         // statsTrackers.push(tracker);
     };    
-    console.log(PromiseA.then(statsTrackers));
+    // console.log(PromiseA.then(statsTrackers));
 };
 
 const createTrackers = () => {
@@ -46,7 +46,7 @@ const createTrackers = () => {
         //Use the now JSON token to summon the question
         .then((res) => {
             questions = res; 
-            nOfQuestions = questions.length;     
+            nOfQuestions = res.length;     
             console.log(nOfQuestions); 
             trackerAppend(nOfQuestions);
             // statsTrackers = document.querySelectorAll('.stats__tracker');
@@ -54,6 +54,7 @@ const createTrackers = () => {
         });
     })
 };
+
 createTrackers().then(statsTrackers => {
     console.log(statsTrackers);
 
