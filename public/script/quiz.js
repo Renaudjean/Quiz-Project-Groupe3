@@ -4,7 +4,7 @@
 const questionsLeft = document.getElementById('stats__questions-left'),
       questionsExist = document.getElementById('stats__questions-exist'),
       statsCounter = document.getElementById('stats__counter'),
-    //   statsTrackers = document.querySelectorAll('.stats__tracker'),
+      statsTrackers = document.querySelectorAll('.stats__tracker'),
       timeLeft = document.getElementById('stats__time-left'),
       questionText = document.getElementById('question__text'),
       answerOptions = document.querySelectorAll('.question__option'),
@@ -19,48 +19,6 @@ const questionsLeft = document.getElementById('stats__questions-left'),
 let questionCount = 1;
 // questionsExist.innerHTML = /* nb of questions from the DB */;
 
-// _____creation of DIVs of tracker _____________________________
-let questions = [];
-let nOfQuestions = 0;
-
-let statsTrackers = [];
-let statsTrackersArr = [];
-function trackerAppend (a) {
-    for(let i=0; i < a; i++) {
-        const tracker = document.createElement("div");
-        tracker.classList.add("stats__tracker");
-        statsTrackers.push(tracker);
-        
-        statsCounter.appendChild(tracker);
-    };    
-    console.log(statsTrackers);
-    statsTrackersArr = Array.prototype.slice.call(statsTrackers);
-    console.log(statsTrackersArr);
-};
-
-
-const createTrackers = () => {
-    //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
-    let quizId = document.querySelector("#quiz__main").dataset.id;
-    //It then generates the question through here
-    fetch('/question/' + quizId)
-    //Turn the get the Json token delcared in api.js
-    .then((res) => res.json())
-    //Use the now JSON token to summon the question
-    .then((res) => {
-        questions = res; 
-        nOfQuestions = questions.length;     
-        console.log(nOfQuestions); 
-        trackerAppend(nOfQuestions);
-        
-    });
-    console.log(statsTrackersArr[0]);
-    console.log(statsTrackers[0]);
-};
-createTrackers();
-// statsTrackers = document.querySelectorAll('.stats__tracker');
-// statsTrackers[0].classList.add('active');
-console.log(statsTrackers);
 
 // _____answer tracker : functions to change style _____________________________
 const trackerActive = (t) => {
@@ -140,7 +98,7 @@ const load = () => {
     timeCounter = timeCounter <= 0 ? 0 : timeCounter - 1;
     // stop timer if the time is up, mekes an alert -> gotta change that!
     if (seconds === "00") {
-        // alert('oops');
+        alert('oops');
         clearInterval(timerFunction);
     }
     }, 1000);
@@ -150,12 +108,7 @@ const load = () => {
      questionAnswers();
 }
 
-    cleanTracker(statsTrackers[0/* number of question */]);
-    cleanOptionStyles(answerOptions);
-
-   
-    
-
+function questionAnswers(){
     //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
     let quizId= document.querySelector("#quiz__main").dataset.id;
     
@@ -167,16 +120,13 @@ const load = () => {
     
     //Use the now JSON token to summon the question
     .then((res) => {
-        questions = res; 
-        nOfQuestions = questions.length;     
-        console.log(nOfQuestions); 
-        
-        questionText.innerHTML = questions[0].Question;
+        questions = res;        
+        questionText.innerHTML = questions[3].Question;
         console.table(questions);
-        let answer = [];
-        let questionId = questions[0].Question_ID;
+    
+        let questionId= questions[3].Question_ID;
         console.log(questionId);
-        fetch('/answer/' + questionId)
+        fetch('/answer/'+questionId)
         .then((res) => res.json())
         .then((res) =>{
             answer = res;
@@ -186,16 +136,12 @@ const load = () => {
             option3.innerHTML = answer[2].Answer;
             option4.innerHTML = answer[3].Answer;     
         })
-    }
-    
-    )
-   
-
+    })
+}
 
 
 // _____main function for the button _____________________________
 load();
-console.log(nOfQuestions);  
 btnQuiz.addEventListener('click', () => {
     if (selectedAnswer.classList.contains('active-option')) {
         if(selectedAnswer.dataset.id === '4'/* = correct answer from db */) {
