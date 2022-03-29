@@ -6,7 +6,6 @@ let {quiz_Gen} = require('./app.js')
 let {question_Gen} = require('./api_questions.js')
 let {answer_Gen} = require('./api_answers.js')
 let {admin_Gen} = require('./api_adminhome.js')
-let {answer_Gen} = require('./api_answers.js');
 let {sign_check} = require('./api_login.js');
 
 router.get('/', quiz_Gen);
