@@ -8,7 +8,7 @@ let {answer_Gen} = require('./api_answers.js')
 let {admin_Gen} = require('./api_adminhome.js')
 let {delete_This} = require('./api_deletethis.js')
 let {photo_Gen} = require('./api_quiz.js');
-let {admin_Gen} = require('./api_adminhome.js')
+
 
 
 router.get('/', quiz_Gen);
