@@ -5,5 +5,6 @@ module.exports.answer_Gen = (req, response) => {
         if (err) throw err;
         console.log([req.params.id]);
         response.json(answer);       
-            })
+    })
 }
+
