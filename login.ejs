@@ -10,25 +10,26 @@
         <div class="container login">
             <div class="bloc1">
                 <h2 class="h2 login">Already have an account? </h2>
-                <form class="form login" action="/index.ejs" method="post" >
+                <form class="form login" action="/index.ejs" method="POST" >
                     <input type="text" id="input-user" placeholder="Your username" required>
                     <input type="password" id="input-password" placeholder="Your password" required>
                 </form>
-                <button class="btn-secondary sign">Sign in</button>
+                <button class="btn-secondary sign in">Sign in</button>
                 <a href="#" class="forgot-pass">Forgot your password ?</a>
             </div>
             <div class="bloc2">
                 <h2>I don’t have an account yet</h2>
-                <form class="form login" action="/index.ejs" method="get">
+                <form class="form login" action="/index.ejs" method="POST">
                     <input type="text" id="input-first-name" placeholder="Your first name" required>
                     <input type="text" id="input-last-name" placeholder="Your last name" required>
                     <input type="text" id="input-choose-name" placeholder="Choose your username" required>
                     <input type="email" id="input-mail" placeholder="Enter your email address" required>
                     <input type="password" id="input-choose-pass" placeholder="Choose a password" required>
                 </form>
-                <button class="btn-secondary sign">Sign up</button>
+                <button class="btn-secondary sign up">Sign up</button>
             </div>
         </div>
     </main>
+    <script src="/assets/script/login.js"></script>
 </body>
 </html>
