@@ -5,7 +5,12 @@ const btn = document.querySelector('.btn-secondary.sign');
 let inputUser = document.getElementById('input-user');
 let inputPass = document.getElementById('input-password');
 
+
+
+
 let accounts = [];
+
+// ______________ bloc sign in __________ //
 
 fetch('/login/check')
 .then((res) => res.json())
@@ -30,22 +35,13 @@ fetch('/login/check')
             }else if (password != inputPass.value) {
                 alert('pass pas reconnu')
             }
-
         })
     }
 })
 
+// _____________ bloc sign up ___________ //
 
 
-// btn.addEventListener('click', (e) => {
-//     e.preventDefault()
-//     if (inputUser.value == ) {
-        
-//         console.log(inputUser.value);
-//     }
-    
-
-// })
 
 
 
