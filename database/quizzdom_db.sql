@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 28 mars 2022 à 14:21
--- Version du serveur : 8.0.21
--- Version de PHP : 7.4.27
+-- Généré le : mar. 29 mars 2022 à 07:37
+-- Version du serveur :  8.0.21
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,16 @@ CREATE TABLE IF NOT EXISTS `account` (
   `Password` varchar(255) NOT NULL,
   `AccountType` int NOT NULL COMMENT 'PER_ID',
   PRIMARY KEY (`AC_ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `account`
+--
+
+INSERT INTO `account` (`AC_ID`, `Email`, `UserName`, `FirstName`, `LastName`, `Password`, `AccountType`) VALUES
+(1, 'eric@gmail.com', 'eric', 'eric', '\"---\"', '123', 0),
+(2, 'ana@gmail.com', 'ana', 'ana', '\"---\"', '123', 0),
+(3, 'reno@gmail.com', 'reno', 'reno', '\"---\"', '123', 0);
 
 -- --------------------------------------------------------
 
