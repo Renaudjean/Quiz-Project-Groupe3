@@ -24,6 +24,7 @@ app.use('/', router)
 app.use('/quiz/:id', (req, response) => {
     db.query('SELECT `Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo` FROM `quiz` WHERE Quiz_ID=?',[req.params.id], function (err, quizName, fields){
             if (err) throw err;   
+            console.log([req.params.id]);
 
              db.query('SELECT `Question_ID`, `Question`, `Question_Photo`, `Answer`, `Quiz_ID` FROM `Question` WHERE QUIZ_ID = ?',[req.params.id], function (err, row, fields){
             if (err) throw err;
@@ -44,10 +45,8 @@ app.get("/login", (req, response) => {
     response.render("../login");
 });
 app.get("/admin", (req, response) => {
-     db.query('SELECT `Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo` FROM `quiz` WHERE Quiz_ID=?',[req.params.id], function (err, quizName, fields){
-            if (err) throw err;   
-    response.render("../admin", {quiz: quizName[0]});
+    response.render("../admin");
 });
-})
+
 //listen on environment 5000
 app.listen(port, ()=> console.log(`listening on ${port}`));
