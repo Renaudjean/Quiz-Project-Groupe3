@@ -464,6 +464,16 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
   padding-left: 110px;
 }
 
+.btn-add-admin {
+  text-align: center;
+}
+
+.admin__btn-wrapper {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .quizz_content.admin {
   text-align: center;
   width: 100%;
@@ -775,6 +785,12 @@ h3 {
   .question__answers-wrapper {
     width: 52%;
   }
+  .admin__btn-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 /*768-992*/
@@ -797,6 +813,15 @@ h3 {
   }
   .question__answers-wrapper {
     width: 100%;
+  }
+  .cont_add-new_quiz {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cont_add-new_quiz .btn-add-admin {
+    margin-top: 30px;
   }
 }
 
