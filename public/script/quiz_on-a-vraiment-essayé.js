@@ -24,44 +24,60 @@ let questions = [];
 let nOfQuestions = 0;
 
 let statsTrackers = [];
-let statsTrackersArr = [];
 function trackerAppend (a) {
     for(let i=0; i < a; i++) {
         const tracker = document.createElement("div");
         tracker.classList.add("stats__tracker");
-        statsTrackers.push(tracker);
         
         statsCounter.appendChild(tracker);
+        // statsTrackers.push(tracker);
     };    
-    console.log(statsTrackers);
-    statsTrackersArr = Array.prototype.slice.call(statsTrackers);
-    console.log(statsTrackersArr);
+    console.log(PromiseA.then(statsTrackers));
 };
-
 
 const createTrackers = () => {
-    //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
-    let quizId = document.querySelector("#quiz__main").dataset.id;
-    //It then generates the question through here
-    fetch('/question/' + quizId)
-    //Turn the get the Json token delcared in api.js
-    .then((res) => res.json())
-    //Use the now JSON token to summon the question
-    .then((res) => {
-        questions = res; 
-        nOfQuestions = questions.length;     
-        console.log(nOfQuestions); 
-        trackerAppend(nOfQuestions);
-        
-    });
-    console.log(statsTrackersArr[0]);
-    console.log(statsTrackers[0]);
+    const PromiseA =  new Promise((resolve, reject) => {
+        //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
+        let quizId = document.querySelector("#quiz__main").dataset.id;
+        //It then generates the question through here
+        fetch('/question/' + quizId)
+        //Turn the get the Json token delcared in api.js
+        .then((res) => res.json())
+        //Use the now JSON token to summon the question
+        .then((res) => {
+            questions = res; 
+            nOfQuestions = questions.length;     
+            console.log(nOfQuestions); 
+            trackerAppend(nOfQuestions);
+            // statsTrackers = document.querySelectorAll('.stats__tracker');
+            resolve(statsTrackers);
+        });
+    })
 };
+createTrackers().then(statsTrackers => {
+    console.log(statsTrackers);
+
+    if (selectedAnswer.classList.contains('active-option')) {
+        if(selectedAnswer.dataset.id === '4'/* = correct answer from db */) {
+            // goGreen(selectedAnswer);
+            trackerGreen(statsTrackers[0/* number of question */]);
+        } else {
+            // goRed(selectedAnswer);
+            // goGreen(answerOptions[4-1]/* = correct answer from DB - 1 */);
+            trackerRed(statsTrackers[0/* number of question */]);
+        }
+        // clearInterval(timerFunction); // interval stops when question answered
+        // blockOptions(answerOptions);
+        // btnQuiz.innerHTML = "Next question";
+        /* timer stop */
+    }
+  });
 createTrackers();
-// statsTrackers = document.querySelectorAll('.stats__tracker');
-// statsTrackers[0].classList.add('active');
 console.log(statsTrackers);
 
+// 
+// const aaa = document.getElementById('1');
+// console.log(aaa);
 // _____answer tracker : functions to change style _____________________________
 const trackerActive = (t) => {
     t.classList.add('active');
@@ -125,17 +141,19 @@ const cleanOptionStyles = (arr) => {
     });
 }
 
-
+ 
 // _____loading of the question_____________________________
 
-let answer= [];
 const load = () => {
+
     // _____ timer on every load() launch ____________________________
     timeLeft.innerText = '20';
     let timeCounter = 19;
     timerFunction = setInterval(() => {
     let seconds = parseInt(timeCounter % 60, 10);
+
     seconds = seconds < 10 ? "0" + seconds : seconds;
+
     timeLeft.innerText = `${seconds}`;
     timeCounter = timeCounter <= 0 ? 0 : timeCounter - 1;
     // stop timer if the time is up, mekes an alert -> gotta change that!
@@ -145,10 +163,6 @@ const load = () => {
     }
     }, 1000);
     //_____________________________
-    cleanTracker(statsTrackers[0/* number of question */]);
-     cleanOptionStyles(answerOptions);
-     questionAnswers();
-}
 
     cleanTracker(statsTrackers[0/* number of question */]);
     cleanOptionStyles(answerOptions);
@@ -157,14 +171,11 @@ const load = () => {
     
 
     //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
-    let quizId= document.querySelector("#quiz__main").dataset.id;
-    
+    let quizId = document.querySelector("#quiz__main").dataset.id;
     //It then generates the question through here
-    fetch('/question/'+quizId)
-   
+    fetch('/question/' + quizId)
     //Turn the get the Json token delcared in api.js
     .then((res) => res.json())
-    
     //Use the now JSON token to summon the question
     .then((res) => {
         questions = res; 
@@ -184,13 +195,13 @@ const load = () => {
             option1.innerHTML = answer[0].Answer;
             option2.innerHTML = answer[1].Answer;
             option3.innerHTML = answer[2].Answer;
-            option4.innerHTML = answer[3].Answer;     
+            option4.innerHTML = answer[3].Answer;
         })
     }
     
     )
    
-
+}
 
 
 // _____main function for the button _____________________________
@@ -200,11 +211,11 @@ btnQuiz.addEventListener('click', () => {
     if (selectedAnswer.classList.contains('active-option')) {
         if(selectedAnswer.dataset.id === '4'/* = correct answer from db */) {
             goGreen(selectedAnswer);
-            trackerGreen(statsTrackers[0/* number of question */]);
+            // trackerGreen(statsTrackers[0/* number of question */]);
         } else {
             goRed(selectedAnswer);
             goGreen(answerOptions[4-1]/* = correct answer from DB - 1 */);
-            trackerRed(statsTrackers[0/* number of question */]);
+            // trackerRed(statsTrackers[0/* number of question */]);
         }
         clearInterval(timerFunction); // interval stops when question answered
         blockOptions(answerOptions);
