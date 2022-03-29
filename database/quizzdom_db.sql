@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 28 mars 2022 à 14:21
+-- Généré le : jeu. 24 mars 2022 à 13:40
 -- Version du serveur : 8.0.21
 -- Version de PHP : 7.4.27
 
@@ -78,17 +78,17 @@ INSERT INTO `answer` (`ANS_ID`, `Answer`, `Option_Number`, `Correct_Or_Not`, `Qu
 (2, 'Annecy', 2, 0, 1),
 (3, 'Paris', 3, 1, 1),
 (4, 'Marseille', 4, 0, 1),
-(5, 'Lausanne', 1, 0, 2),
+(5, 'Laussane', 1, 0, 2),
 (6, 'Bern', 2, 1, 2),
 (7, 'Geneva', 3, 0, 2),
 (8, 'Zurich', 4, 0, 2),
-(9, 'Brussels', 1, 1, 3),
+(9, 'Bruxelles', 1, 1, 3),
 (10, 'Gand', 2, 0, 3),
 (11, 'Anvers', 3, 0, 3),
 (12, 'Bruges', 4, 0, 3),
 (13, 'Milan', 1, 0, 4),
 (14, 'Torino', 2, 0, 4),
-(15, 'Naples', 3, 0, 4),
+(15, 'Napoli', 3, 0, 4),
 (16, 'Rome', 4, 1, 4),
 (17, 'London', 1, 1, 5),
 (18, 'Manchester', 2, 0, 5),
@@ -202,29 +202,29 @@ CREATE TABLE IF NOT EXISTS `question` (
 --
 
 INSERT INTO `question` (`Question_ID`, `Question`, `Question_Photo`, `Answer`, `Quiz_ID`) VALUES
-(1, 'What is the capital of France?', '/assets/img/img-question/question-1-france.jpg', 3, 1),
-(2, 'What is the capital of Switzerland?', '/assets/img/img-question/question-2-swiss.jpg', 6, 1),
-(3, 'What is the capital of Belgium?', '/assets/img/img-question/question-3-belgium.jpg', 9, 1),
-(4, 'What is the capital of Italy?', '/assets/img/img-question/question-4-italy.jpg', 16, 1),
-(5, 'What is the capital of England?', '/assets/img/img-question/question-5-england.jpg', 17, 1),
-(6, 'What is the capital of Spain?', '/assets/img/img-question/question-6-spain.jpg', 22, 1),
-(7, 'What is the name of the big bad guy in the movie \"Avengers: Age of Ultron\"?', '/assets/img/img-question/question-7-avenger.jpg', 27, 2),
-(8, 'Who is the Harry Potter\'s godfather?', '/assets/img/img-question/question-8-hp.jpg', 32, 2),
-(9, 'In \"The Lord of the Rings\", what is the name of the demon they meet in Moria?', '/assets/img/img-question/question-9-lotr.jpg', 34, 2),
-(10, 'In the movie \"Star Wars\", who are the parents of Kylo Ren?', '/assets/img/img-question/question-10-sw.jpg', 37, 2),
-(11, 'What is the name of the big bad guy in the movie \"Avengers: Infinity War\"?', '/assets/img/img-question/question-11-avenger.jpg', 41, 2),
-(12, 'In the movie \"Matrix\", what animal does Neo follow?', '/assets/img/img-question/question-12-matrix.jpg', 46, 2),
-(13, 'Which of the following movies was NOT directed by Quentin Tarantino?', '/assets/img/img-question/question-13-tarantino.jpg', 51, 2),
-(14, 'What movie is this picture from?', '/assets/img/img-question/question-14-Meg.jpg', 56, 2),
-(15, 'What is the most watched movie of all times?', '/assets/img/img-question/question-15-viewed.jpg', 57, 2),
-(16, 'Which actor starred in \"Forrest Gump\"?', '/assets/img/img-question/question-16-forest-gump.jpg', 62, 2),
-(17, 'The quote \"I think it is possible for ordinary people to choose to be extraordinary\" belongs to...', '/assets/img/img-question/question-17-musk.jpg', 65, 3),
-(18, 'Who is the first Chinese actor to have put his fingerprints in the famous cement of the \"Chinese Theater\" in Hollywood?', '/assets/img/img-question/question-18-chan.jpg', 70, 3),
-(19, 'Who is the highest paid athlete in the world?', '/assets/img/img-question/question-19-athlete.jpg', 75, 3),
-(20, 'Who, after watching an apple fall, had an illumination and formulated his famous gravitational theory?', '/assets/img/img-question/question-20-apple.jpg', 80, 3),
-(21, 'Where did Napoleon Bonaparte die?', '/assets/img/img-question/question-21-napoleon.jpg', 81, 3),
-(22, 'Who is the 44th President of the United States?', '/assets/img/img-question/question-22-president.jpg', 87, 3),
-(23, 'Which actor has never had an Oscar?', '/assets/img/img-question/question-23-oscar.jpg', 90, 3);
+(1, 'What is the capital of France?', '/assets/img/img-question/question-1-1-france.jpg', 3, 1),
+(2, 'What is the capital of Switzerland?', '/assets/img/img-question/question-1-2-swiss.jpg', 6, 1),
+(3, 'What is the capital of Belgium?', '/assets/img/img-question/question-1-3-belgium.jpg', 9, 1),
+(4, 'What is the capital of Italy?', '/assets/img/img-question/question-1-4-italy.jpg', 16, 1),
+(5, 'What is the capital of England?', '/assets/img/img-question/question-1-5-england.jpg', 17, 1),
+(6, 'What is the capital of Spain?', '/assets/img/img-question/question-1-6-spain.jpg', 22, 1),
+(7, 'What is the name of the big bad guy in the movie \"Avengers: Age of Ultron\"?', '/assets/img/img-question/question-2-7-avenger.jpg', 27, 2),
+(8, 'Who is the Harry Potter\'s godfather?', '/assets/img/img-question/question-2-8-hp.jpg', 32, 2),
+(9, 'In \"The Lord of the Rings\", what is the name of the demon they meet in Moria?', '/assets/img/img-question/question-2-9-lotr.jpg', 34, 2),
+(10, 'In the movie \"Star Wars\", who are the parents of Kylo Ren?', '/assets/img/img-question/question-2-10-sw.jpg', 37, 2),
+(11, 'What is the name of the big bad guy in the movie \"Avengers: Infinity War\"?', '/assets/img/img-question/question-2-11-avenger.jpg', 41, 2),
+(12, 'In the movie \"Matrix\", what animal follows Neo?', '/assets/img/img-question/question-2-12-matrix.jpg', 46, 2),
+(13, 'Which of the following movies was NOT directed by Quentin Tarantino?', '/assets/img/img-question/question-2-13-tarantino.jpg', 51, 2),
+(14, 'What movie is this picture from?', '/assets/img/img-question/question-2-14-Meg.jpg', 56, 2),
+(15, 'What is the most watched movie of all times?', '/assets/img/img-question/question-2-15-viewed.jpg', 57, 2),
+(16, 'Which actor starred in \"Forrest Gump\"?', '/assets/img/img-question/question-2-16-forest-gump.jpg', 62, 2),
+(17, 'The quote \"I think it is possible for ordinary people to choose to be extraordinary\" belongs to...', '/assets/img/img-question/question-3-17-musk.jpg', 65, 3),
+(18, 'Who is the first Chinese actor to have put his fingerprints in the famous cement of the \"Chinese Theater\" in Hollywood?', '/assets/img/img-question/question-3-18-chan.jpg', 70, 3),
+(19, 'Who is the highest paid athlete in the world?', '/assets/img/img-question/question-3-19-athlete.jpg', 75, 3),
+(20, 'Who, after watching an apple fall, had an illumination and formulated his famous gravitational theory?', '/assets/img/img-question/question-3-20-apple.jpg', 80, 3),
+(21, 'Where did Napoleon Bonaparte die?', '/assets/img/img-question/question-3-21-napoleon.jpg', 81, 3),
+(22, 'Who is the 44th President of the United States?', '/assets/img/img-question/question-3-22-president.jpg', 87, 3),
+(23, 'Which actor has never had an Oscar?', '/assets/img/img-question/question-3-23-oscar.jpg', 90, 3);
 
 -- --------------------------------------------------------
 
