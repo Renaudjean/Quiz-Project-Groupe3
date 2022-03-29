@@ -17,7 +17,7 @@
 
 .flex-quiz {
     display: flex;
-    margin: 50px 60px;
+    margin: 50px 100px;
     justify-content: space-between;
     flex-wrap: wrap;
 }
@@ -27,7 +27,7 @@
     background-color: $primary;
     width: 49%;
     border-radius: 20px;
-    padding: 30px;
+    padding: 35px;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
@@ -41,7 +41,6 @@
 
 .img-quiz {
     width: 48%;
-    border-radius: 5px;
 }
 
 .h2-quiz {

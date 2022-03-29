@@ -1,12 +1,11 @@
 /* __________QUIZ_page__________ */
 
 // get elements from the page quiz
-const quizMain = document.getElementById('quiz__main'),
-      questionsLeft = document.getElementById('stats__questions-left'),
+const questionsLeft = document.getElementById('stats__questions-left'),
       questionsExist = document.getElementById('stats__questions-exist'),
       statsCounter = document.getElementById('stats__counter'),
+    //   statsTrackers = document.querySelectorAll('.stats__tracker'),
       timeLeft = document.getElementById('stats__time-left'),
-      questionImg = document.getElementById('question__img'),
       questionText = document.getElementById('question__text'),
       answerOptions = document.querySelectorAll('.question__option'),
       option1 = document.getElementById('option1'),
@@ -15,24 +14,17 @@ const quizMain = document.getElementById('quiz__main'),
       option4 = document.getElementById('option4'),
       btnQuiz = document.getElementById('question-btn');
       
-// get elements from endgame screen
-const endGameScreen = document.getElementById('endgame__main'),
-      yourScore = document.getElementById('endgame__you-got'),
-      questYouHad = document.getElementById('endgame__got-from'),
-      yourPercent = document.getElementById('endgame__percent'),
-      endGamePhrase = document.getElementById('endgame__phrase'),
-      replayBtn = document.getElementById('replay-btn'),
-      bg = document.getElementById('bg-div');
-
 
 // _____questions counter _____________________________
-let questionCount = 0;
+let questionCount = 1;
+// questionsExist.innerHTML = /* nb of questions from the DB */;
 
 // _____creation of DIVs of tracker _____________________________
 let questions = [];
 let nOfQuestions = 0;
 
 let statsTrackers = [];
+let statsTrackersArr = [];
 function trackerAppend (a) {
     for(let i=0; i < a; i++) {
         const tracker = document.createElement("div");
@@ -41,7 +33,9 @@ function trackerAppend (a) {
         
         statsCounter.appendChild(tracker);
     };    
-    statsTrackers[questionCount].classList.add('active');
+    console.log(statsTrackers);
+    statsTrackersArr = Array.prototype.slice.call(statsTrackers);
+    console.log(statsTrackersArr);
 };
 
 
@@ -55,21 +49,26 @@ const createTrackers = () => {
     //Use the now JSON token to summon the question
     .then((res) => {
         questions = res; 
-        nOfQuestions = questions.length;
+        nOfQuestions = questions.length;     
+        console.log(nOfQuestions); 
         trackerAppend(nOfQuestions);
+        
     });
+    console.log(statsTrackersArr[0]);
+    console.log(statsTrackers[0]);
 };
 createTrackers();
+// statsTrackers = document.querySelectorAll('.stats__tracker');
+// statsTrackers[0].classList.add('active');
 console.log(statsTrackers);
 
 // _____answer tracker : functions to change style _____________________________
-// const trackerActive = (t) => {
-//     t.classList.add('active');
-// }
+const trackerActive = (t) => {
+    t.classList.add('active');
+}
 
 const trackerGreen = t => {
     t.classList.remove('active');
-    t.classList.remove('wrong');
     t.classList.add('correct');
 }
 
@@ -99,6 +98,9 @@ answerOptions.forEach(option => {
         selectedAnswer = o.target;
         // ...and we add the active class to the selected answer
         selectedAnswer.classList.add('active-option');
+        
+        // selectedOptionNum = parseInt(o.target.dataset.id) + 1; // shows the number of option chosen
+        // console.log(selectedOptionNum);
     })
 });
 
@@ -123,10 +125,10 @@ const cleanOptionStyles = (arr) => {
     });
 }
 
- 
+
 // _____loading of the question_____________________________
 
-const load = (a, b) => {
+const load = () => {
 
     // _____ timer on every load() launch ____________________________
     timeLeft.innerText = '20';
@@ -140,37 +142,35 @@ const load = (a, b) => {
     timeCounter = timeCounter <= 0 ? 0 : timeCounter - 1;
     // stop timer if the time is up, mekes an alert -> gotta change that!
     if (seconds === "00") {
+        // alert('oops');
         clearInterval(timerFunction);
-        a.forEach(e => {
-            goRed(e);
-        })
-        btnQuiz.innerHTML = "Next question";
-        questionCount++;
-        trackerRed(b);
     }
     }, 1000);
     //_____________________________
 
-    // cleanTracker(statsTrackers[0/* number of question */]);
+    cleanTracker(statsTrackers[0/* number of question */]);
     cleanOptionStyles(answerOptions);
 
+   
+    
+
     //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
-    let quizId = document.querySelector("#quiz__main").dataset.id;
+    let quizId= document.querySelector("#quiz__main").dataset.id;
     //It then generates the question through here
-    fetch('/question/' + quizId)
+    fetch('/question/'+quizId)
     //Turn the get the Json token delcared in api.js
     .then((res) => res.json())
     //Use the now JSON token to summon the question
     .then((res) => {
         questions = res; 
-        nOfQuestions = questions.length;
-
-        questionText.innerHTML = questions[questionCount].Question;
-        questionImg.src = questions[questionCount].Question_Photo;
+        nOfQuestions = questions.length;     
+        console.log(nOfQuestions); 
+        
+        questionText.innerHTML = questions[0].Question;
         console.table(questions);
         let answer = [];
-        let questionId = questions[questionCount].Question_ID;
-        questionsExist.innerHTML = nOfQuestions;
+        let questionId = questions[0].Question_ID;
+        console.log(questionId);
         fetch('/answer/' + questionId)
         .then((res) => res.json())
         .then((res) =>{
@@ -181,90 +181,73 @@ const load = (a, b) => {
             option3.innerHTML = answer[2].Answer;
             option4.innerHTML = answer[3].Answer;
         })
-    })   
+    }
+    
+    )
+   
 }
 
 
 // _____main function for the button _____________________________
-load(answerOptions, statsTrackers[questionCount]);
-let correctAnswers = 0;
+load();
+console.log(nOfQuestions);  
 btnQuiz.addEventListener('click', () => {
-    let quizId = document.querySelector("#quiz__main").dataset.id;
-    //It then generates the question through here
-    fetch('/question/' + quizId)
-    //Turn the get the Json token delcared in api.js
-    .then((res) => res.json())
-    //Use the now JSON token to summon the question
-    .then((res) => {
-        questions = res; 
-        let answer = [];
-        let questionId = questions[questionCount].Question_ID;
-    fetch('/correct-answer/' + questionId)
-        .then((res) => res.json())
-        .then((res) =>{
-            answer = res;
-            console.table(answer);    
-
-    // verification of the chosen answer is correct on click 
     if (selectedAnswer.classList.contains('active-option')) {
-        if(answer[selectedAnswer.dataset.id].Correct_Or_Not === 1) {
+        if(selectedAnswer.dataset.id === '4'/* = correct answer from db */) {
             goGreen(selectedAnswer);
-            trackerGreen(statsTrackers[questionCount]);
-            correctAnswers++;
+            trackerGreen(statsTrackers[0/* number of question */]);
         } else {
             goRed(selectedAnswer);
-            if (answer[0].Correct_Or_Not == 1) {
-                goGreen(answerOptions[0]);
-            } else if (answer[1].Correct_Or_Not == 1) {
-                goGreen(answerOptions[1]);
-            } else if (answer[2].Correct_Or_Not == 1) {
-                goGreen(answerOptions[2]);
-            } else if (answer[3].Correct_Or_Not == 1){
-                goGreen(answerOptions[3]);
-            } 
-            trackerRed(statsTrackers[questionCount]);
+            goGreen(answerOptions[4-1]/* = correct answer from DB - 1 */);
+            trackerRed(statsTrackers[0/* number of question */]);
         }
         clearInterval(timerFunction); // interval stops when question answered
         blockOptions(answerOptions);
         btnQuiz.innerHTML = "Next question";
-        questionCount++;
+        /* timer stop */
     } else if (btnQuiz.innerHTML === "Next question") {
-        load(answerOptions, statsTrackers[questionCount]);
-        questionsLeft.innerHTML = questionCount + 1;
-        cleanTracker(statsTrackers[questionCount]);
+        load();
         btnQuiz.innerHTML = "See answer";
-    }
+        
 
-    if (questionCount === nOfQuestions) {
-        btnQuiz.innerHTML = "See results";
-    } 
+    //     /* answerTrackerStyleChange(), 
+    //     load(), 
+    //     btnQuiz.innerHTML = "See answer"; 
+    //     trackerActive(tracker); 
+    //     timer start; 
+    //     questionCount++;
+    //     questionsLeft.innerHTML = questionCount */
+    } //else if (/* answer tracker === answer tracker.length && answer tracker === (correct || wrong) */) {
+    //     /* btnQuiz.innerHTML = "See results"; */
+    // } else {
+    //     /* btn prevent default */
+    // }
 
-    if (questionCount === nOfQuestions && btnQuiz.innerHTML === "See results") {
-        btnQuiz.addEventListener('click', () => {
-            quizMain.classList.add('dnone');
-            endGameScreen.classList.remove('dnone');
 
-            // got to insert the image from the quiz DB -> now is inserted from the second question
-            bg.style.background = 'center/cover no-repeat url("' + questions[1].Question_Photo + '")';
 
-            yourScore.innerHTML = correctAnswers;
-            questYouHad.innerHTML = nOfQuestions;
-            let percent = correctAnswers * 100 / nOfQuestions;
-            yourPercent.innerHTML = percent.toFixed(0) + '%';
 
-            if (percent < 35) {
-                endGamePhrase.innerHTML = "Ooooups, your score is";
-            } else if (percent > 80) {
-                endGamePhrase.innerHTML = "Awesome! Your score is";
-            }
 
-            replayBtn.addEventListener('click', () => {
-                location.reload();
-            })
-        })
-    }
-})       
-})
+    
+
+
+    // algorythme de base
+    // if (/* exists class active option */) {
+    //     /* apply classes correct&|wrong-option; 
+    //     btnQuiz.innerHTML = "Next question"; 
+    //     timer stop */
+    // } else if (/* exists class correct option */) {
+    //     /* answerTrackerStyleChange(), 
+    //     load(), 
+    //     btnQuiz.innerHTML = "See answer"; 
+    //     trackerActive(tracker); 
+    //     timer start; 
+    //     questionCount++;
+    //     questionsLeft.innerHTML = questionCount */
+    // } else if (/* answer tracker === answer tracker.length && answer tracker === (correct || wrong) */) {
+    //     /* btnQuiz.innerHTML = "See results"; */
+    // } else {
+    //     /* btn prevent default */
+    // }
 })
 
 
