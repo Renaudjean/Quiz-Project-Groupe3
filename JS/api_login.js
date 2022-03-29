@@ -1,6 +1,4 @@
 let db= require('../database/database');
-const conn = require('../database/database');
-
 
 module.exports.sign_check = (req, response) => {
     db.query('SELECT `AC_ID`, `Email`, `UserName`, `FirstName`, `LastName`, `Password`, `AccountType` FROM `account`', [req.params.id], function (err, row, fields){
@@ -8,3 +6,4 @@ module.exports.sign_check = (req, response) => {
         response.json(row);       
             })
 }
+
