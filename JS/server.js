@@ -45,6 +45,9 @@ app.get("/login", (req, response) => {
 app.get("/new-quiz", (req, response) => {
     response.render("../new-quiz");
 });
+app.get("/update-quiz", (req, response) => {
+    response.render("../update-quiz");
+});
 
 
 

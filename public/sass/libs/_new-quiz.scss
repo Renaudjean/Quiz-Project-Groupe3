@@ -1,4 +1,4 @@
-/*__________page_new-quiz__________*/
+/*__________page_new-quiz  &  page_updade-quiz__________*/
 
 .new {
     &__container.container {
@@ -10,6 +10,9 @@
 
         &> h2 {
             margin-bottom: 35px;
+            span {
+                color: $yellow;
+            }
         }
         label {
             font-size: 19px;

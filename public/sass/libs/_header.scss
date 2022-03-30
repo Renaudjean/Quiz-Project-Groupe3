@@ -25,6 +25,7 @@
 }
 
 .login {    
+    position: relative;
 
     &__link {
         padding: 10px;
@@ -52,13 +53,15 @@
 
     &__menu {
         position: absolute;
-        top: 86px;
-        right: 7%;
-        padding: 10px 60px 10px 20px;
+        top: 50px;
+        right: 0;
+        padding: 20px 60px 10px 20px;
         box-sizing: border-box;
         background-color: $green;
         border-radius: 0 0 15px 15px;
         transition: all .2s ease-in-out;
+        width: 250px;
+        z-index: 1000;
 
         nav > ul > li {
             margin: 30px;
@@ -77,6 +80,10 @@
             color: $yellow;
             text-decoration: underline;
         }
+    }
+
+    &:hover > .login__menu {
+        display: block;
     }
 }
 
