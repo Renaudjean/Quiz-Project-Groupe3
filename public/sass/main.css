@@ -649,6 +649,115 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
   margin: 5px 5px 5px 0;
 }
 
+/*__________page_new-quiz__________*/
+.new__container.container {
+  background-color: #0D263A;
+  padding: 60px 100px;
+  margin: 60px auto;
+  border-radius: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.new__container.container > h2 {
+  margin-bottom: 35px;
+}
+
+.new__container.container label {
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.new__container.container textarea {
+  min-height: 66px;
+}
+
+.new__container.container input, .new__container.container textarea {
+  font-family: "Exo 2", sans-serif;
+  border: none;
+  font-size: 14px;
+  margin: 10px 0;
+  color: #FFFFFF;
+  padding: 15px 24px 17px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #314657;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.new__container.container input[type=file]::file-selector-button, .new__container.container textarea[type=file]::file-selector-button {
+  font-family: "Exo 2", sans-serif;
+  font-weight: 500;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  border: none;
+  margin-right: 15px;
+}
+
+.new__container.container input::-webkit-input-placeholder, .new__container.container textarea::-webkit-input-placeholder {
+  color: #FFFFFF;
+}
+
+.new__container.container input:-ms-input-placeholder, .new__container.container textarea:-ms-input-placeholder {
+  color: #FFFFFF;
+}
+
+.new__container.container input::-ms-input-placeholder, .new__container.container textarea::-ms-input-placeholder {
+  color: #FFFFFF;
+}
+
+.new__container.container input::placeholder, .new__container.container textarea::placeholder {
+  color: #FFFFFF;
+}
+
+.new__section {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.new__section div {
+  width: 48%;
+}
+
+label.label-img {
+  margin-right: 15px;
+}
+
+select {
+  font-family: "Exo 2", sans-serif;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+p.btn-secondary {
+  display: inline-block;
+}
+
+p.btn-secondary:hover {
+  cursor: pointer;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 40px;
+}
+
+button[type=submit] {
+  margin-top: 80px;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
 /*______________general_css________________*/
 body {
   font-family: "Exo 2", sans-serif;
@@ -822,6 +931,18 @@ h3 {
   }
   .cont_add-new_quiz .btn-add-admin {
     margin-top: 30px;
+  }
+  .new__section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .new__section > div {
+    width: 100%;
+  }
+  .new__question > div:first-child {
+    margin-bottom: 30px;
   }
 }
 

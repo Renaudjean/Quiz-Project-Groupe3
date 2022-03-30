@@ -72,6 +72,19 @@
             margin-top: 30px;
         }
     }
+
+    // new-quiz page ________________
+    .new__section {
+        flex-direction: column;
+
+        &> div {
+            width: 100%;
+        }
+    }
+
+    .new__question > div:first-child {
+        margin-bottom: 30px;
+    }
 }
 
 /*576-768*/
