@@ -61,7 +61,7 @@ const createTrackers = () => {
     });
 };
 createTrackers();
-console.log(statsTrackers);
+// console.log(statsTrackers);
 
 // _____answer tracker : functions to change style _____________________________
 // const trackerActive = (t) => {
@@ -169,7 +169,7 @@ const load = (a, b) => {
 
         questionText.innerHTML = questions[questionCount].Question;
         questionImg.src = questions[questionCount].Question_Photo;
-        console.table(questions);
+        // console.table(questions);
         let answer = [];
         let questionId = questions[questionCount].Question_ID;
         questionsExist.innerHTML = nOfQuestions;
@@ -177,7 +177,7 @@ const load = (a, b) => {
         .then((res) => res.json())
         .then((res) =>{
             answer = res;
-            console.table(answer);
+            // console.table(answer);
             option1.innerHTML = answer[0].Answer;
             option2.innerHTML = answer[1].Answer;
             option3.innerHTML = answer[2].Answer;
@@ -206,7 +206,7 @@ btnQuiz.addEventListener('click', () => {
         .then((res) => res.json())
         .then((res) =>{
             answer = res;
-            console.table(answer);    
+            // console.table(answer);    
 
     // verification of the chosen answer is correct on click 
     if (selectedAnswer.classList.contains('active-option')) {
@@ -260,13 +260,30 @@ btnQuiz.addEventListener('click', () => {
             .then((res) => res.json())
             .then((res) => {
                 quiz = res;
-                console.table(quiz); 
-                console.log(quiz[0].Quiz_Photo);
+                // console.table(quiz); 
+                // console.log(quiz[0].Quiz_Photo);
                 bg.style.background = 'center/cover no-repeat url("' + quiz[0].Quiz_Photo + '")';
             })
-
+            let averageTime = (20 - (timerAverage / nOfQuestions)).toFixed(2);
             // insertion of instant data into HTML (end game screen)
             yourScore.innerHTML = correctAnswers;
+          
+            fetch('/quiz/score/',{
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                body: JSON.stringify({
+                    "correctAnswers" : correctAnswers,
+                    "averageTime" : averageTime,
+                    "quizId": quizId
+                })
+            }).then((res) =>{
+                console.log(res);
+            })
+            .then(res => res.json)
+            // localStorage.setItem('Score', correctAnswers);
             questYouHad.innerHTML = nOfQuestions;
             let percent = correctAnswers * 100 / nOfQuestions;
             yourPercent.innerHTML = percent.toFixed(0) + '%';
@@ -288,4 +305,7 @@ btnQuiz.addEventListener('click', () => {
 })       
 })
 })
+//Send the score and time to the server
+
+
 
