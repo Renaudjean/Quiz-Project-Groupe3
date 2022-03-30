@@ -1,6 +1,7 @@
 /* _________Login_page_______ */
 
 // get elements from the page login
+let form = document.querySelector(".form.login.create");
 const btn = document.querySelector(".btn-secondary.sign.in");
 const btnUp = document.querySelector(".btn-secondary.sign.up");
 let inputUser = document.getElementById("input-user");
@@ -10,7 +11,6 @@ let inputLastName = document.getElementById("input-last-name");
 let inputChooseName = document.getElementById("input-choose-name");
 let inputMail = document.getElementById("input-mail");
 let inputChoosePass = document.getElementById("input-choose-pass");
-
 
 let accounts = [];
 let newAccounts = [];
@@ -46,68 +46,132 @@ fetch("/login/check")
             });
         }
     });
-    
-    // _____________ bloc sign up ___________ //
-    
-    fetch("/login/up")
+
+// _____________ bloc sign up ___________ //
+
+// verify existing user
+fetch("/login/up")
     .then((res) => res.json())
     .then((res) => {
-        newAccounts = res;
-        for (let i = 0; i < newAccounts.length; i++) {
-            let elements = newAccounts[i];
-            // console.log(elements);
-            let email = elements.Email;
-            // console.log(email);
+        checkMail = res;
+        for (let i = 0; i < checkMail.length; i++) {
+            let itemes = checkMail[i];
+            let email = itemes.Email;
+
             btnUp.addEventListener("click", () => {
                 if (email == inputMail.value) {
                     alert("user deja existant");
                 } else if (email != inputMail.value) {
-                    alert("ok");
+                    alert("email invalide");
                 }
             });
         }
     });
 
+// let regExp = {
+//     firstName: inputFirstName.value.match(/^[a-zA-Z\ ]{3,50}$/i),
+//     lastName: inputLastName.value.match(/^[a-zA-Z\ ]{3,50}$/i),
+//     chooseName: inputChooseName.value.match(/^[a-zA-Z0-9\ ]{3,50}$/i),
+//     mail: inputMail.value.match(/^[a-z0-9\.-_]+\@[a-z0-9\.-_]+\.[a-z]{3,30}$/i),
+//     choosePass: inputChoosePass.value.match(/^.{6,30}$/i)
+// }
+// console.log(regExp);
 
+let formIsOk = false;
 
+// let validInput = {
+//     inputFirstName: 0,
+//     inputLastName: 0,
+//     inputChooseName: 0,
+//     inputMail: 0,
+//     inputChoosePass: 0
+// }
 
+let validInput = [
+    { e: inputFirstName, correct: 0 },
+    { e: inputLastName, correct: 0 },
+    { e: inputChooseName, correct: 0 },
+    { e: inputMail, correct: 0 },
+    { e: inputChoosePass, correct: 0 },
+];
 
-    // fetch("/login/up")
-    //     .then((res) => res.json())
-    //     .then((res) => {
-    //         newAccounts = res;
-    //         for (let index = 0; index < newAccounts.length; index++) {
-    //             const element = newAccounts[index];
-                
-    //             btnUp.addEventListener('click', (e) => {
-    //                 firstName = inputFirstName.value.match(/^[a-zA-Z\ ]{2,50}$/i);
-    //                 lastName = inputLastName.value.match(/^[a-zA-Z\ ]{2,50}$/i);
-    //                 chooseName = inputChooseName.value.match(/^[a-zA-Z0-9\ ]{2,50}$/i);
-    //                 mail = inputMail.value.match(/^[a-z0-9\.-_]+\@[a-z0-9\.-_]+\.[a-z]{2,10}$/i);
-    //                 choosePass = inputChoosePass.value.match(/^.{4,30}$/i);
-    //                 console.log(choosePass);
-    //                 if (firstName && lastName && chooseName && mail && choosePass) {
-                        
-    //                 }else {
-    //                     alert("manque champ")
-    //                 }
-    //             })
-    //         }
-    //     })
+// recovery of user data
+fetch("/login/up")
+    .then((res) => res.json())
+    .then((res) => {
+        newAccounts = res;
+        for (let index = 0; index < newAccounts.length; index++) {
+            let recovery = newAccounts[index];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            btnUp.addEventListener("click", (e) => {
+                if (
+                    (firstName =
+                        inputFirstName.value.match(/^[a-zA-Z\ ]{3,50}$/i))
+                ) {
+                    inputFirstName.style.backgroundColor = "#156E74";
+                    validInput[0].correct = 1;
+                } else {
+                    inputFirstName.style.backgroundColor = "#A95649";
+                    validInput[0].correct = 0;
+                }
+                if (
+                    (lastName =
+                        inputLastName.value.match(/^[a-zA-Z\ ]{3,50}$/i))
+                ) {
+                    inputLastName.style.backgroundColor = "#156E74";
+                    validInput[1].correct = 1;
+                } else {
+                    inputLastName.style.backgroundColor = "#A95649";
+                    validInput[1].correct = 0;
+                }
+                if (
+                    (chooseName = inputChooseName.value.match(
+                        /^[a-zA-Z0-9\ ]{3,50}$/i
+                    ))
+                ) {
+                    inputChooseName.style.backgroundColor = "#156E74";
+                    validInput[2].correct = 1;
+                } else {
+                    inputChooseName.style.backgroundColor = "#A95649";
+                    validInput[2].correct = 0;
+                }
+                if (
+                    (mail = inputMail.value.match(
+                        /^[a-z0-9\.-_]+\@[a-z0-9\.-_]+\.[a-z]{2,30}$/i
+                    ))
+                ) {
+                    inputMail.style.backgroundColor = "#156E74";
+                    validInput[3].correct = 1;
+                } else {
+                    inputMail.style.backgroundColor = "#A95649";
+                    validInput[3].correct = 0;
+                }
+                if ((choosePass = inputChoosePass.value.match(/^.{6,30}$/i))) {
+                    inputChoosePass.style.backgroundColor = "#156E74";
+                    validInput[4].correct = 1;
+                } else {
+                    inputChoosePass.style.backgroundColor = "#A95649";
+                    validInput[4].correct = 0;
+                }
+                // verifie si tout les inputs son valide et redirige a la page index
+                if (
+                    validInput[0].correct == 1 &&
+                    validInput[1].correct == 1 &&
+                    validInput[2].correct == 1 &&
+                    validInput[3].correct == 1 &&
+                    validInput[4].correct == 1
+                ) {
+                    document.location.href = "/";
+                } else {
+                    // reset les inputs non valide apres 3 sec
+                    window.setTimeout(function () {
+                        validInput.forEach((input) => {
+                            if (input.correct === 0) {
+                                input.e.value = "";
+                            }
+                        });
+                    }, 3000);
+                }
+            });
+        }
+    });
