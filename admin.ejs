@@ -9,9 +9,9 @@
     <main>
         <div class="container">
             <div class="fond">
-                <div class="cont_add-new_quiz">
+                <div class="cont_add-new_quiz dflex">
                     <h1 class="h1">Hello, Amanda123!</h1>
-                    <a href="#" class="btn-primary">+ Add new quiz</a>
+                    <a href="#" class="btn-primary btn-add-admin">+ Add new quiz</a>
                 </div>
                 <p class="p_admin">Quizes you’ve already added:</p>
                 <div class="flex-quiz">
@@ -20,8 +20,11 @@
                             <div class="quizz_content admin">
                                 <h2 class="h2-quiz"><%= q.Quiz_Name %></h2>
                                 <p class="p-quiz"><%= q.Quiz_Description%></p>
-                                <a data-id="<%= q.Quiz_ID%>" href="" class="btn-secondary edit">Edit</a>
-                                <a data-id="<%= q.Quiz_ID%>" href=""  class="btn-secondary delete">Delete</a>
+                                <div class="admin__btn-wrapper dflex">
+                                    <a href="quiz/<%= q.Quiz_ID%>"  class="btn-secondary edit">Edit</a>
+                                    <a href="quiz/<%= q.Quiz_ID%>"  class="btn-secondary delete">Delete</a>
+                                </div>
+                                
                             </div>
                         </div>
                   

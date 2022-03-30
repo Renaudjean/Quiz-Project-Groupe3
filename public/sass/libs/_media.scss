@@ -31,6 +31,11 @@
             width: 52%;
         }
     }
+
+    // admin page ________________
+    .admin__btn-wrapper {
+        flex-direction: column;
+    }
 }
 
 /*768-992*/
@@ -56,6 +61,15 @@
 
         &__answers-wrapper {
             width: 100%;
+        }
+    }
+
+    // admin page ________________
+    .cont_add-new_quiz {
+        flex-direction: column;
+
+        .btn-add-admin {
+            margin-top: 30px;
         }
     }
 }
