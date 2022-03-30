@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('page/templates/head')  %> 
+    <title>QUIZZDOM | Create new quiz</title>
+</head>
+<body>
+    <%- include('page/templates/header-shown') %>
+    <main>
+        <div class="container new__container">
+            <h2>Create a new quiz</h2>
+            <form action="GET" class="new__wrapper" id="new-quiz-form">
+                <div class="new__section new__quiz dflex">
+                    <div>
+                        <label for="name-quiz">Name of quiz</label> <br>
+                        <input type="text" id="name-quiz" placeholder="Enter your quiz name" required> <br>
+                        <label for="img-quiz">Main photo quiz</label>
+                        <input type="file" name="img-quiz" id="img-quiz">
+                    </div>
+                    <div>
+                        <label for="description-quiz">Description of the quiz</label> <br>
+                        <!-- <input type="text" id="description-quiz" placeholder="Quiz description" required> -->
+                        <textarea name="description-quiz" id="description-quiz" placeholder="Description of the quiz"></textarea>
+                    </div>
+                </div>
+                <div class="line" id="line"></div>
+                <div class="new__section new__question dflex">
+                    <div>
+                        <label for="new-question" class="count-question">Question 1</label> <br>
+                        <textarea name="new-question" id="new-question" placeholder="Enter the question"></textarea> <br>
+                        <label for="img-question">Question photo</label>
+                        <input type="file" name="img-question" id="img-question"> <br> <br>
+                        <label for="correct-option" class="label-img">Correct option</label>
+                        <select name="correct-option" id="correct-option">
+                            <option value="">--0--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="option1">Option 1</label>
+                        <input type="text" data-id="1" placeholder="Type 1st answer" required> <br>
+                        <label for="option2">Option 2</label>
+                        <input type="text" data-id="2" placeholder="Type 2nd answer" required> <br>
+                        <label for="option3">Option 3</label>
+                        <input type="text" data-id="3" placeholder="Type 3rd answer" required> <br>
+                        <label for="option4">Option 4</label>
+                        <input type="text" data-id="4" placeholder="Type 4th answer" required> <br>
+                    </div>
+                </div>
+                <br>
+            </form>
+            <p id="add-quest" class="btn-secondary">Add question +</p> <br>
+            <button type="submit" form="new-quiz-form" class="btn-primary">Add quiz</button>
+        </div>
+    </main>
+    <script src="/assets/script/new-quiz.js"></script>
+</body>
+</html>
