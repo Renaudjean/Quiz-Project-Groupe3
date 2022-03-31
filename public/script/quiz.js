@@ -267,7 +267,16 @@ btnQuiz.addEventListener('click', () => {
             let averageTime = (20 - (timerAverage / nOfQuestions)).toFixed(2);
             // insertion of instant data into HTML (end game screen)
             yourScore.innerHTML = correctAnswers;
-          
+            fetch('/quiz/avrscore/' + quizId)
+            .then(res => res.json())
+            .then(res => {
+                scoreCollect = res;
+                for(sc of scoreCollect){
+                console.log(sc[0].Total_Score);
+            }
+            })
+            avrPercent.innerHTML = 50; 
+            avrRespPercent.innerHTML = 50; 
             fetch('/quiz/score/',{
                 method: "POST",
                 headers: {
@@ -294,12 +303,15 @@ btnQuiz.addEventListener('click', () => {
             } else if (percent > 80) {
                 endGamePhrase.innerHTML = "Awesome! Your score is";
             }
-
+            
             // refreshes page on "replay btn"
             replayBtn.addEventListener('click', () => {
                 location.reload();
             })
         })
+        let avrPercent= document.getElementById('avr-percent');
+        let avrRespPercent= document.getElementById('avr-resp-time');
+      
     }
 })       
 })

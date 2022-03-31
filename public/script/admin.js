@@ -13,8 +13,7 @@ deleteThis.forEach(option => {
         modal.classList.remove('dnone');
 
         quizOption = o.target;
-        let quizId= quizOption.dataset.id
-         ;
+        let quizId= quizOption.dataset.id;
         fetch('/deletethis/'+ quizId).then(res => {
            
             console.log("Test")

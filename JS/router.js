@@ -9,7 +9,7 @@ let {admin_Gen} = require('./api_adminhome.js')
 let {delete_This} = require('./api_deletethis.js')
 let {photo_Gen} = require('./api_quiz.js');
 let {send_Scores}= require('./api_score.js');
-
+let {score_Collect} = require('./api_scorecollect.js');
 
 router.get('/', quiz_Gen);
 router.get('/admin', admin_Gen);
@@ -19,7 +19,8 @@ router.get('/login/check', );
 router.get('/correct-answer/:id',answer_Gen);
 router.get('/quizz/:id', photo_Gen);
 
-router.post('/quiz/score/', send_Scores);
 router.get('/deletethis/:id', delete_This);
 
+router.post('/quiz/score/', send_Scores);
+router.post('/quiz/avrscore/', score_Collect);
 module.exports = router;
