@@ -493,6 +493,10 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
   margin-bottom: 50px;
 }
 
+.quizz_content.admin p.p-quiz {
+  margin-bottom: 20px;
+}
+
 .quizz_content.admin .btn-secondary.edit {
   padding: 15px 60px 17px;
   border: 3px solid #188D8D;
