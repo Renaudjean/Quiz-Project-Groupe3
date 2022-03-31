@@ -11,7 +11,7 @@
             <div class="fond">
                 <div class="cont_add-new_quiz dflex">
                     <h1 class="h1">Hello, Amanda123!</h1>
-                    <a href="#" class="btn-primary btn-add-admin">+ Add new quiz</a>
+                    <a href="new-quiz" class="btn-primary btn-add-admin">+ Add new quiz</a>
                 </div>
                 <p class="p_admin">Quizes you’ve already added:</p>
                 <div class="flex-quiz">
@@ -21,8 +21,9 @@
                                 <h2 class="h2-quiz"><%= q.Quiz_Name %></h2>
                                 <p class="p-quiz"><%= q.Quiz_Description%></p>
                                 <div class="admin__btn-wrapper dflex">
+                                    <!-- <a href="quiz/<%=// q.Quiz_ID%>"  class="btn-secondary edit">Edit</a> -->
                                     <a data-id="<%= q.Quiz_ID%>" href="" class="btn-secondary edit">Edit</a>
-                                    <a data-id="<%= q.Quiz_ID%>" href=""  class="btn-secondary delete">Delete</a>
+                                    <a href=""  class="btn-secondary delete">Delete</a>
                                 </div>
                                 
                             </div>
@@ -32,6 +33,15 @@
                   
                 </div>
             </div>
+            
+            <div id="overlay" class="dnone">
+                <div id="modal-delete" class="dnone">
+                    <h3>Are you sure you want to delete this quiz?</h3>
+                    <a href="#" class="btn-primary red" data-id="<%= q.Quiz_ID%>">Delete</a>
+                    <a href="#" class="btn-primary" id="confirm-btn">Oops, mistake</a>
+                </div>
+            </div>
+            
         </div>
     </main>
     <script src="./assets/script/admin.js"></script>
