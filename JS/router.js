@@ -21,7 +21,7 @@ router.get('/question/:id',question_Gen);
 router.get('/answer/:id',answer_Gen);
 router.get('/login/check', sign_check);
 router.get('/login/up', sign_up_check_mail);
-router.get('/login/create-users', sign_up_create_users);
+router.post('/login/createUsers', sign_up_create_users);
 router.get('/correct-answer/:id',answer_Gen);
 router.get('/quizz/:id', photo_Gen);
 

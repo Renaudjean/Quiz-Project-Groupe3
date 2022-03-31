@@ -4,16 +4,20 @@
 let form = document.querySelector(".form.login.create");
 const btn = document.querySelector(".btn-secondary.sign.in");
 const btnUp = document.querySelector(".btn-secondary.sign.up");
+
 // sign in
 let inputUser = document.getElementById("input-user");
 let inputPass = document.getElementById("input-password");
+
 // sign up
 let inputFirstName = document.getElementById("input-first-name");
 let inputLastName = document.getElementById("input-last-name");
 let inputChooseName = document.getElementById("input-choose-name");
 let inputMail = document.getElementById("input-mail");
 let inputChoosePass = document.getElementById("input-choose-pass");
+const hello = document.getElementById('hello');
 
+// variable
 let accounts = [];
 let newAccounts = [];
 let firstName;
@@ -24,56 +28,56 @@ let choosePass;
 
 // ______________ bloc sign in __________ //
 
-fetch("/login/check")
+fetch('/login/check')
     .then((res) => res.json())
     .then((res) => {
         accounts = res;
         for (let i = 0; i < accounts.length; i++) {
             let elements = accounts[i];
-            // console.log(elements);
             let username = elements.UserName;
-            // console.log(username);
             let password = elements.Password;
-            // console.log(password);
+
             btn.addEventListener("click", (e) => {
-                if (username == inputUser.value) {
-                    alert("user ok");
+                
+                if (username === inputUser.value) {
+                    inputUser.style.backgroundColor = "#156E74";
                 } else if (username != inputUser.value) {
-                    alert("user pas reconnu");
+                    inputUser.style.backgroundColor = "#A95649";
                 }
-                if (
-                    username == inputUser.value &&
-                    password == inputPass.value
-                ) {
-                    alert("pass ok");
-                    document.location.href = "/";
-                } else if (password != inputPass.value) {
-                    alert("pass pas reconnu");
-                }
+                if (password === inputPass.value) {
+                    inputPass.style.backgroundColor = "#156E74";
+                } else {
+                    inputPass.style.backgroundColor = "#A95649";
+                } 
+                if (username === inputUser.value && password === inputPass.value) {                   
+                    document.location.href = "/"; 
+                          
+                    }
+                    
             });
+            if (username === inputUser.value && password === inputPass.value) break;
         }
     });
 
 // _____________ bloc sign up ___________ //
 
 // verify existing user
-fetch("/login/up")
-    .then((res) => res.json())
-    .then((res) => {
-        checkMail = res;
-        for (let i = 0; i < checkMail.length; i++) {
-            let itemes = checkMail[i];
-            let email = itemes.Email;
+// fetch("/login/up")
+//     .then((res) => res.json())
+//     .then((res) => {
+//         checkMail = res;
+//         for (let i = 0; i < checkMail.length; i++) {
+//             let itemes = checkMail[i];
+//             let email = itemes.Email;
 
-            btnUp.addEventListener("click", () => {
-                if (email == inputMail.value) {
-                    alert("user deja existant");
-                } else if (email != inputMail.value) {
-                    alert("email invalide");
-                }
-            });
-        }
-    });
+//             btnUp.addEventListener("click", () => {
+//                 if (email == inputMail.value) {
+//                     alert("user deja existant");
+//                 } else if (email != inputMail.value) {
+//                 }
+//             });
+//         }
+//     });
 
 // let regExp = {
 //     firstName: inputFirstName.value.match(/^[a-zA-Z\ ]{3,50}$/i),
@@ -83,16 +87,6 @@ fetch("/login/up")
 //     choosePass: inputChoosePass.value.match(/^.{6,30}$/i)
 // }
 // console.log(regExp);
-
-let formIsOk = false;
-
-// let validInput = {
-//     inputFirstName: 0,
-//     inputLastName: 0,
-//     inputChooseName: 0,
-//     inputMail: 0,
-//     inputChoosePass: 0
-// }
 
 let validInput = [
     { e: inputFirstName, correct: 0 },
@@ -105,14 +99,10 @@ let validInput = [
 // recovery of user data
 
 btnUp.addEventListener("click", (e) => {
-    fetch("/login/create-users")
-        .then((res) => res.json())
-        .then((res) => {
-            newAccounts = res;
+
             if (
                 (firstName = inputFirstName.value.match(/^[a-zA-Z\ ]{3,50}$/i))
             ) {
-                console.log(firstName);
                 inputFirstName.style.backgroundColor = "#156E74";
                 validInput[0].correct = 1;
             } else {
@@ -163,6 +153,30 @@ btnUp.addEventListener("click", (e) => {
                 validInput[3].correct == 1 &&
                 validInput[4].correct == 1
             ) {
+                firstName = inputFirstName.value;
+                lastName = inputLastName.value;
+                chooseName = inputChooseName.value;
+                mail = inputMail.value;
+                choosePass = inputChoosePass.value;
+
+                fetch('/login/createUsers', {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        "firstName" : firstName,
+                        "lastName" : lastName,
+                        "chooseName" : chooseName,
+                        "mail" : mail,
+                        "choosePass" : choosePass,
+                    }),
+                })
+                    .then((res) => {
+                        console.log(res);
+                    })
+                
                 document.location.href = "/";
             } else {
                 // reset les inputs non valide apres 3 sec
@@ -175,4 +189,4 @@ btnUp.addEventListener("click", (e) => {
                 }, 3000);
             }
         });
-});
+
