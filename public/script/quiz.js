@@ -61,7 +61,6 @@ const createTrackers = () => {
     });
 };
 createTrackers();
-console.log(statsTrackers);
 
 // _____answer tracker : functions to change style _____________________________
 // const trackerActive = (t) => {
@@ -143,12 +142,18 @@ const load = (a, b) => {
     if (seconds === "00") {
         clearInterval(timerFunction);
         a.forEach(e => {
-            goRed(e);
+            e.classList.add('wrong-option');
             e.classList.add('pi-none');
         })
         btnQuiz.innerHTML = "Next question";
+        statsTrackers[questionCount].classList.remove('active');
+        statsTrackers[questionCount].classList.add('wrong');
         questionCount++;
-        trackerRed(b);
+
+        if (questionCount === statsTrackers.length) {
+            btnQuiz.innerHTML = "See results";
+            questionCount--;
+        }
     }
     }, 1000);
     //_____________________________
@@ -187,6 +192,8 @@ const load = (a, b) => {
 }
 
 
+
+
 // _____main function for the button _____________________________
 let timerAverage = 0;
 load(answerOptions, statsTrackers[questionCount]);
@@ -206,7 +213,12 @@ btnQuiz.addEventListener('click', () => {
         .then((res) => res.json())
         .then((res) =>{
             answer = res;
-            console.table(answer);    
+            console.table(answer);        
+
+    // if (answerOptions[0].classList.contains('wrong-option') && answerOptions[1].classList.contains('wrong-option')) {
+    //     console.log("A-HA!!!");
+
+    // }        
 
     // verification of the chosen answer is correct on click 
     if (selectedAnswer.classList.contains('active-option')) {
@@ -249,7 +261,7 @@ btnQuiz.addEventListener('click', () => {
     } 
 
     // once there is no questions left and the "see results" button is clicked, ...
-    if (questionCount === nOfQuestions && btnQuiz.innerHTML === "See results") {
+    if ((questionCount === nOfQuestions && btnQuiz.innerHTML === "See results") || (answerOptions[0].classList.contains('wrong-option') && answerOptions[1].classList.contains('wrong-option') && btnQuiz.innerHTML === "See results")) {
         btnQuiz.addEventListener('click', () => {
             // ... we hide the game screen and show the endgame container
             quizMain.classList.add('dnone');

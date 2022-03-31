@@ -15,7 +15,9 @@
                 </div>
                 <p class="p_admin">Quizes you’ve already added:</p>
                 <div class="flex-quiz">
+
                     <% for(q of quiz) { %> 
+
                         <div class="quizz ad">
                             <div class="quizz_content admin">
                                 <h2 class="h2-quiz"><%= q.Quiz_Name %></h2>
@@ -25,7 +27,6 @@
                                     <a data-id="<%= q.Quiz_ID%>" href="update-quiz/<%= q.Quiz_ID%>" class="btn-secondary edit">Edit</a>
                                     <a href="" data-id="<%= q.Quiz_ID%>"  class="btn-secondary delete">Delete</a>
                                 </div>
-                                
                             </div>
                         </div>
                   
@@ -37,8 +38,10 @@
             <div id="overlay" class="dnone">
                 <div id="modal-delete" class="dnone">
                     <h3>Are you sure you want to delete this quiz?</h3>
-                    <a href="" class="btn-primary red" data-id="<%= q.Quiz_ID%>" id="confirm-btn">Delete</a>
-                    <a href="#" class="btn-primary" id="mistake-btn">Oops, mistake</a>
+                    <div class="modal-btn-wrapper dflex">
+                        <a href="" class="btn-primary red" data-id="<%= q.Quiz_ID%>" id="confirm-btn">Delete</a>
+                        <a href="#" class="btn-primary" id="mistake-btn">Oops, mistake</a>
+                    </div>
                 </div>
             </div>
             
