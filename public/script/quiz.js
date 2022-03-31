@@ -281,8 +281,7 @@ btnQuiz.addEventListener('click', () => {
                 })
             }).then((res) =>{
                 console.log(res);
-            })
-            .then(res => res.json)
+            });
             // localStorage.setItem('Score', correctAnswers);
             questYouHad.innerHTML = nOfQuestions;
             let percent = correctAnswers * 100 / nOfQuestions;
