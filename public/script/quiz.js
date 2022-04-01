@@ -316,6 +316,22 @@ btnQuiz.addEventListener('click', () => {
             } else if (percent > 80) {
                 endGamePhrase.innerHTML = "Awesome! Your score is";
             }
+            // Global averages here
+            fetch('/quiz/avrscore/' + quizId)
+            .then(res => res.json())
+            .then(res => {
+                scoreCollect = res;
+             
+                for(let i= 0 ; i < scoreCollect.length ; i++) {     
+                    avrScore += scoreCollect[i].Total_Score;
+                    avrPercent.innerHTML = Math.round(avrScore * 100 / (nOfQuestions * i)); 
+               }
+                for(let i= 0 ; i < scoreCollect.length ; i++) {     
+                    avrTime += scoreCollect[i].Total_Time;
+                    avrRespPercent.innerHTML = (((avrTime / i).toFixed(2) )); 
+                    
+            }
+        })
 
             // refreshes page on "replay btn"
             replayBtn.addEventListener('click', () => {
@@ -353,7 +369,7 @@ btnQuiz.addEventListener('click', () => {
             }).then((res) =>{
                 console.log(res);
             })
-            .then(res => res.json)
+            .then(res => res.json);
             // localStorage.setItem('Score', correctAnswers);
             questYouHad.innerHTML = nOfQuestions;
             let percent = correctAnswers * 100 / nOfQuestions;
