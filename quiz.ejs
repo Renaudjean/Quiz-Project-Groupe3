@@ -12,7 +12,7 @@
         <div class="container" id="quiz__main-screen">
             <div class="stats dflex">
                 <div class="stats__questions">
-                    <p class="p-regular">Question <br><span id="stats__questions-left">1</span>/<span id="stats__questions-exist">10</span></p>
+                    <p class="p-regular">Question <br><span id="stats__questions-left">1</span>/<span id="stats__questions-exist">1</span></p>
                 </div>
                 <div class="stats__counter dflex" id="stats__counter">
                     <!-- DIVs created via JavaScript -->
@@ -45,7 +45,15 @@
                 <button class="btn-primary" id="question-btn">See answer</button>
             </div>
         </div>
+    <!-- MODAL WINDOW to start a game -->
+        <div id="overlay">
+            <div id="modal-delete">
+                <h3 style="margin-bottom: 60px">Let's challenge your knowledge!</h3>
+                <a href="#" class="btn-primary" id="quiz-start-main">Start the quiz</a>
+            </div>
+        </div>
     </main>
+
     <!-- SCREEN OF END GAME -->
     <main id="endgame__main" class="dnone">
         <div class="container dflex" id="endgame__main-screen">

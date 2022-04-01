@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 31 mars 2022 à 14:53
+-- Généré le : ven. 01 avr. 2022 à 07:02
 -- Version du serveur : 8.0.21
 -- Version de PHP : 7.4.27
 
@@ -37,14 +37,16 @@ CREATE TABLE IF NOT EXISTS `account` (
   `Password` varchar(255) NOT NULL,
   `AccountType` int NOT NULL COMMENT 'PER_ID',
   PRIMARY KEY (`AC_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `account`
 --
 
 INSERT INTO `account` (`AC_ID`, `Email`, `UserName`, `FirstName`, `LastName`, `Password`, `AccountType`) VALUES
-(1, 'eric@live.fr', 'eric', 'eric', 'oriez', '123', 0);
+(1, 'eric@live.fr', 'eric', 'eric', 'oriez', '123456', 1),
+(2, 'ana@live.fr', 'ana', 'ana', 'ana', '123456', 1),
+(3, 'reno@live.fr', 'scrummaster', 'reno', 'reno', '123456', 1);
 
 -- --------------------------------------------------------
 
@@ -317,7 +319,15 @@ CREATE TABLE IF NOT EXISTS `score` (
   `Total_Time` decimal(10,0) NOT NULL,
   `Quiz` int NOT NULL COMMENT 'Quiz_ID',
   PRIMARY KEY (`SC_ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `score`
+--
+
+INSERT INTO `score` (`SC_ID`, `Total_Score`, `Total_Time`, `Quiz`) VALUES
+(1, 5, '4', 1),
+(2, 10, '4', 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
