@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 29 mars 2022 à 14:05
--- Version du serveur :  8.0.21
--- Version de PHP : 7.3.21
+-- Généré le : jeu. 31 mars 2022 à 14:53
+-- Version du serveur : 8.0.21
+-- Version de PHP : 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -302,7 +302,7 @@ INSERT INTO `quiz` (`Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo`, `S
 (1, 'Capitals', 'Sure you know all the countries\' capitals of the world? Challenge yourself!', '/assets/img/img-quiz/quiz-capitals.jpg', 0),
 (2, 'Movies', 'Love movies? Me too! Let\'s see if you pay attention while watching!', '/assets/img/img-quiz/quiz-movies.jpg', 0),
 (3, 'Personalities', 'World\'s top influencers and personalities: do you know them?', '/assets/img/img-quiz/quiz-personality.jpg', 0),
-(4, 'Anime', 'Enjoy Japanese anime movies? Let\'s find out if you know the well!', '/assets/img/img-quiz/quiz-anime.jpg\r\n', 0);
+(4, 'Anime', 'Enjoy Japanese anime movies? Let\'s find out if you know the well!', '/assets/img/img-quiz/quiz-anime.jpg', 0);
 
 -- --------------------------------------------------------
 

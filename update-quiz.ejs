@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <%- include ('page/templates/head')  %> 
-    <title>QUIZZDOM | Create new quiz</title>
+    <title>QUIZZDOM | Update quiz</title>
 </head>
 <body>
     <%- include('page/templates/header-shown') %>
     <main>
         <div class="container new__container">
-            <h2>Create a <span>new</span> quiz</h2>
+            <h2>Let's <span>update</span>  that quiz!</h2>
             <form method="POST" action="#" class="new__wrapper" id="new-quiz-form">
                 <div class="new__section new__quiz dflex">
                     <div>
@@ -22,6 +22,9 @@
                         <textarea name="description-quiz" id="description-quiz" placeholder="Description of the quiz"></textarea>
                     </div>
                 </div>
+                
+                <!-- loop with DB insertions begins -->
+                
                 <div class="line" id="line"></div>
                 <div class="new__section new__question dflex">
                     <div>
@@ -49,12 +52,12 @@
                         <input type="text" data-id="4" placeholder="Type 4th answer" required> <br>
                     </div>
                 </div>
-                <br>
+
+                <!-- loop ends -->
+
             </form>
-            <p id="add-quest" class="btn-secondary">Add question +</p> <br>
-            <button type="submit" form="new-quiz-form" class="btn-primary">Add quiz</button>
+            <button type="submit" form="new-quiz-form" class="btn-primary">Save changes</button>
         </div>
     </main>
-    <script src="/assets/script/new-quiz.js"></script>
 </body>
 </html>
