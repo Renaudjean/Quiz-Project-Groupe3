@@ -10,11 +10,27 @@ const conn = require('../database/database');
 const { read } = require('fs');
 const { response } = require('express');
 
+// session
+const session = require('express-session')
+
 app.set("view engine", "ejs");
 // view engine setup
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/assets", express.static("public"));
+
+// session
+app.use(session({
+    secret: 'secrete key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  }), (req,res,next)=>{
+      res.locals.session = req.session
+      next()
+  })
+
+  
 //mySQL
 
 

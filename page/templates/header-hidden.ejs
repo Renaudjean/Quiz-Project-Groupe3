@@ -1,3 +1,40 @@
+<% if(locals.session.user){  %> 
+
+<header id="header">
+    <div class="container dflex">
+        <a href="/" class="hidden" id="header__back">< Back to menu</a>
+        <figure class="logo">
+            <a href="/">
+                <img src="assets/img/logo.svg" alt="Logo">
+            </a>
+        </figure>
+        <div class="login">
+            <a class="login__link dflex" href="/login">
+                <img src="assets/img/user.svg" alt="User">
+                <p class="login__p">My account 
+                    <span class="login__arrow dnone"></span>
+                </p>
+            </a>
+            <div class="login__menu dnone" id="login__menu">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/admin">My quizes</a>
+                        </li>
+                        <li>
+                            <a href="/score">My scores</a>
+                        </li>
+                        <li>
+                            <a href="/login/logout">Log out ></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<% } else { %>  
+
 <header id="header">
     <div class="container dflex">
         <a href="/" class="hidden" id="header__back">< Back to menu</a>
@@ -13,21 +50,8 @@
                     <span class="login__arrow dnone"></span>
                 </p>
             </a>
-            <div class="login__menu dnone" id="login__menu">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="/admin">My quizes</a>
-                        </li>
-                        <li>
-                            <a href="/score">My scores</a>
-                        </li>
-                        <li>
-                            <a href="#">Log out ></a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            
         </div>
     </div>
 </header>
+<% } %> 
