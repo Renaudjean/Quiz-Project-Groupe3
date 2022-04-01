@@ -278,8 +278,27 @@ btnQuiz.addEventListener('click', () => {
             })
             let averageTime = (20 - (timerAverage / nOfQuestions)).toFixed(2);
             // insertion of instant data into HTML (end game screen)
+            let avrScore = 0;
+            let avrTime = 0;
             yourScore.innerHTML = correctAnswers;
-          
+            fetch('/quiz/avrscore/' + quizId)
+            .then(res => res.json())
+            .then(res => {
+                scoreCollect = res;
+             
+                for(let i= 0 ; i < scoreCollect.length ; i++) {     
+                    avrScore += scoreCollect[i].Total_Score;
+                    avrPercent.innerHTML = Math.round(avrScore * 100 / (nOfQuestions * i)); 
+                    
+            }
+                for(let i= 0 ; i < scoreCollect.length ; i++) {     
+                    avrTime += scoreCollect[i].Total_Time;
+                    avrRespPercent.innerHTML = (((avrTime / (nOfQuestions * i)).toFixed(2) )); 
+                    
+            }
+            })
+            
+           
             fetch('/quiz/score/',{
                 method: "POST",
                 headers: {
@@ -293,8 +312,7 @@ btnQuiz.addEventListener('click', () => {
                 })
             }).then((res) =>{
                 console.log(res);
-            })
-            .then(res => res.json)
+            });
             // localStorage.setItem('Score', correctAnswers);
             questYouHad.innerHTML = nOfQuestions;
             let percent = correctAnswers * 100 / nOfQuestions;
@@ -307,12 +325,15 @@ btnQuiz.addEventListener('click', () => {
             } else if (percent > 80) {
                 endGamePhrase.innerHTML = "Awesome! Your score is";
             }
-
+            
             // refreshes page on "replay btn"
             replayBtn.addEventListener('click', () => {
                 location.reload();
             })
         })
+        let avrPercent= document.getElementById('avr-percent');
+        let avrRespPercent= document.getElementById('avr-resp-time');
+      
     }
 })       
 })
