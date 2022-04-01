@@ -14,17 +14,9 @@ deleteThis.forEach(option => {
         // call the modal and overlay
         overlay.classList.remove('dnone');
         modal.classList.remove('dnone');
-
-        quizOption = o.target;
-     
-        fetch('/deletethis/'+ quizId).then(res => {
-           
-            console.log("Test")
-             fetch('/admin');
-        });
         
         quizOption = o.target;
-        
+        let quizId = quizOption.dataset.id;
 
         console.log(quizOption);
         confirmBtn.addEventListener('click', (a) => {
@@ -49,4 +41,3 @@ overlay.addEventListener('click', () => {
 mistakemBtn.addEventListener('click', () => {
     location.reload();
 })
-
