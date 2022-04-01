@@ -29,7 +29,10 @@ const endGameScreen = document.getElementById('endgame__main'),
       replayBtn = document.getElementById('replay-btn'),
       bg = document.getElementById('bg-div');
 
-
+      let avrScore = 0;
+      let avrTime = 0;
+      let avrPercent= document.getElementById('avr-percent');
+      let avrRespPercent= document.getElementById('avr-resp-time');
 // _____questions counter to track the progress_____________________________
 let questionCount = 0;
 
@@ -304,6 +307,22 @@ btnQuiz.addEventListener('click', () => {
                 console.log(res);
             })
             .then(res => res.json)
+
+            fetch('/quiz/avrscore/' + quizId)
+            .then(res => res.json())
+            .then(res => {
+                scoreCollect = res;
+             
+                for(let i= 0 ; i < scoreCollect.length ; i++) {     
+                    avrScore += scoreCollect[i].Total_Score;
+                    avrPercent.innerHTML = Math.round(avrScore * 100 / (nOfQuestions * i)); 
+               }
+                for(let i= 0 ; i < scoreCollect.length ; i++) {     
+                    avrTime += scoreCollect[i].Total_Time;
+                    avrRespPercent.innerHTML = (((avrTime / i).toFixed(2) )); 
+                    
+            }
+        })
             // localStorage.setItem('Score', correctAnswers);
             questYouHad.innerHTML = nOfQuestions;
             let percent = correctAnswers * 100 / nOfQuestions;
@@ -356,9 +375,7 @@ btnQuiz.addEventListener('click', () => {
                 console.log(res);
             })
             .then(res => res.json);
-
-            let avrPercent= document.getElementById('avr-percent');
-            let avrRespPercent= document.getElementById('avr-resp-time');
+            
             fetch('/quiz/avrscore/' + quizId)
             .then(res => res.json())
             .then(res => {
