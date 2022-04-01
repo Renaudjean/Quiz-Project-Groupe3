@@ -14,6 +14,7 @@ const quizMain = document.getElementById('quiz__main'),
       option3 = document.getElementById('option3'),
       option4 = document.getElementById('option4'),
       btnQuiz = document.getElementById('question-btn'),
+    // elements from the modal
       btnStartGame = document.getElementById('quiz-start-main'),
       overlay = document.getElementById('overlay'),
       modal = document.getElementById('modal-delete');
@@ -29,7 +30,7 @@ const endGameScreen = document.getElementById('endgame__main'),
       bg = document.getElementById('bg-div');
 
 
-// _____questions counter _____________________________
+// _____questions counter to track the progress_____________________________
 let questionCount = 0;
 
 // _____creation of DIVs of tracker _____________________________
@@ -49,6 +50,7 @@ function trackerAppend (a) {
 };
 
 
+
 const createTrackers = () => {
     //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
     let quizId = document.querySelector("#quiz__main").dataset.id;
@@ -66,11 +68,9 @@ const createTrackers = () => {
 };
 createTrackers();
 
-// _____answer tracker : functions to change style _____________________________
-// const trackerActive = (t) => {
-//     t.classList.add('active');
-// }
 
+
+// _____answer tracker : functions to change style _____________________________
 const trackerGreen = t => {
     t.classList.remove('active');
     t.classList.remove('wrong');
@@ -87,7 +87,6 @@ const cleanTracker = t => {
     t.classList.remove('correct');
     t.classList.remove('wrong');
 }
-
 
 
 
@@ -127,14 +126,15 @@ const cleanOptionStyles = (arr) => {
     });
 }
 
+
  
-// _____loading of the question_____________________________
+// _____loading : set question, answers, timer_____________________________
 
-const load = (a, b) => {
+const load = (a) => {
 
-    // _____ timer on every load() launch ____________________________
+    // timer on every load() launch
     timeLeft.innerText = '20';
-    let timeCounter = 3;
+    let timeCounter = 19;
     timerFunction = setInterval(() => {
     let seconds = parseInt(timeCounter % 60, 10);
 
@@ -161,10 +161,11 @@ const load = (a, b) => {
         }
     }
     }, 1000);
-    //_____________________________
 
-    // cleanTracker(statsTrackers[0/* number of question */]);
+
+    // clean all the options of answers, if they exist
     cleanOptionStyles(answerOptions);
+
 
     //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
     let quizId = document.querySelector("#quiz__main").dataset.id;
@@ -179,7 +180,6 @@ const load = (a, b) => {
 
         questionText.innerHTML = questions[questionCount].Question;
         questionImg.src = questions[questionCount].Question_Photo;
-        // console.table(questions);
         let answer = [];
         let questionId = questions[questionCount].Question_ID;
         questionsExist.innerHTML = nOfQuestions;
@@ -187,7 +187,6 @@ const load = (a, b) => {
         .then((res) => res.json())
         .then((res) =>{
             answer = res;
-            // console.table(answer);
             option1.innerHTML = answer[0].Answer;
             option2.innerHTML = answer[1].Answer;
             option3.innerHTML = answer[2].Answer;
@@ -200,14 +199,15 @@ const load = (a, b) => {
 btnStartGame.addEventListener('click', () => {
     overlay.classList.add('dnone');
     modal.classList.add('dnone');
-    load(answerOptions, statsTrackers[questionCount]);
-    console.log(statsTrackers);
+    load(answerOptions);
+    // console.log(statsTrackers);
 })
+
 
 // _____main function for the button _____________________________
 let timerAverage = 0;
-// load(answerOptions, statsTrackers[questionCount]);
 let correctAnswers = 0;
+
 btnQuiz.addEventListener('click', () => {
     let quizId = document.querySelector("#quiz__main").dataset.id;
     //It then generates the question through here
@@ -223,17 +223,12 @@ btnQuiz.addEventListener('click', () => {
         .then((res) => res.json())
         .then((res) =>{
             answer = res;
-            console.table(answer);        
+            // console.table(answer);        
 
-    // if (answerOptions[0].classList.contains('wrong-option') && answerOptions[1].classList.contains('wrong-option')) {
-    //     console.log("A-HA!!!");
-
-    // }        
-
-
+    
     // verification of the chosen answer is correct on click 
     if (answerOptions[0].classList.contains('wrong-option') && answerOptions[1].classList.contains('wrong-option') && btnQuiz.innerHTML != "See results") {
-        load(answerOptions, statsTrackers[questionCount]);
+        load(answerOptions);
         questionsLeft.innerHTML = questionCount + 1;
         cleanTracker(statsTrackers[questionCount]);
         btnQuiz.innerHTML = "See answer";
@@ -265,7 +260,7 @@ btnQuiz.addEventListener('click', () => {
         questionCount++;
     // if the correct answer is shown, we click to "refresh" the question -> adds new question and answers from DB; we take off all additional classes from answer options; change again the button text    
     } else if (btnQuiz.innerHTML === "Next question") {
-        load(answerOptions, statsTrackers[questionCount]);
+        load(answerOptions);
         questionsLeft.innerHTML = questionCount + 1;
         cleanTracker(statsTrackers[questionCount]);
         btnQuiz.innerHTML = "See answer";
