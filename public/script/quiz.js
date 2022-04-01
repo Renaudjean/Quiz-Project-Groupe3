@@ -293,7 +293,7 @@ btnQuiz.addEventListener('click', () => {
             }
                 for(let i= 0 ; i < scoreCollect.length ; i++) {     
                     avrTime += scoreCollect[i].Total_Time;
-                    avrRespPercent.innerHTML = (((avrTime / (nOfQuestions * i)).toFixed(2) )); 
+                    avrRespPercent.innerHTML = (((avrTime / i).toFixed(2) )); 
                     
             }
             })
