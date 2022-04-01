@@ -42,8 +42,10 @@
             // }
         }
         .btn-secondary.sign {
+            width: 40%;
+
             background-color: #0d263a;
-            margin: 0 150px 20px;
+            margin: 0 auto;
             &:hover {
                 background-color: $yellow;
             }

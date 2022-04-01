@@ -89,6 +89,16 @@
     .new__question > div:first-child {
         margin-bottom: 30px;
     }
+
+    // login page __________________
+    .container.login {
+        flex-direction: column;
+        .bloc1, .bloc2 {
+            width: 100%;
+            margin-bottom: 50px;
+        }
+    }
+
 }
 
 /*576-768*/

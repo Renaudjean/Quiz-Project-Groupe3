@@ -4,6 +4,7 @@
 let form = document.querySelector(".form.login.create");
 const btn = document.querySelector(".btn-secondary.sign.in");
 const btnUp = document.querySelector(".btn-secondary.sign.up");
+const logout = document.getElementById("logout");
 
 // sign in
 let inputUser = document.getElementById("input-user");
@@ -15,7 +16,6 @@ let inputLastName = document.getElementById("input-last-name");
 let inputChooseName = document.getElementById("input-choose-name");
 let inputMail = document.getElementById("input-mail");
 let inputChoosePass = document.getElementById("input-choose-pass");
-const hello = document.getElementById('hello');
 
 // variable
 let accounts = [];
@@ -26,8 +26,9 @@ let chooseName;
 let mail;
 let choosePass;
 
+let user = true;
 // ______________ bloc sign in __________ //
-
+btn.addEventListener("click", (e) => {
 fetch('/login/check')
     .then((res) => res.json())
     .then((res) => {
@@ -37,28 +38,29 @@ fetch('/login/check')
             let username = elements.UserName;
             let password = elements.Password;
 
-            btn.addEventListener("click", (e) => {
+            
                 
                 if (username === inputUser.value) {
                     inputUser.style.backgroundColor = "#156E74";
                 } else if (username != inputUser.value) {
+                    user = false;
                     inputUser.style.backgroundColor = "#A95649";
                 }
                 if (password === inputPass.value) {
                     inputPass.style.backgroundColor = "#156E74";
                 } else {
+                    user = false
                     inputPass.style.backgroundColor = "#A95649";
                 } 
                 if (username === inputUser.value && password === inputPass.value) {                   
                     document.location.href = "/"; 
-                          
                     }
                     
-            });
-            if (username === inputUser.value && password === inputPass.value) break;
+                if (username === inputUser.value && password === inputPass.value) break;
+            
         }
     });
-
+});
 // _____________ bloc sign up ___________ //
 
 // verify existing user
@@ -189,4 +191,8 @@ btnUp.addEventListener("click", (e) => {
                 }, 3000);
             }
         });
+
+
+
+ 
 
