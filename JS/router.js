@@ -12,6 +12,7 @@ let {admin_Gen} = require('./api_adminhome.js')
 let {delete_This} = require('./api_deletethis.js')
 let {photo_Gen} = require('./api_quiz.js');
 let {send_Scores}= require('./api_score.js');
+let {score_Collect}= require('./api_scorecollect.js');
 const { sign_logout } = require('./api_logout.js');
 
 

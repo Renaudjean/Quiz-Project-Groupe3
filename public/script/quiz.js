@@ -317,6 +317,7 @@ btnQuiz.addEventListener('click', () => {
                 endGamePhrase.innerHTML = "Awesome! Your score is";
             }
             // Global averages here
+            
             fetch('/quiz/avrscore/' + quizId)
             .then(res => res.json())
             .then(res => {
