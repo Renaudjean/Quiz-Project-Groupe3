@@ -28,7 +28,8 @@ router.post('/login/createUsers', sign_up_create_users);
 router.get('/correct-answer/:id',answer_Gen);
 router.get('/quizz/:id', photo_Gen);
 
-router.post('/quiz/score/', send_Scores);
 router.get('/deletethis/:id', delete_This);
 
+router.post('/quiz/score/', send_Scores);
+router.get('/quiz/avrscore/:id', score_Collect);
 module.exports = router;
