@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 29 mars 2022 à 08:38
+-- Généré le : jeu. 31 mars 2022 à 14:53
 -- Version du serveur : 8.0.21
 -- Version de PHP : 7.4.27
 
@@ -37,7 +37,14 @@ CREATE TABLE IF NOT EXISTS `account` (
   `Password` varchar(255) NOT NULL,
   `AccountType` int NOT NULL COMMENT 'PER_ID',
   PRIMARY KEY (`AC_ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `account`
+--
+
+INSERT INTO `account` (`AC_ID`, `Email`, `UserName`, `FirstName`, `LastName`, `Password`, `AccountType`) VALUES
+(1, 'eric@live.fr', 'eric', 'eric', 'oriez', '123', 0);
 
 -- --------------------------------------------------------
 
@@ -295,7 +302,7 @@ INSERT INTO `quiz` (`Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo`, `S
 (1, 'Capitals', 'Sure you know all the countries\' capitals of the world? Challenge yourself!', '/assets/img/img-quiz/quiz-capitals.jpg', 0),
 (2, 'Movies', 'Love movies? Me too! Let\'s see if you pay attention while watching!', '/assets/img/img-quiz/quiz-movies.jpg', 0),
 (3, 'Personalities', 'World\'s top influencers and personalities: do you know them?', '/assets/img/img-quiz/quiz-personality.jpg', 0),
-(4, 'Anime', 'Enjoy Japanese anime movies? Let\'s find out if you know the well!', '/assets/img/img-quiz/quiz-anime.jpg\r\n', 0);
+(4, 'Anime', 'Enjoy Japanese anime movies? Let\'s find out if you know the well!', '/assets/img/img-quiz/quiz-anime.jpg', 0);
 
 -- --------------------------------------------------------
 
