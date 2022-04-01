@@ -27,7 +27,7 @@ let mail;
 let choosePass;
 
 // ______________ bloc sign in __________ //
-
+  btn.addEventListener("click", (e) => {
 fetch('/login/check')
     .then((res) => res.json())
     .then((res) => {
@@ -35,13 +35,11 @@ fetch('/login/check')
         for (let i = 0; i < accounts.length; i++) {
             let elements = accounts[i];
             let username = elements.UserName;
-            let password = elements.Password;
-
-            btn.addEventListener("click", (e) => {
+            let password = elements.Password;         
                 
                 if (username === inputUser.value) {
                     inputUser.style.backgroundColor = "#156E74";
-                } else if (username != inputUser.value) {
+                } else {
                     inputUser.style.backgroundColor = "#A95649";
                 }
                 if (password === inputPass.value) {
@@ -54,10 +52,12 @@ fetch('/login/check')
                           
                     }
                     
-            });
+            
             if (username === inputUser.value && password === inputPass.value) break;
         }
     });
+});
+
 
 // _____________ bloc sign up ___________ //
 

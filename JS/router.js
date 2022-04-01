@@ -28,5 +28,5 @@ router.get('/quizz/:id', photo_Gen);
 router.get('/deletethis/:id', delete_This);
 
 router.post('/quiz/score/', send_Scores);
-router.post('/quiz/avrscore/', score_Collect);
+router.get('/quiz/avrscore/:id', score_Collect);
 module.exports = router;

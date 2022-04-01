@@ -49,3 +49,4 @@ overlay.addEventListener('click', () => {
 mistakemBtn.addEventListener('click', () => {
     location.reload();
 })
+
