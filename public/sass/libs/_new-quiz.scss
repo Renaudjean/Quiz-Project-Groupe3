@@ -1,4 +1,4 @@
-/*__________page_new-quiz  &  page_updade-quiz__________*/
+/*__________page_new-quiz  &  page_update-quiz__________*/
 
 .new {
     &__container.container {
@@ -58,8 +58,26 @@
     &__section {
         justify-content: space-between;
         margin-bottom: 40px;
+        position: relative;
+
         div {
             width: 48%;
+        }
+
+        .radiobuttons {
+            height: 100%;
+            width: 20px;
+            position: absolute;
+            top: 10px;
+            right: -50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            input[type=radio], input[type=checkbox] {
+                height: 20px;
+                width: 20px;
+            }
         }
     } 
 }

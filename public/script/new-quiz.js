@@ -20,7 +20,9 @@ addQuestBtn.addEventListener('click', () => {
         selectAllQ = document.querySelectorAll('.count-question'),
         selectAllInputs = document.querySelectorAll('input'),
         selectAllTxtAreas = document.querySelectorAll('textarea'),
+        radios = document.querySelectorAll('input[type="checkbox"]'),
         selected = [];
+        console.log(radios);
     for (let i = 0; i < selectAllInputs.length; i++) {
         selected.push(selectAllInputs[i]);
     }
@@ -34,6 +36,21 @@ addQuestBtn.addEventListener('click', () => {
             e.value = '';
         }
     });
+
+    // let radiosArr = Array.prototype.slice.call(radios);
+    // console.log(radiosArr);
+
+    // for (let i = radiosArr.length; i > radiosArr.length - 4; i--) {
+    //     radios[i].checked = false; 
+    // }
+
+    // console.log(radios.length);
+
+    // radiosArr.forEach(r => {
+    //     if(selectAllClones[nodeCounter].contains(r.checked)) {
+    //         r.checked = false; 
+    //     }
+    // })
     
     // modify the inner text of the newly inserted question numerotation
     selectAllQ[nodeCounter].innerHTML = 'Question ' + (nodeCounter + 1);
