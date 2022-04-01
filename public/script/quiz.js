@@ -318,21 +318,6 @@ btnQuiz.addEventListener('click', () => {
             }
             // Global averages here
             
-            fetch('/quiz/avrscore/' + quizId)
-            .then(res => res.json())
-            .then(res => {
-                scoreCollect = res;
-             
-                for(let i= 0 ; i < scoreCollect.length ; i++) {     
-                    avrScore += scoreCollect[i].Total_Score;
-                    avrPercent.innerHTML = Math.round(avrScore * 100 / (nOfQuestions * i)); 
-               }
-                for(let i= 0 ; i < scoreCollect.length ; i++) {     
-                    avrTime += scoreCollect[i].Total_Time;
-                    avrRespPercent.innerHTML = (((avrTime / i).toFixed(2) )); 
-                    
-            }
-        })
 
             // refreshes page on "replay btn"
             replayBtn.addEventListener('click', () => {
@@ -344,7 +329,7 @@ btnQuiz.addEventListener('click', () => {
             // ... we hide the game screen and show the endgame container
             quizMain.classList.add('dnone');
             endGameScreen.classList.remove('dnone');
-
+            
             // insert the image from the `quiz` DB as bg image for the quiz played
             fetch('/quizz/' + quizId)
             .then((res) => res.json())
@@ -371,6 +356,25 @@ btnQuiz.addEventListener('click', () => {
                 console.log(res);
             })
             .then(res => res.json);
+
+            let avrPercent= document.getElementById('avr-percent');
+            let avrRespPercent= document.getElementById('avr-resp-time');
+            fetch('/quiz/avrscore/' + quizId)
+            .then(res => res.json())
+            .then(res => {
+                scoreCollect = res;
+             
+                for(let i= 0 ; i < scoreCollect.length ; i++) {     
+                    avrScore += scoreCollect[i].Total_Score;
+                    avrPercent.innerHTML = Math.round(avrScore * 100 / (nOfQuestions * i)); 
+               }
+                for(let i= 0 ; i < scoreCollect.length ; i++) {     
+                    avrTime += scoreCollect[i].Total_Time;
+                    avrRespPercent.innerHTML = (((avrTime / i).toFixed(2) )); 
+                    
+            }
+        })
+
             // localStorage.setItem('Score', correctAnswers);
             questYouHad.innerHTML = nOfQuestions;
             let percent = correctAnswers * 100 / nOfQuestions;
