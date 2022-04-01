@@ -20,7 +20,7 @@ router.get('/', quiz_Gen);
 router.get('/admin', admin_Gen);
 router.get('/question/:id',question_Gen);
 router.get('/answer/:id',answer_Gen);
-router.get('/login/check', sign_check);
+router.post('/login/check', sign_check);
 router.get('/login/up', sign_up_check_mail);
 router.get('/login/logout', sign_logout);
 

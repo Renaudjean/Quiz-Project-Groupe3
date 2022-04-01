@@ -25,70 +25,32 @@ let lastName;
 let chooseName;
 let mail;
 let choosePass;
-
+let username;
 let user = true;
+
 // ______________ bloc sign in __________ //
 btn.addEventListener("click", (e) => {
-fetch('/login/check')
+fetch('/login/check',{
+    method : 'POST',
+    headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        "username" : inputUser.value,
+        "password" : inputPass.value,
+    })
+})
     .then((res) => res.json())
     .then((res) => {
-        accounts = res;
-        for (let i = 0; i < accounts.length; i++) {
-            let elements = accounts[i];
-            let username = elements.UserName;
-            let password = elements.Password;
-
-            
-                
-                if (username === inputUser.value) {
-                    inputUser.style.backgroundColor = "#156E74";
-                } else if (username != inputUser.value) {
-                    user = false;
-                    inputUser.style.backgroundColor = "#A95649";
-                }
-                if (password === inputPass.value) {
-                    inputPass.style.backgroundColor = "#156E74";
-                } else {
-                    user = false
-                    inputPass.style.backgroundColor = "#A95649";
-                } 
-                if (username === inputUser.value && password === inputPass.value) {                   
-                    document.location.href = "/"; 
-                    }
-                    
-                if (username === inputUser.value && password === inputPass.value) break;
-            
-        }
-    });
+        if(!res){
+            inputUser.style.backgroundColor = "#A95649";
+            inputPass.style.backgroundColor = "#A95649";
+        }else {
+            document.location.href = "/";
+         }
+    })
 });
-// _____________ bloc sign up ___________ //
-
-// verify existing user
-// fetch("/login/up")
-//     .then((res) => res.json())
-//     .then((res) => {
-//         checkMail = res;
-//         for (let i = 0; i < checkMail.length; i++) {
-//             let itemes = checkMail[i];
-//             let email = itemes.Email;
-
-//             btnUp.addEventListener("click", () => {
-//                 if (email == inputMail.value) {
-//                     alert("user deja existant");
-//                 } else if (email != inputMail.value) {
-//                 }
-//             });
-//         }
-//     });
-
-// let regExp = {
-//     firstName: inputFirstName.value.match(/^[a-zA-Z\ ]{3,50}$/i),
-//     lastName: inputLastName.value.match(/^[a-zA-Z\ ]{3,50}$/i),
-//     chooseName: inputChooseName.value.match(/^[a-zA-Z0-9\ ]{3,50}$/i),
-//     mail: inputMail.value.match(/^[a-z0-9\.-_]+\@[a-z0-9\.-_]+\.[a-z]{3,30}$/i),
-//     choosePass: inputChoosePass.value.match(/^.{6,30}$/i)
-// }
-// console.log(regExp);
 
 let validInput = [
     { e: inputFirstName, correct: 0 },
