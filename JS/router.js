@@ -14,11 +14,12 @@ let {photo_Gen} = require('./api_quiz.js');
 let {send_Scores}= require('./api_score.js');
 let {score_Collect}= require('./api_scorecollect.js');
 const { sign_logout } = require('./api_logout.js');
-
+let {score_Page}= require('./api_score_page.js');
 
 
 router.get('/', quiz_Gen);
 router.get('/admin', admin_Gen);
+router.get('/score', score_Page);
 router.get('/question/:id',question_Gen);
 router.get('/answer/:id',answer_Gen);
 router.post('/login/check', sign_check);

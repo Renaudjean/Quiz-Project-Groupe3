@@ -212,6 +212,7 @@ let timerAverage = 0;
 let correctAnswers = 0;
 
 btnQuiz.addEventListener('click', () => {
+    let user = document.querySelector("#quiz__main").dataset.user;
     let quizId = document.querySelector("#quiz__main").dataset.id;
     //It then generates the question through here
     fetch('/question/' + quizId)
@@ -360,6 +361,7 @@ btnQuiz.addEventListener('click', () => {
             // insertion of instant data into HTML (end game screen)
             yourScore.innerHTML = correctAnswers;
           
+
             fetch('/quiz/score/',{
                 method: "POST",
                 headers: {
@@ -369,7 +371,8 @@ btnQuiz.addEventListener('click', () => {
                 body: JSON.stringify({
                     "correctAnswers" : correctAnswers,
                     "averageTime" : averageTime,
-                    "quizId": quizId
+                    "quizId": quizId,
+                    "user" : user
                 })
             }).then((res) =>{
                 console.log(res);
