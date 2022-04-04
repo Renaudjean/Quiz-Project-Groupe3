@@ -797,7 +797,7 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
   width: 48%;
 }
 
-.new__section .radiobuttons {
+.new__section .checkboxes {
   height: 100%;
   width: 20px;
   position: absolute;
@@ -814,7 +814,7 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
       justify-content: space-around;
 }
 
-.new__section .radiobuttons input[type=radio], .new__section .radiobuttons input[type=checkbox] {
+.new__section .checkboxes input[type=radio], .new__section .checkboxes input[type=checkbox] {
   height: 20px;
   width: 20px;
 }
@@ -1038,7 +1038,7 @@ h3 {
   .new__section > div {
     width: 100%;
   }
-  .new__section .radiobuttons {
+  .new__section .checkboxes {
     height: 58%;
     top: 280px;
   }
@@ -1160,7 +1160,7 @@ h3 {
   .new__container.container {
     padding: 60px 50px;
   }
-  .new__section .radiobuttons {
+  .new__section .checkboxes {
     right: -35px;
   }
 }

@@ -37,6 +37,10 @@ app.use(session({
 // EJS pages linking
 app.use('/', router);
 
+app.use('/new-quiz/', function(req, res) {
+    res.render('../new-quiz');
+});
+
 app.use('/quiz/:id', (req, response) => {
     db.query('SELECT `Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo` FROM `quiz` WHERE Quiz_ID=?',[req.params.id], function (err, quizName, fields) {
         if (err) throw err;   
