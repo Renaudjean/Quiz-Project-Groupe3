@@ -7,6 +7,7 @@ module.exports.create_new_quiz = (req, response) => {
 
     let DBquestionTxt = req.body.questionTxt
     let DBquestionPhoto = req.body.questionPhoto
+    let DBquestionQuizId = req.body.questionQuizId
 
     // let answerOption = req.body.answerOption
     // let optionNumber = req.body.optionNumber
@@ -15,7 +16,9 @@ module.exports.create_new_quiz = (req, response) => {
 
     db.query("INSERT INTO `quiz`(`Quiz_Name`, `Quiz_Description`, `Quiz_Photo`) VALUES (?, ?, ?)", [DBquizName, DBquizDesc, DBquizPhoto]); 
 
-    db.query("INSERT INTO `question`(`Question`, `Question_Photo`) VALUES (?, ?)", [DBquestionTxt, DBquestionPhoto]);
+    db.query("INSERT INTO `question`(`Question`, `Question_Photo`, `Quiz_ID`) VALUES (?, ?, ?)", [DBquestionTxt, DBquestionPhoto, DBquestionQuizId]);
     
     // db.query("INSERT INTO `answer`(`Answer`, `Option_Number`, `Correct_Or_Not`, `Question`) VALUES (?, ?, ?, ?)", [answerOption, optionNumber, correctOrNot, questionId]);
+
+   
 }

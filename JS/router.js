@@ -14,6 +14,8 @@ let {photo_Gen} = require('./api_quiz.js');
 let {send_Scores}= require('./api_score.js');
 let {score_Collect}= require('./api_scorecollect.js');
 let {create_new_quiz}= require('./api_new_quiz');
+let {get_last_quiz_id}= require('./api_last_quiz');
+let {get_last_question_id}= require('./api_last_question');
 const { sign_logout } = require('./api_logout.js');
 
 
@@ -33,6 +35,8 @@ router.get('/quizz/:id', photo_Gen);
 router.get('/deletethis/:id', delete_This);
 
 router.post('/new-quiz/', create_new_quiz);
+router.get('/new-quiz/getid', get_last_quiz_id);
+router.get('/new-quiz/getquestid', get_last_question_id);
 router.post('/admin/', admin_Gen);
 
 router.post('/quiz/score/', send_Scores);

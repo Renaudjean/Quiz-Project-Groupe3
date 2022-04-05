@@ -7,6 +7,10 @@ const questionSection = document.querySelector('.new__question'),
 
 let nodeCounter = 0;
 
+let allQuestionInputs = [];
+let allQuestionImgInputs = [];
+let allAnswerInputs = [];
+
 addQuestBtn.addEventListener('click', () => {
     // click on btn -> clones the whole new question section and the dividing line
     const clone = questionSection.cloneNode(true);
@@ -58,13 +62,10 @@ addQuestBtn.addEventListener('click', () => {
     //         checkArr[i*4+3].checked = false;
     //     }
     // }
-
-    // checkArr.forEach(r => {
-    //     if(selectAllClones[0][nodeCounter].contains(r.checked)) {
-    //         r.checked = false; 
-    //     }
-    // })
-    
+    allQuestionInputs = document.querySelectorAll('.question-input');
+    allQuestionImgInputs = document.querySelectorAll('.question-img-input');
+    allAnswerInputs = document.querySelectorAll('.answer-option');
+    console.log(allQuestionImgInputs);
 })
 
 
@@ -97,6 +98,7 @@ let quizName,
     quizPhoto,
     questionTxt,
     questionPhoto,
+    questionQuizId,
     answerOption,
     optionNumber,
     correctOrNot,
@@ -108,10 +110,17 @@ let quizName,
 let validQuizInput = [
     { e: quizName, correct: 0 },
     { e: quizDesc, correct: 0 },
-    { e: quizPhoto, correct: 0},
-    { e: questionTxt, correct: 0},
-    { e: questionPhoto, correct: 0},
+    { e: quizPhoto, correct: 0 },
+    // { questionTxt: [
+    //     {e: questionTxt, correct: 0},
+    //     {e: questionTxt, correct: 0},
+    //     {e: questionTxt, correct: 0}
+    // ]},
+    { e: questionTxt, correct: 0 },
+    { e: questionPhoto, correct: 0 }
 ];
+
+console.log(validQuizInput);
 
 //functions to add styles to the inputs well filled/not
 const inputRed = (e) => {
@@ -124,7 +133,7 @@ const inputGreen = (e) => {
 submitQuizBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    // verify inputs sent to quiz table
+    // ________________verify inputs sent to quiz table
     if (quizName = inputQuizName.value.match(/^[a-zA-Z\ ]{3,50}$/i)) {
         inputGreen(inputQuizName);
         validQuizInput[0].correct = 1;
@@ -150,21 +159,35 @@ submitQuizBtn.addEventListener('click', (e) => {
         validQuizInput[2].correct = 0;
     }
 
-    // verify inputs sent to question table
-    if (questionTxt = inputQuestionTxt.value.match(/^[a-zA-Z\ ]{3,50}$/i)) {
-        inputGreen(inputQuestionTxt);
-        validQuizInput[3].correct = 1;
-    } else {
-        inputRed(inputQuestionTxt);
-        validQuizInput[3].correct = 0;
+    // ________________verify inputs sent to question table
+    // verify all question inputs
+    let correctQuestionInputs = 0;
+    for (let i = 0; i < allQuestionInputs.length; i++) {
+        if (questionTxt = allQuestionInputs[i].value.match(/^[a-zA-Z\ ]{3,50}$/i)) {
+            inputGreen(allQuestionInputs[i]);
+            correctQuestionInputs++;
+        } else {
+            inputRed(allQuestionInputs[i]);
+        }
+
+        if (correctQuestionInputs === allQuestionInputs.length) {
+            validQuizInput[3].correct = 1;
+        }
     }
 
-    if (questionPhoto = inputQuestionPhoto.value.match(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i)) {
-        inputGreen(inputQuestionPhoto);
-        validQuizInput[4].correct = 1;
-    } else {
-        inputRed(inputQuestionPhoto);
-        validQuizInput[4].correct = 0;
+    // verify all question img inputs
+    let correctQuestionImgInputs = 0;
+    for (let i = 0; i < allQuestionImgInputs.length; i++) {
+        if (questionPhoto = allQuestionImgInputs[i].value.match(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i)) {
+            inputGreen(allQuestionImgInputs[i]);
+            correctQuestionImgInputs++;
+        } else {
+            inputRed(allQuestionImgInputs[i]);
+        }
+
+        if (correctQuestionImgInputs === allQuestionImgInputs.length) {
+            validQuizInput[3].correct = 1;
+        }
     }
 
 
@@ -186,6 +209,14 @@ submitQuizBtn.addEventListener('click', (e) => {
             // insert values of question
             questionTxt = inputQuestionTxt.value;
             questionPhoto = "/assets/img/img-question/" + inputQuestionPhoto.files[0].name;
+            fetch('/new-quiz/getid')
+            .then((res) => res.json())
+            .then((res) => {
+                quiz = res;
+                console.log(quiz[0].Quiz_ID + 1);
+                questionQuizId = quiz[0].Quiz_ID + 1;
+            
+           
 
             fetch('/new-quiz/', {
                 method: "POST",
@@ -198,14 +229,15 @@ submitQuizBtn.addEventListener('click', (e) => {
                     "quizDesc" : quizDesc,
                     "quizPhoto" : quizPhoto,
                     "questionTxt" : questionTxt,
-                    "questionPhoto" : questionPhoto
+                    "questionPhoto" : questionPhoto,
+                    "questionQuizId" : questionQuizId
                 }),
             })
             .then((res) => {
                 console.log(res);
             })
             document.location.href = "/admin/";
-
+            }) // <- closing of fetch of quiz id
 
     }
 })
