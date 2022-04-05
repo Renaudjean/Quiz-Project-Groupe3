@@ -30,6 +30,7 @@ let user = true;
 
 // ______________ bloc sign in __________ //
 btn.addEventListener("click", (e) => {
+    e.preventDefault()
 fetch('/login/check',{
     method : 'POST',
     headers: {
@@ -51,6 +52,7 @@ fetch('/login/check',{
          }
     })
 });
+
 
 let validInput = [
     { e: inputFirstName, correct: 0 },
