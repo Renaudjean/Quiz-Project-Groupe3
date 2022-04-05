@@ -108,7 +108,9 @@ let quizName,
 let validQuizInput = [
     { e: quizName, correct: 0 },
     { e: quizDesc, correct: 0 },
-    { e: quizPhoto, correct: 0}
+    { e: quizPhoto, correct: 0},
+    { e: questionTxt, correct: 0},
+    { e: questionPhoto, correct: 0},
 ];
 
 //functions to add styles to the inputs well filled/not
@@ -121,7 +123,8 @@ const inputGreen = (e) => {
 
 submitQuizBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(inputQuizPhoto.files[0].name);
+
+    // verify inputs sent to quiz table
     if (quizName = inputQuizName.value.match(/^[a-zA-Z\ ]{3,50}$/i)) {
         inputGreen(inputQuizName);
         validQuizInput[0].correct = 1;
@@ -141,36 +144,67 @@ submitQuizBtn.addEventListener('click', (e) => {
 
     if (quizPhoto = inputQuizPhoto.value.match(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i)) {
         inputGreen(inputQuizPhoto);
-        validQuizInput[1].correct = 1;
+        validQuizInput[2].correct = 1;
     } else {
         inputRed(inputQuizPhoto);
-        validQuizInput[1].correct = 0;
+        validQuizInput[2].correct = 0;
+    }
+
+    // verify inputs sent to question table
+    if (questionTxt = inputQuestionTxt.value.match(/^[a-zA-Z\ ]{3,50}$/i)) {
+        inputGreen(inputQuestionTxt);
+        validQuizInput[3].correct = 1;
+    } else {
+        inputRed(inputQuestionTxt);
+        validQuizInput[3].correct = 0;
+    }
+
+    if (questionPhoto = inputQuestionPhoto.value.match(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i)) {
+        inputGreen(inputQuestionPhoto);
+        validQuizInput[4].correct = 1;
+    } else {
+        inputRed(inputQuestionPhoto);
+        validQuizInput[4].correct = 0;
     }
 
 
 
-    
-    if (validQuizInput[0].correct == 1 && validQuizInput[1].correct == 1) {
-        quizName = inputQuizDesc.value;
-        quizDesc = inputQuizDesc.value;
-        quizPhoto = "/assets/img/img-quiz/" + inputQuizPhoto.files[0].name;  // !!! photos should already exist in the "img-quiz "folder
 
-        fetch('/new-quiz/', {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                "quizName" : quizName,
-                "quizDesc" : quizDesc,
-                "quizPhoto" : quizPhoto,
-            }),
-        })
-        .then((res) => {
-            console.log(res);
-        })
-        document.location.href = "/admin/";
+
+    // verify if all inputs are well filled
+    if (validQuizInput[0].correct == 1 && 
+        validQuizInput[1].correct == 1 && 
+        validQuizInput[2].correct == 1 &&
+        validQuizInput[3].correct == 1 &&
+        validQuizInput[4].correct == 1) {
+
+            // insert values of quiz
+            quizName = inputQuizDesc.value;
+            quizDesc = inputQuizDesc.value;
+            quizPhoto = "/assets/img/img-quiz/" + inputQuizPhoto.files[0].name;  // ! photos should already exist in the "img-quiz "folder
+
+            // insert values of question
+            questionTxt = inputQuestionTxt.value;
+            questionPhoto = "/assets/img/img-question/" + inputQuestionPhoto.files[0].name;
+
+            fetch('/new-quiz/', {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    "quizName" : quizName,
+                    "quizDesc" : quizDesc,
+                    "quizPhoto" : quizPhoto,
+                    "questionTxt" : questionTxt,
+                    "questionPhoto" : questionPhoto
+                }),
+            })
+            .then((res) => {
+                console.log(res);
+            })
+            document.location.href = "/admin/";
 
 
     }
