@@ -13,11 +13,7 @@ const quizMain = document.getElementById('quiz__main'),
       option2 = document.getElementById('option2'),
       option3 = document.getElementById('option3'),
       option4 = document.getElementById('option4'),
-      btnQuiz = document.getElementById('question-btn'),
-    // elements from the modal
-      btnStartGame = document.getElementById('quiz-start-main'),
-      overlay = document.getElementById('overlay'),
-      modal = document.getElementById('modal-delete');
+      btnQuiz = document.getElementById('question-btn');
       
 // get elements from endgame screen
 const endGameScreen = document.getElementById('endgame__main'),
@@ -29,11 +25,8 @@ const endGameScreen = document.getElementById('endgame__main'),
       replayBtn = document.getElementById('replay-btn'),
       bg = document.getElementById('bg-div');
 
-      let avrScore = 0;
-      let avrTime = 0;
-      let avrPercent= document.getElementById('avr-percent');
-      let avrRespPercent= document.getElementById('avr-resp-time');
-// _____questions counter to track the progress_____________________________
+
+// _____questions counter _____________________________
 let questionCount = 0;
 
 // _____creation of DIVs of tracker _____________________________
@@ -53,7 +46,6 @@ function trackerAppend (a) {
 };
 
 
-
 const createTrackers = () => {
     //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
     let quizId = document.querySelector("#quiz__main").dataset.id;
@@ -66,14 +58,15 @@ const createTrackers = () => {
         questions = res; 
         nOfQuestions = questions.length;
         trackerAppend(nOfQuestions);
-        questionsExist.innerHTML = nOfQuestions;
     });
 };
 createTrackers();
 
-
-
 // _____answer tracker : functions to change style _____________________________
+// const trackerActive = (t) => {
+//     t.classList.add('active');
+// }
+
 const trackerGreen = t => {
     t.classList.remove('active');
     t.classList.remove('wrong');
@@ -90,6 +83,7 @@ const cleanTracker = t => {
     t.classList.remove('correct');
     t.classList.remove('wrong');
 }
+
 
 
 
@@ -129,13 +123,12 @@ const cleanOptionStyles = (arr) => {
     });
 }
 
-
  
-// _____loading : set question, answers, timer_____________________________
+// _____loading of the question_____________________________
 
-const load = (a) => {
+const load = (a, b) => {
 
-    // timer on every load() launch
+    // _____ timer on every load() launch ____________________________
     timeLeft.innerText = '20';
     let timeCounter = 19;
     timerFunction = setInterval(() => {
@@ -149,7 +142,6 @@ const load = (a) => {
     if (seconds === "00") {
         clearInterval(timerFunction);
         a.forEach(e => {
-            e.classList.remove('active-option');
             e.classList.add('wrong-option');
             e.classList.add('pi-none');
         })
@@ -164,11 +156,10 @@ const load = (a) => {
         }
     }
     }, 1000);
+    //_____________________________
 
-
-    // clean all the options of answers, if they exist
+    // cleanTracker(statsTrackers[0/* number of question */]);
     cleanOptionStyles(answerOptions);
-
 
     //This gets the ID of the Quiz via the Main tag in Quiz.ejs 
     let quizId = document.querySelector("#quiz__main").dataset.id;
@@ -183,6 +174,7 @@ const load = (a) => {
 
         questionText.innerHTML = questions[questionCount].Question;
         questionImg.src = questions[questionCount].Question_Photo;
+        // console.table(questions);
         let answer = [];
         let questionId = questions[questionCount].Question_ID;
         questionsExist.innerHTML = nOfQuestions;
@@ -190,6 +182,7 @@ const load = (a) => {
         .then((res) => res.json())
         .then((res) =>{
             answer = res;
+            // console.table(answer);
             option1.innerHTML = answer[0].Answer;
             option2.innerHTML = answer[1].Answer;
             option3.innerHTML = answer[2].Answer;
@@ -199,18 +192,12 @@ const load = (a) => {
 }
 
 
-btnStartGame.addEventListener('click', () => {
-    overlay.classList.add('dnone');
-    modal.classList.add('dnone');
-    load(answerOptions);
-    // console.log(statsTrackers);
-})
 
 
 // _____main function for the button _____________________________
 let timerAverage = 0;
+load(answerOptions, statsTrackers[questionCount]);
 let correctAnswers = 0;
-
 btnQuiz.addEventListener('click', () => {
     let quizId = document.querySelector("#quiz__main").dataset.id;
     //It then generates the question through here
@@ -226,16 +213,15 @@ btnQuiz.addEventListener('click', () => {
         .then((res) => res.json())
         .then((res) =>{
             answer = res;
-            // console.table(answer);        
+            console.table(answer);        
 
-    
+    // if (answerOptions[0].classList.contains('wrong-option') && answerOptions[1].classList.contains('wrong-option')) {
+    //     console.log("A-HA!!!");
+
+    // }        
+
     // verification of the chosen answer is correct on click 
-    if (answerOptions[0].classList.contains('wrong-option') && answerOptions[1].classList.contains('wrong-option') && btnQuiz.innerHTML != "See results") {
-        load(answerOptions);
-        questionsLeft.innerHTML = questionCount + 1;
-        cleanTracker(statsTrackers[questionCount]);
-        btnQuiz.innerHTML = "See answer";
-    } else if (selectedAnswer.classList.contains('active-option')) {
+    if (selectedAnswer.classList.contains('active-option')) {
     // if correct -> apply green classes to tracker, to answer, concatenate correct answers
         if(answer[selectedAnswer.dataset.id].Correct_Or_Not === 1) {
             goGreen(selectedAnswer);
@@ -263,20 +249,20 @@ btnQuiz.addEventListener('click', () => {
         questionCount++;
     // if the correct answer is shown, we click to "refresh" the question -> adds new question and answers from DB; we take off all additional classes from answer options; change again the button text    
     } else if (btnQuiz.innerHTML === "Next question") {
-        load(answerOptions);
+        load(answerOptions, statsTrackers[questionCount]);
         questionsLeft.innerHTML = questionCount + 1;
         cleanTracker(statsTrackers[questionCount]);
         btnQuiz.innerHTML = "See answer";
     }
 
     // if there is no questions left, the button text transforms into "see results"
-    if (questionCount === nOfQuestions && btnQuiz.innerHTML != "See results") {
+    if (questionCount === nOfQuestions) {
         btnQuiz.innerHTML = "See results";
     } 
 
     // once there is no questions left and the "see results" button is clicked, ...
-    if (btnQuiz.innerHTML === "See results" && answerOptions[0].classList.contains('wrong-option') && answerOptions[1].classList.contains('wrong-option')) {
-        // btnQuiz.addEventListener('click', () => {
+    if ((questionCount === nOfQuestions && btnQuiz.innerHTML === "See results") || (answerOptions[0].classList.contains('wrong-option') && answerOptions[1].classList.contains('wrong-option') && btnQuiz.innerHTML === "See results")) {
+        btnQuiz.addEventListener('click', () => {
             // ... we hide the game screen and show the endgame container
             quizMain.classList.add('dnone');
             endGameScreen.classList.remove('dnone');
@@ -286,6 +272,8 @@ btnQuiz.addEventListener('click', () => {
             .then((res) => res.json())
             .then((res) => {
                 quiz = res;
+                // console.table(quiz); 
+                // console.log(quiz[0].Quiz_Photo);
                 bg.style.background = 'center/cover no-repeat url("' + quiz[0].Quiz_Photo + '")';
             })
             let averageTime = (20 - (timerAverage / nOfQuestions)).toFixed(2);
@@ -307,91 +295,6 @@ btnQuiz.addEventListener('click', () => {
                 console.log(res);
             })
             .then(res => res.json)
-
-            fetch('/quiz/avrscore/' + quizId)
-            .then(res => res.json())
-            .then(res => {
-                scoreCollect = res;
-             
-                for(let i= 0 ; i < scoreCollect.length ; i++) {     
-                    avrScore += scoreCollect[i].Total_Score;
-                    avrPercent.innerHTML = Math.round(avrScore * 100 / (nOfQuestions * i)); 
-               }
-                for(let i= 0 ; i < scoreCollect.length ; i++) {     
-                    avrTime += scoreCollect[i].Total_Time;
-                    avrRespPercent.innerHTML = (((avrTime / i).toFixed(2) )); 
-                    
-            }
-        })
-            // localStorage.setItem('Score', correctAnswers);
-            questYouHad.innerHTML = nOfQuestions;
-            let percent = correctAnswers * 100 / nOfQuestions;
-            yourPercent.innerHTML = percent.toFixed(0) + '%';
-            endGameAvrTime.innerHTML = (20 - (timerAverage / nOfQuestions)).toFixed(2);
-
-            // modification of starting phrase on endgame screen according to the percentage of correct answers
-            if (percent < 35) {
-                endGamePhrase.innerHTML = "Ooooups, your score is";
-            } else if (percent > 80) {
-                endGamePhrase.innerHTML = "Awesome! Your score is";
-            }
-            // Global averages here
-            
-
-            // refreshes page on "replay btn"
-            replayBtn.addEventListener('click', () => {
-                location.reload();
-            })
-        // })
-    } else if (btnQuiz.innerHTML === "See results") {
-        btnQuiz.addEventListener('click', () => {
-            // ... we hide the game screen and show the endgame container
-            quizMain.classList.add('dnone');
-            endGameScreen.classList.remove('dnone');
-            
-            // insert the image from the `quiz` DB as bg image for the quiz played
-            fetch('/quizz/' + quizId)
-            .then((res) => res.json())
-            .then((res) => {
-                quiz = res;
-                bg.style.background = 'center/cover no-repeat url("' + quiz[0].Quiz_Photo + '")';
-            })
-            let averageTime = (20 - (timerAverage / nOfQuestions)).toFixed(2);
-            // insertion of instant data into HTML (end game screen)
-            yourScore.innerHTML = correctAnswers;
-          
-            fetch('/quiz/score/',{
-                method: "POST",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  },
-                body: JSON.stringify({
-                    "correctAnswers" : correctAnswers,
-                    "averageTime" : averageTime,
-                    "quizId": quizId
-                })
-            }).then((res) =>{
-                console.log(res);
-            })
-            .then(res => res.json);
-            
-            fetch('/quiz/avrscore/' + quizId)
-            .then(res => res.json())
-            .then(res => {
-                scoreCollect = res;
-             
-                for(let i= 0 ; i < scoreCollect.length ; i++) {     
-                    avrScore += scoreCollect[i].Total_Score;
-                    avrPercent.innerHTML = Math.round(avrScore * 100 / (nOfQuestions * i)); 
-               }
-                for(let i= 0 ; i < scoreCollect.length ; i++) {     
-                    avrTime += scoreCollect[i].Total_Time;
-                    avrRespPercent.innerHTML = (((avrTime / i).toFixed(2) )); 
-                    
-            }
-        })
-
             // localStorage.setItem('Score', correctAnswers);
             questYouHad.innerHTML = nOfQuestions;
             let percent = correctAnswers * 100 / nOfQuestions;
@@ -415,4 +318,6 @@ btnQuiz.addEventListener('click', () => {
 })
 })
 //Send the score and time to the server
+
+
 

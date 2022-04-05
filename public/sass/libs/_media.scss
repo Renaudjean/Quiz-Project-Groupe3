@@ -84,11 +84,18 @@
         &> div {
             width: 100%;
         }
+        
+        .checkboxes {
+            height: 58%;
+            top: 280px;
+        }
     }
 
     .new__question > div:first-child {
         margin-bottom: 30px;
     }
+
+    
 
     // login page __________________
     .container.login {
@@ -219,7 +226,7 @@
         }
     }
 
-     // admin page ________________
+    // admin page ________________
      #modal-delete {
         min-width: 90%;
         max-width: 90%;
@@ -228,6 +235,15 @@
             margin-right: 0;
             margin-bottom: 20px;
         }
+    }
+
+    // new-quiz page ________________
+    .new__container.container {
+        padding: 60px 50px;
+    }
+
+    .new__section .checkboxes {
+        right: -35px;
     }
 }
 
