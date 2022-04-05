@@ -104,18 +104,10 @@ let quizName,
     correctOrNot,
     questionId;
 
-
-
-
 let validQuizInput = [
     { e: quizName, correct: 0 },
     { e: quizDesc, correct: 0 },
     { e: quizPhoto, correct: 0 },
-    // { questionTxt: [
-    //     {e: questionTxt, correct: 0},
-    //     {e: questionTxt, correct: 0},
-    //     {e: questionTxt, correct: 0}
-    // ]},
     { e: questionTxt, correct: 0 },
     { e: questionPhoto, correct: 0 }
 ];
@@ -133,7 +125,8 @@ const inputGreen = (e) => {
 submitQuizBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    // ________________verify inputs sent to quiz table
+    // ________________verify inputs sent to quiz table___________________
+
     if (quizName = inputQuizName.value.match(/^[a-zA-Z\ ]{3,50}$/i)) {
         inputGreen(inputQuizName);
         validQuizInput[0].correct = 1;
@@ -159,7 +152,8 @@ submitQuizBtn.addEventListener('click', (e) => {
         validQuizInput[2].correct = 0;
     }
 
-    // ________________verify inputs sent to question table
+    // ________________verify inputs sent to question table___________________
+
     // verify all question inputs
     let correctQuestionInputs = 0;
     for (let i = 0; i < allQuestionInputs.length; i++) {
@@ -186,38 +180,25 @@ submitQuizBtn.addEventListener('click', (e) => {
         }
 
         if (correctQuestionImgInputs === allQuestionImgInputs.length) {
-            validQuizInput[3].correct = 1;
+            validQuizInput[4].correct = 1;
         }
     }
 
 
-
-
-
-    // verify if all inputs are well filled
+    // verify if all inputs are well filled...
     if (validQuizInput[0].correct == 1 && 
         validQuizInput[1].correct == 1 && 
         validQuizInput[2].correct == 1 &&
         validQuizInput[3].correct == 1 &&
         validQuizInput[4].correct == 1) {
-
+    // .. if ok...
             // insert values of quiz
-            quizName = inputQuizDesc.value;
+            quizName = inputQuizName.value;
             quizDesc = inputQuizDesc.value;
             quizPhoto = "/assets/img/img-quiz/" + inputQuizPhoto.files[0].name;  // ! photos should already exist in the "img-quiz "folder
 
-            // insert values of question
-            questionTxt = inputQuestionTxt.value;
-            questionPhoto = "/assets/img/img-question/" + inputQuestionPhoto.files[0].name;
-            fetch('/new-quiz/getid')
-            .then((res) => res.json())
-            .then((res) => {
-                quiz = res;
-                console.log(quiz[0].Quiz_ID + 1);
-                questionQuizId = quiz[0].Quiz_ID + 1;
-            
-           
 
+            // __________the main fetch post that sends information to the db_______________________
             fetch('/new-quiz/', {
                 method: "POST",
                 headers: {
@@ -225,20 +206,38 @@ submitQuizBtn.addEventListener('click', (e) => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
+                    // here we send the infos concerning the table "quiz"
                     "quizName" : quizName,
                     "quizDesc" : quizDesc,
-                    "quizPhoto" : quizPhoto,
-                    "questionTxt" : questionTxt,
-                    "questionPhoto" : questionPhoto,
-                    "questionQuizId" : questionQuizId
+                    "quizPhoto" : quizPhoto
                 }),
             })
             .then((res) => {
-                console.log(res);
+                return res.json();
+            }) 
+            .then((res) => {
+                // here we send the infos concerning the table "question"; we use loop "for" to send the data as many times as needed (for as many questions as required)
+                // we do this fetch inside of the main fetch to access the instantly added quiz id 
+                for (let i = 0; i < allQuestionInputs.length; i++) {
+                    questionTxt = allQuestionInputs[i].value;
+                    questionPhoto = "/assets/img/img-question/" + allQuestionImgInputs[i].files[0].name;
+    
+                    fetch('/new-quiz/', {
+                        method: "POST",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            "questionTxt" : questionTxt,
+                            "questionPhoto" : questionPhoto,
+                            "questionQuizId" : res
+                        }),
+                    })
+                }
             })
-            document.location.href = "/admin/";
-            }) // <- closing of fetch of quiz id
-
+        // if data successfully sent, redirection to the admin page in 300ms
+        setTimeout(() => {document.location.href = "/admin/"}, 300);
     }
 })
 

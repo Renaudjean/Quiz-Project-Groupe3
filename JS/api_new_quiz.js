@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 let db = require('../database/database');
 
 module.exports.create_new_quiz = (req, response) => {
@@ -14,9 +15,22 @@ module.exports.create_new_quiz = (req, response) => {
     // let correctOrNot = req.body.correctOrNot
     // let questionId = req.body.questionId
 
-    db.query("INSERT INTO `quiz`(`Quiz_Name`, `Quiz_Description`, `Quiz_Photo`) VALUES (?, ?, ?)", [DBquizName, DBquizDesc, DBquizPhoto]); 
+    if (DBquizName && DBquizDesc && DBquizPhoto) {
+        db.query("INSERT INTO `quiz`(`Quiz_Name`, `Quiz_Description`, `Quiz_Photo`) VALUES (?, ?, ?)", [DBquizName, DBquizDesc, DBquizPhoto], function (err, row, fields) {
+            if (err) throw err;
+            console.log(row.insertId);
+            response.json(row.insertId);
+        })
+    } 
 
-    db.query("INSERT INTO `question`(`Question`, `Question_Photo`, `Quiz_ID`) VALUES (?, ?, ?)", [DBquestionTxt, DBquestionPhoto, DBquestionQuizId]);
+   if (DBquestionTxt && DBquestionPhoto && DBquestionQuizId) {
+        db.query("INSERT INTO `question`(`Question`, `Question_Photo`, `Quiz_ID`) VALUES (?, ?, ?)", [DBquestionTxt, DBquestionPhoto, DBquestionQuizId], function (err, row, fields) {
+            if (err) throw err;
+            response.json(row.insertId);
+        })
+   }
+
+    
     
     // db.query("INSERT INTO `answer`(`Answer`, `Option_Number`, `Correct_Or_Not`, `Question`) VALUES (?, ?, ?, ?)", [answerOption, optionNumber, correctOrNot, questionId]);
 
