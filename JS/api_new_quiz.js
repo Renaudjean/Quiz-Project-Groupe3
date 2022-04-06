@@ -12,7 +12,7 @@ module.exports.create_new_quiz = (req, response) => {
 
     let DBanswerOption = req.body.answerOption
     // let DBoptionNumber = req.body.optionNumber
-    // let DBcorrectOrNot = req.body.correctOrNot
+    let DBcorrectOrNot = req.body.correctOrNot
     let DBquestionId = req.body.questionId
 
     // query to insert quiz data
@@ -35,18 +35,10 @@ module.exports.create_new_quiz = (req, response) => {
 
    // query to insert answers data
     if (DBanswerOption) {
-        db.query("INSERT INTO `answer`(`Answer`, `Question`) VALUES (?, ?)", [DBanswerOption, DBquestionId], function (err, row, fields) {
+        db.query("INSERT INTO `answer`(`Answer`, `Question`, `Correct_Or_Not`) VALUES (?, ?, ?)", [DBanswerOption, DBquestionId, DBcorrectOrNot], function (err, row, fields) {
             if (err) throw err;
             console.log("answer id = " + row.insertId);
             response.json(row.insertId);
         });
     }
-    
-    // if (DBanswerOption && DBoptionNumber && DBcorrectOrNot && DBquestionId) {
-    //     db.query("INSERT INTO `answer`(`Answer`, `Option_Number`, `Correct_Or_Not`, `Question`) VALUES (?, ?, ?, ?)", [DBanswerOption, DBoptionNumber, DBcorrectOrNot, DBquestionId], function (err, row, fields) {
-    //         if (err) throw err;
-    //         console.log(row.insertId);
-    //         response.json(row.insertId);
-    //     });
-    // }
 }

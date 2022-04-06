@@ -20,8 +20,6 @@ addQuestBtn.addEventListener('click', () => {
     form.appendChild(clone);
     // counting the index of question section created
     nodeCounter++;
-    console.log(inputQuizPhoto);
-    console.log(bool1);
 
     // get all nodelists of used elements: all question sections, all question numerotations, all inputs & textareas (last two are merged into a single array)
     let selectAllClones = document.querySelectorAll('.new__question'),
@@ -65,7 +63,8 @@ addQuestBtn.addEventListener('click', () => {
     allQuestionInputs = document.querySelectorAll('.question-input');
     allQuestionImgInputs = document.querySelectorAll('.question-img-input');
     allAnswerInputs = document.querySelectorAll('.answer-option');
-    console.log(allAnswerInputs);
+    allCheckboxInputs = document.querySelectorAll('.checkbox');
+    console.log(allCheckboxInputs);
 })
 
 
@@ -100,7 +99,7 @@ let quizName,
     questionPhoto,
     questionQuizId,
     answerOption,
-    optionNumber,
+    // optionNumber,
     correctOrNot,
     questionId;
 
@@ -112,8 +111,6 @@ let validQuizInput = [
     { e: questionPhoto, correct: 0 },
     { e: answerOption, correct: 0 }
 ];
-
-console.log(validQuizInput);
 
 //functions to add styles to the inputs well filled/not
 const inputRed = (e) => {
@@ -282,10 +279,18 @@ submitQuizBtn.addEventListener('click', (e) => {
                             a++;
                         }
 
+                        // if a checkbox element from an array (with the same id as answer option) is checked => means that this is the correct option, should insert '1' into DB, otherwise '0'
+                        if (allCheckboxInputs[i].checked) {
+                            correctOrNot = 1;
+                        } else {
+                            correctOrNot = 0;
+                        }
+
                         // .... so to understand what question ID we should insert to the first 4 answer options, we take 'last inserted question id' minus 'number of questions inserted during this quiz (+ a, so that every time answer id 1 happens -> we pass to a next question)'
                         questionId = quest[0].Question_ID - allQuestionImgInputs.length + a;
                         answerOption = allAnswerInputs[i].value;
-    
+
+                        // final insertion of answer options
                         fetch('/new-quiz/', {
                             method: "POST",
                             headers: {
@@ -295,7 +300,8 @@ submitQuizBtn.addEventListener('click', (e) => {
                             body: JSON.stringify({
                                 // here we send the infos concerning the table "answer"
                                 "answerOption" : answerOption,
-                                "questionId" : questionId
+                                "questionId" : questionId,
+                                "correctOrNot" : correctOrNot
                             }),
                         })
                         .then((res) => {

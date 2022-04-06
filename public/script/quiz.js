@@ -386,7 +386,7 @@ btnQuiz.addEventListener('click', () => {
              
                 for(let i= 0 ; i < scoreCollect.length ; i++) {     
                     avrScore += scoreCollect[i].Total_Score;
-                    avrPercent.innerHTML = Math.round(avrScore * 100 / (nOfQuestions * i)); 
+                    avrPercent.innerHTML = Math.round((avrScore * 100) / (scoreCollect.length * nOfQuestions));
                }
                 for(let i= 0 ; i < scoreCollect.length ; i++) {     
                     avrTime += scoreCollect[i].Total_Time;
