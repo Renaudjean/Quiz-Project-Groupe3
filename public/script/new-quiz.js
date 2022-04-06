@@ -65,7 +65,7 @@ addQuestBtn.addEventListener('click', () => {
     allQuestionInputs = document.querySelectorAll('.question-input');
     allQuestionImgInputs = document.querySelectorAll('.question-img-input');
     allAnswerInputs = document.querySelectorAll('.answer-option');
-    console.log(allQuestionImgInputs);
+    console.log(allAnswerInputs);
 })
 
 
@@ -109,7 +109,8 @@ let validQuizInput = [
     { e: quizDesc, correct: 0 },
     { e: quizPhoto, correct: 0 },
     { e: questionTxt, correct: 0 },
-    { e: questionPhoto, correct: 0 }
+    { e: questionPhoto, correct: 0 },
+    { e: answerOption, correct: 0 }
 ];
 
 console.log(validQuizInput);
@@ -127,7 +128,7 @@ submitQuizBtn.addEventListener('click', (e) => {
 
     // ________________verify inputs sent to quiz table___________________
 
-    if (quizName = inputQuizName.value.match(/^[a-zA-Z\ ]{3,50}$/i)) {
+    if (quizName = inputQuizName.value) {
         inputGreen(inputQuizName);
         validQuizInput[0].correct = 1;
         
@@ -136,7 +137,7 @@ submitQuizBtn.addEventListener('click', (e) => {
         validQuizInput[0].correct = 0;
     }
 
-    if (quizDesc = inputQuizDesc.value.match(/^[a-zA-Z\ ]{3,50}$/i)) {
+    if (quizDesc = inputQuizDesc.value) {
         inputGreen(inputQuizDesc);
         validQuizInput[1].correct = 1;
     } else {
@@ -144,7 +145,7 @@ submitQuizBtn.addEventListener('click', (e) => {
         validQuizInput[1].correct = 0;
     }
 
-    if (quizPhoto = inputQuizPhoto.value.match(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i)) {
+    if (quizPhoto = inputQuizPhoto.value.match(/([a-zA-Z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i)) {
         inputGreen(inputQuizPhoto);
         validQuizInput[2].correct = 1;
     } else {
@@ -157,7 +158,7 @@ submitQuizBtn.addEventListener('click', (e) => {
     // verify all question inputs
     let correctQuestionInputs = 0;
     for (let i = 0; i < allQuestionInputs.length; i++) {
-        if (questionTxt = allQuestionInputs[i].value.match(/^[a-zA-Z\ ]{3,50}$/i)) {
+        if (questionTxt = allQuestionInputs[i].value) {
             inputGreen(allQuestionInputs[i]);
             correctQuestionInputs++;
         } else {
@@ -172,7 +173,7 @@ submitQuizBtn.addEventListener('click', (e) => {
     // verify all question img inputs
     let correctQuestionImgInputs = 0;
     for (let i = 0; i < allQuestionImgInputs.length; i++) {
-        if (questionPhoto = allQuestionImgInputs[i].value.match(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i)) {
+        if (questionPhoto = allQuestionImgInputs[i].value.match(/([a-zA-Z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i)) {
             inputGreen(allQuestionImgInputs[i]);
             correctQuestionImgInputs++;
         } else {
@@ -185,20 +186,43 @@ submitQuizBtn.addEventListener('click', (e) => {
     }
 
 
+    // ________________verify inputs sent to question table___________________
+
+    // verify all answer inputs allAnswerInputs
+    let correctAnswerInputs = 0;
+    for (let i = 0; i < allAnswerInputs.length; i++) {
+        if (answerOption = allAnswerInputs[i].value) {
+            inputGreen(allAnswerInputs[i]);
+            correctAnswerInputs++;
+        } else {
+            inputRed(allAnswerInputs[i]);
+        }
+
+        if (correctAnswerInputs === allAnswerInputs.length) {
+            validQuizInput[5].correct = 1;
+        }
+    }
+
+
     // verify if all inputs are well filled...
-    if (validQuizInput[0].correct == 1 && 
-        validQuizInput[1].correct == 1 && 
-        validQuizInput[2].correct == 1 &&
-        validQuizInput[3].correct == 1 &&
-        validQuizInput[4].correct == 1) {
+    if (validQuizInput[0].correct == 1 && // quiz name
+        validQuizInput[1].correct == 1 && // quiz descr
+        validQuizInput[2].correct == 1 && // quiz photo
+        validQuizInput[3].correct == 1 && // quest title
+        validQuizInput[4].correct == 1 && // quest photo
+        validQuizInput[5].correct == 1) { // answer
     // .. if ok...
             // insert values of quiz
             quizName = inputQuizName.value;
             quizDesc = inputQuizDesc.value;
             quizPhoto = "/assets/img/img-quiz/" + inputQuizPhoto.files[0].name;  // ! photos should already exist in the "img-quiz "folder
 
+            
+            let listOfQuestIds = []; // array that will keep all IDs of the inserted questions (to insert in answers)
+
 
             // __________the main fetch post that sends information to the db_______________________
+            
             fetch('/new-quiz/', {
                 method: "POST",
                 headers: {
@@ -217,7 +241,7 @@ submitQuizBtn.addEventListener('click', (e) => {
             }) 
             .then((res) => {
                 // here we send the infos concerning the table "question"; we use loop "for" to send the data as many times as needed (for as many questions as required)
-                // we do this fetch inside of the main fetch to access the instantly added quiz id 
+                // we do this fetch inside of the main fetch to access to the instantly added quiz id 
                 for (let i = 0; i < allQuestionInputs.length; i++) {
                     questionTxt = allQuestionInputs[i].value;
                     questionPhoto = "/assets/img/img-question/" + allQuestionImgInputs[i].files[0].name;
@@ -229,15 +253,53 @@ submitQuizBtn.addEventListener('click', (e) => {
                             "Content-Type": "application/json",
                         },
                         body: JSON.stringify({
+                            // here we send the infos concerning the table "question"
                             "questionTxt" : questionTxt,
                             "questionPhoto" : questionPhoto,
                             "questionQuizId" : res
                         }),
                     })
+                    .then((res) => {
+                        return res.json();
+                    }) 
+                    .then((res) => {
+                        listOfQuestIds.push(res);
+                        console.log(res);
+                        console.log(listOfQuestIds);
+
+                    })
                 }
+                        // *************************************************************
+                        for (let i = 0; i < allAnswerInputs.length; i++) {
+                            answerOption = allAnswerInputs[i].value;
+                            questionId = 10;
+            
+                            fetch('/new-quiz/', {
+                                method: "POST",
+                                headers: {
+                                    Accept: "application/json",
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                    // here we send the infos concerning the table "answer"
+                                    "answerOption" : answerOption,
+                                    "questionId" : questionId
+                                }),
+                            })
+                            .then((res) => {
+                                return res.json();
+                            }) 
+                            // .then((res) => {
+                            //     listOfQuestIds.push(res);
+                            //     console.log(res);
+                            //     console.log(listOfQuestIds);
+                            // })
+                        }
+                    // })
+                // }
             })
         // if data successfully sent, redirection to the admin page in 300ms
-        setTimeout(() => {document.location.href = "/admin/"}, 300);
+        // setTimeout(() => {document.location.href = "/admin/"}, 300);
     }
 })
 
