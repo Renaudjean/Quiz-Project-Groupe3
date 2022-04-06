@@ -8,6 +8,5 @@ module.exports.answers_Update = (req, response) => {
     db.query('SELECT `ANS_ID`, `Answer`, `Option_Number`, `Correct_Or_Not`, `Question` FROM `answer` WHERE `Question` = ?', [qID], function (err, row, fields){
         if (err) throw err;
         response.json(row);
-
     })
 }
