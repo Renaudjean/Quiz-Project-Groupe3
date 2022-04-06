@@ -1,11 +1,10 @@
-let score = document.querySelectorAll("bestScores");
-let time = document.querySelectorAll("avrTime");
-
 let divQuiz=document.querySelectorAll("div.quizz");
 let bestScore = document.getElementsByClassName('bestScores');
+let avrTime = document.getElementsByClassName("avrTime");
 let overAlls= document.getElementsByClassName('OverAlls');
 let divHeader= document.querySelector("#iduser");
 let allscores= [];
+let timeContainer = [];
 //  quiz_ID.push();
 // let test = quiz_ID[0].dataset.id
 
@@ -27,8 +26,9 @@ let allscores= [];
     .then (res => {
         scores = res;
         allscores.push(scores.Total_Score);
-        console.log(allscores[i]);
-
+        timeContainer.push(scores.Total_Time);
+        console.log(timeContainer[i]);
+       
         fetch('/score/bestscore/scorelimit',{ 
             method: "POST",
         headers: {
@@ -44,8 +44,10 @@ let allscores= [];
             overall = res;
             if(allscores[i] == undefined  ){
             bestScore[i].innerHTML =" Come back when you've finish it! :D" 
+            avrTime[i].innerHTML = " Can't time how fast you are without completing it." 
         }else{
             bestScore[i].innerHTML ="Your best score is " + allscores[i] + " out of " + overall.Overall; 
+            avrTime[i].innerHTML = "Average time: " + timeContainer[i] + "s per question";
         }
         })
         
