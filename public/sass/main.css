@@ -852,6 +852,14 @@ button[type=submit] {
           transform: translateX(-50%);
 }
 
+#test {
+  margin: 0 auto;
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
 /*______________general_css________________*/
 body {
   font-family: "Exo 2", sans-serif;
