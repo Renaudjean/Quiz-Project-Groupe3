@@ -307,7 +307,7 @@ btnQuiz.addEventListener('click', () => {
             }).then((res) =>{
                 console.log(res);
             })
-            .then(res => res.json)
+            .then(res => res.json);
 
             fetch('/quiz/avrscore/' + quizId)
             .then(res => res.json())
