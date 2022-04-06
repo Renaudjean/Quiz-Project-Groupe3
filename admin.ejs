@@ -23,8 +23,10 @@
                                 <h2 class="h2-quiz"><%= q.Quiz_Name %></h2>
                                 <p class="p-quiz"><%= q.Quiz_Description%></p>
                                 <div class="admin__btn-wrapper dflex">
-                                    <a href="update-quiz" class="btn-secondary edit" <%= q.Quiz_ID%>> Edit </a>
-                                    <a data-id="<%= q.Quiz_ID%>" href="update-quiz/<%= q.Quiz_ID%>" class="btn-secondary edit">Edit</a>
+                                    
+                                    <a href="update-quiz?id=<%= q.Quiz_ID%>" class="btn-secondary edit" <%= q.Quiz_ID%>> Edit </a>
+
+                                    <!-- <a data-id="<%= q.Quiz_ID%>" href="update-quiz/<%= q.Quiz_ID%>" class="btn-secondary edit">Edit</a> -->
                                     <a href="" data-id="<%= q.Quiz_ID%>"  class="btn-secondary delete">Delete</a>
                                 </div>
                             </div>
