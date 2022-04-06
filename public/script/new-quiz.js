@@ -264,39 +264,45 @@ submitQuizBtn.addEventListener('click', (e) => {
                     }) 
                     .then((res) => {
                         listOfQuestIds.push(res);
-                        console.log(res);
                         console.log(listOfQuestIds);
-
                     })
                 }
-                        // *************************************************************
-                        for (let i = 0; i < allAnswerInputs.length; i++) {
-                            answerOption = allAnswerInputs[i].value;
-                            questionId = 10;
-            
-                            fetch('/new-quiz/', {
-                                method: "POST",
-                                headers: {
-                                    Accept: "application/json",
-                                    "Content-Type": "application/json",
-                                },
-                                body: JSON.stringify({
-                                    // here we send the infos concerning the table "answer"
-                                    "answerOption" : answerOption,
-                                    "questionId" : questionId
-                                }),
-                            })
-                            .then((res) => {
-                                return res.json();
-                            }) 
-                            // .then((res) => {
-                            //     listOfQuestIds.push(res);
-                            //     console.log(res);
-                            //     console.log(listOfQuestIds);
-                            // })
+
+                // *************************************************************
+
+                let a = 0; // this variable will ++ every time the answer dataset id === 1 -> meaning that it is the next question
+                for (let i = 0; i < allAnswerInputs.length; i++) {
+                    // we first fetch the id of last inserted question in the DB (and since questions are inserted before answers, it will be the id of our lastly added question in the given quiz).....
+                    fetch('/new-quiz/getquestid')
+                    .then((res) => res.json())
+                    .then((res) => {
+                        quest = res;
+                        
+                        if (allAnswerInputs[i].dataset.id === '1') {
+                            a++;
                         }
-                    // })
-                // }
+
+                        // .... so to understand what question ID we should insert to the first 4 answer options, we take 'last inserted question id' minus 'number of questions inserted during this quiz (+ a, so that every time answer id 1 happens -> we pass to a next question)'
+                        questionId = quest[0].Question_ID - allQuestionImgInputs.length + a;
+                        answerOption = allAnswerInputs[i].value;
+    
+                        fetch('/new-quiz/', {
+                            method: "POST",
+                            headers: {
+                                Accept: "application/json",
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                // here we send the infos concerning the table "answer"
+                                "answerOption" : answerOption,
+                                "questionId" : questionId
+                            }),
+                        })
+                        .then((res) => {
+                            return res.json();
+                        }) 
+                    })
+                }
             })
         // if data successfully sent, redirection to the admin page in 300ms
         // setTimeout(() => {document.location.href = "/admin/"}, 300);
