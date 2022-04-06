@@ -10,65 +10,29 @@
         <div class="container">
             <div class="fond">
                 <div class="cont_add-new_quiz">
-                    <h1 class="h1">Hello, <%= locals.session.user %> </h1>
+                    <h1 id = "iduser" class="h1" data-user="<%= locals.session.user %>"> Hello, <%= locals.session.userName %> </h1>
                 </div>
                 <p class="p_admin">Quizes you’ve already done:</p>
                 <div class="flex-quiz">
-                    <div class="quizz ad">
-                        <div class="score_content">
-                            <h2 class="h2-quiz ad">Quiz Capitals</h2>
+                    <% for(q of quiz) { %> 
+                    <div class="quizz ad" data-id="<%= q.Quiz_ID %>">
+                        <div class="score_content" >
+                            <h2 class="h2-quiz ad"  >Quiz <%= q.Quiz_Name %></h2>
                             <div class="dflex score">
                                 <img src="/assets/img/star.png" alt="star">
-                                <p>Your best score: 8 out of 10</p>
+                                <p class="bestScores"> </p>
                             </div>
                             <div class="dflex score">
                                 <img src="/assets/img/star.png" alt="star">
-                                <p>Average time: 5.84s per question</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="quizz ad">
-                        <div class="score_content">
-                            <h2 class="h2-quiz ad">Quiz Movies</h2>
-                            <div class="dflex score">
-                                <img src="/assets/img/star.png" alt="star">
-                                <p>Your best score: 8 out of 10</p>
-                            </div>
-                            <div class="dflex score">
-                                <img src="/assets/img/star.png" alt="star">
-                                <p>Average time: 5.84s per question</p>
+                                <p class="avrTime">Average time: 5.84s per question</p>
                             </div>
                         </div>
                     </div>
-                    <div class="quizz ad">
-                        <div class="score_content">
-                            <h2 class="h2-quiz ad">Quiz Personality</h2>
-                            <div class="dflex score">
-                                <img src="/assets/img/star.png" alt="star">
-                                <p>Your best score: 8 out of 10</p>
-                            </div>
-                            <div class="dflex score">
-                                <img src="/assets/img/star.png" alt="star">
-                                <p>Average time: 5.84s per question</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="quizz ad">
-                        <div class="score_content">
-                            <h2 class="h2-quiz ad">Quiz to come up</h2>
-                            <div class="dflex score">
-                                <img src="/assets/img/star.png" alt="star">
-                                <p>Your best score: 8 out of 10</p>
-                            </div>
-                            <div class="dflex score">
-                                <img src="/assets/img/star.png" alt="star">
-                                <p>Average time: 5.84s per question</p>
-                            </div>
-                        </div>
-                    </div>
+                    <% } %> 
                 </div>
             </div>
         </div>
     </main>
+    <script src="/assets/script/score.js"> </script>
 </body>
 </html>
