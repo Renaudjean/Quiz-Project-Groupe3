@@ -20,7 +20,6 @@ module.exports.best_Score_Page = (req, response) => {
 }
 module.exports.noQuestion = (req, response) => {
     let quizId = req.body.quizId
-    console.log(quizId)
     db.query('SELECT COUNT(`Question`) AS Overall FROM `question` WHERE `Quiz_ID` = ?', [quizId], function (err, row, fields) {
         if (err) throw err;
        console.log(row[0].Overall);
