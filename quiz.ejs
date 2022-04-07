@@ -8,7 +8,7 @@
 <body>
     <%- include('page/templates/header-shown') %>
     <!-- SCREEN OF QUIZ -->
-    <main id="quiz__main" data-id= "<%= quiz.Quiz_ID %>">
+    <main id="quiz__main" data-id= "<%= quiz.Quiz_ID %>" data-user="<%= locals.session.user %>">
         <div class="container" id="quiz__main-screen">
             <div class="stats dflex">
                 <div class="stats__questions">
