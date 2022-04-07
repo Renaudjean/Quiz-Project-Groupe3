@@ -311,7 +311,7 @@ submitQuizBtn.addEventListener('click', (e) => {
                 }
             })
         // if data successfully sent, redirection to the admin page in 300ms
-        // setTimeout(() => {document.location.href = "/admin/"}, 300);
+        setTimeout(() => {document.location.href = "/admin/"}, 300);
     }
 })
 

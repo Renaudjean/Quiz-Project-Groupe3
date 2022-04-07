@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 01 avr. 2022 à 07:02
+-- Généré le : jeu. 07 avr. 2022 à 14:33
 -- Version du serveur : 8.0.21
 -- Version de PHP : 7.4.27
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `account` (
   `Password` varchar(255) NOT NULL,
   `AccountType` int NOT NULL COMMENT 'PER_ID',
   PRIMARY KEY (`AC_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `account`
@@ -46,7 +46,8 @@ CREATE TABLE IF NOT EXISTS `account` (
 INSERT INTO `account` (`AC_ID`, `Email`, `UserName`, `FirstName`, `LastName`, `Password`, `AccountType`) VALUES
 (1, 'eric@live.fr', 'eric', 'eric', 'oriez', '123456', 1),
 (2, 'ana@live.fr', 'ana', 'ana', 'ana', '123456', 1),
-(3, 'reno@live.fr', 'scrummaster', 'reno', 'reno', '123456', 1);
+(3, 'reno@live.fr', 'scrummaster', 'reno', 'reno', '123456', 1),
+(5, 'ana@gmail.com', 'ana123', 'Ana', 'Aaaa', '123456', 0);
 
 -- --------------------------------------------------------
 
@@ -76,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `Correct_Or_Not` tinyint(1) NOT NULL,
   `Question` int NOT NULL COMMENT 'Question_ID',
   PRIMARY KEY (`ANS_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=129 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=215 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `answer`
@@ -210,7 +211,71 @@ INSERT INTO `answer` (`ANS_ID`, `Answer`, `Option_Number`, `Correct_Or_Not`, `Qu
 (125, '72', 1, 0, 32),
 (126, '81', 2, 0, 32),
 (127, '90', 3, 1, 32),
-(128, '104', 4, 0, 32);
+(128, '104', 4, 0, 32),
+(148, 'Grover Cleveland', 0, 1, 37),
+(147, 'James A. Garfield', 0, 0, 37),
+(146, 'John F. Kennedy', 0, 0, 37),
+(145, 'Benjamin Harrison', 0, 0, 37),
+(150, 'A savoury sauce of melted cheese and other ingredients, served hot on toast', 0, 0, 38),
+(149, 'A relish of chopped pickled vegetables and spice', 0, 1, 38),
+(151, 'Finely shredded cabbage, fermented by various lactic acid bacteria', 0, 0, 38),
+(152, 'Rice, cooked flaked fish & hard boiled eggs', 0, 0, 38),
+(153, 'Philippines', 0, 0, 39),
+(154, 'Turkey', 0, 0, 39),
+(155, 'Spain', 0, 0, 39),
+(156, 'Greece', 0, 1, 39),
+(157, '180', 0, 0, 40),
+(158, '360', 0, 0, 40),
+(159, '540', 0, 1, 40),
+(160, '1080', 0, 0, 40),
+(161, 'Michigan', 0, 0, 41),
+(162, 'Massachusetts', 0, 1, 41),
+(163, 'Indiana', 0, 0, 41),
+(164, 'Tennessee', 0, 0, 41),
+(165, 'Bay of Naples', 0, 1, 42),
+(166, 'Copacabana Beach', 0, 0, 42),
+(167, 'Mexico City', 0, 0, 42),
+(168, 'The island of Penang', 0, 0, 42),
+(169, 'Cat scratch fever', 0, 0, 43),
+(170, 'Psittacosis', 0, 0, 43),
+(171, 'Measles', 0, 0, 43),
+(172, 'Myxomatosis', 0, 1, 43),
+(173, 'Exercise', 0, 0, 44),
+(174, 'Soil', 0, 1, 44),
+(175, 'Bicycles', 0, 0, 44),
+(176, 'Feet', 0, 0, 44),
+(177, 'Cox\'s Orange Pippin', 0, 0, 45),
+(178, 'Golden Delicious', 0, 0, 45),
+(179, 'Gravenstein', 0, 0, 45),
+(187, 'Argon', 0, 0, 46),
+(188, 'Helium', 0, 1, 46),
+(189, 'Xenon', 0, 0, 46),
+(190, 'Krypton', 0, 0, 46),
+(186, 'Granny Smith', 0, 1, 45),
+(191, 'Bodyguards', 0, 1, 47),
+(192, 'Doctors', 0, 0, 47),
+(193, 'Minstrels', 0, 0, 47),
+(194, 'Actors', 0, 0, 47),
+(195, 'Ammonia', 0, 1, 48),
+(196, 'Chlorine', 0, 0, 48),
+(197, 'Naphthalene', 0, 0, 48),
+(198, 'Turpentine', 0, 0, 48),
+(199, '40 to 45 days', 0, 0, 49),
+(200, '10 to 11 days', 0, 1, 49),
+(201, '2 days', 0, 0, 49),
+(202, '6 hours', 0, 0, 49),
+(203, 'Antonio Gaudi', 0, 1, 50),
+(204, 'Frank Lloyd Wright', 0, 0, 50),
+(205, 'Georges-Eugène Haussmann', 0, 0, 50),
+(206, 'Christopher Wren', 0, 0, 50),
+(207, 'Red Sea', 0, 0, 51),
+(208, 'Bering Sea', 0, 0, 51),
+(209, 'Kara Sea', 0, 0, 51),
+(210, 'Tasman Sea', 0, 1, 51),
+(211, '8', 0, 0, 52),
+(212, '12', 0, 0, 52),
+(213, '24', 0, 1, 52),
+(214, '120', 0, 0, 52);
 
 -- --------------------------------------------------------
 
@@ -240,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `Answer` int NOT NULL COMMENT 'ANS_ID',
   `Quiz_ID` int NOT NULL,
   PRIMARY KEY (`Question_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `question`
@@ -278,7 +343,23 @@ INSERT INTO `question` (`Question_ID`, `Question`, `Question_Photo`, `Answer`, `
 (29, 'What is the name of Studio Ghibli’s well-known mascot?', '/assets/img/img-question/question-29-ghibli.jpg', 116, 4),
 (30, 'Yubaba is a witch in which animated film written and directed by Hayao Miyazaki?', '/assets/img/img-question/question-30-yubaba.jpg', 117, 4),
 (31, 'In \"Naruto\", the main character is a host for the powerful Nine-Tales. What creature is the Nine-Tails?', '/assets/img/img-question/question-31-naruto.jpg', 122, 4),
-(32, 'In \"Howl’s Moving Castle\", Sophie is transformed into an old woman by a witch. How old is Sophie as an old woman?', '/assets/img/img-question/question-32-castle.jpeg', 127, 4);
+(32, 'In \"Howl’s Moving Castle\", Sophie is transformed into an old woman by a witch. How old is Sophie as an old woman?', '/assets/img/img-question/question-32-castle.jpeg', 127, 4),
+(37, 'Who is the only US president to have served two non-consecutive terms and is therefore counted as both the 22nd and 24th president?', '/assets/img/img-question/quiz-general-1.png', 0, 7),
+(38, 'What is the dish called \"Piccalilli\"?', '/assets/img/img-question/quiz-general-2.jpg', 0, 7),
+(39, 'Which country governs such islands as Lesbos, Corfu, Lemnos, Andros and others?', '/assets/img/img-question/quiz-general-3.jpg', 0, 7),
+(40, 'The internal angles of a pentagon add up to how many degrees?', '/assets/img/img-question/quiz-general-4.jpg', 0, 7),
+(41, 'In which state of the USA is the private research university known as M. I. T.?', '/assets/img/img-question/quiz-general-5.png', 0, 7),
+(42, 'Mount Vesuvius overlooks what area?', '/assets/img/img-question/quiz-general-6.jpg', 0, 7),
+(43, 'Which virus spread by fleas was deliberately introduced into Australia to control rabbits in 1951?', '/assets/img/img-question/quiz-general-7.jpg', 0, 7),
+(44, 'Pedology is the study of what?', '/assets/img/img-question/quiz-general-8.jpg', 0, 7),
+(45, 'What type of apple is on the Apple Records logo?', '/assets/img/img-question/quiz-general-9.jpg', 0, 7),
+(46, 'What is the lightest noble gas?', '/assets/img/img-question/quiz-general-10.jpg', 0, 7),
+(47, 'In the Middle Ages, what were \"hauskarls\"?', '/assets/img/img-question/quiz-general-11.jpg', 0, 7),
+(48, 'What is the common name of the chemical NH3, which is found in cleaning products?', '/assets/img/img-question/quiz-general-12.jpg', 0, 7),
+(49, 'Meat is usually \"hung\" after the animal is killed to improve tenderness and flavour. The recommended time differs according to the meat; how long is the usual minimum for which beef is \"hung\"?', '/assets/img/img-question/quiz-general-13.jpg', 0, 7),
+(50, 'Which of these has had the most influence on the architecture of Barcelona?', '/assets/img/img-question/quiz-general-14.jpg', 0, 7),
+(51, 'Which of these seas is not on the coast of Asia?', '/assets/img/img-question/quiz-general-15.jpg', 0, 7),
+(52, 'What number is the factorial of 4?', '/assets/img/img-question/quiz-general-16.jpg', 0, 7);
 
 -- --------------------------------------------------------
 
@@ -294,7 +375,7 @@ CREATE TABLE IF NOT EXISTS `quiz` (
   `Quiz_Photo` text NOT NULL,
   `Score` int NOT NULL COMMENT 'SC_ID',
   PRIMARY KEY (`Quiz_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `quiz`
@@ -304,7 +385,8 @@ INSERT INTO `quiz` (`Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo`, `S
 (1, 'Capitals', 'Sure you know all the countries\' capitals of the world? Challenge yourself!', '/assets/img/img-quiz/quiz-capitals.jpg', 0),
 (2, 'Movies', 'Love movies? Me too! Let\'s see if you pay attention while watching!', '/assets/img/img-quiz/quiz-movies.jpg', 0),
 (3, 'Personalities', 'World\'s top influencers and personalities: do you know them?', '/assets/img/img-quiz/quiz-personality.jpg', 0),
-(4, 'Anime', 'Enjoy Japanese anime movies? Let\'s find out if you know the well!', '/assets/img/img-quiz/quiz-anime.jpg', 0);
+(4, 'Anime', 'Enjoy Japanese anime movies? Let\'s find out if you know the well!', '/assets/img/img-quiz/quiz-anime.jpg', 0),
+(7, 'General knowledge', 'Test your knowledge on physics, maths, politics, geography, etc...', '/assets/img/img-quiz/quiz-general.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -316,18 +398,98 @@ DROP TABLE IF EXISTS `score`;
 CREATE TABLE IF NOT EXISTS `score` (
   `SC_ID` int NOT NULL AUTO_INCREMENT,
   `Total_Score` int NOT NULL,
-  `Total_Time` decimal(10,0) NOT NULL,
+  `Total_Time` float NOT NULL,
   `Quiz` int NOT NULL COMMENT 'Quiz_ID',
+  `AC_ID` int NOT NULL,
   PRIMARY KEY (`SC_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `score`
 --
 
-INSERT INTO `score` (`SC_ID`, `Total_Score`, `Total_Time`, `Quiz`) VALUES
-(1, 5, '4', 1),
-(2, 10, '4', 2);
+INSERT INTO `score` (`SC_ID`, `Total_Score`, `Total_Time`, `Quiz`, `AC_ID`) VALUES
+(1, 5, 4, 1, 0),
+(2, 10, 4, 2, 0),
+(3, 2, 1, 1, 0),
+(4, 5, 2, 1, 0),
+(5, 5, 2, 1, 0),
+(6, 5, 2, 1, 0),
+(7, 4, 2, 1, 0),
+(8, 1, 0, 1, 0),
+(9, 1, 0, 1, 0),
+(10, 3, 1, 1, 0),
+(11, 2, 1, 1, 0),
+(12, 2, 1, 1, 0),
+(13, 3, 1, 1, 0),
+(14, 4, 1, 1, 0),
+(15, 3, 1, 1, 0),
+(16, 3, 1, 1, 0),
+(17, 4, 1, 1, 0),
+(18, 4, 1, 1, 0),
+(19, 3, 1, 1, 0),
+(20, 3, 1, 1, 0),
+(21, 4, 2, 1, 0),
+(22, 4, 2, 1, 0),
+(23, 3, 1, 1, 0),
+(24, 3, 1, 1, 0),
+(25, 4, 2, 1, 0),
+(26, 4, 2, 1, 0),
+(27, 6, 2, 1, 0),
+(28, 6, 2, 1, 0),
+(29, 4, 1, 1, 0),
+(30, 1, 1, 1, 0),
+(31, 1, 1, 1, 0),
+(32, 2, 1, 1, 0),
+(33, 2, 1, 1, 0),
+(34, 2, 1, 1, 0),
+(35, 2, 1, 1, 0),
+(36, 1, 0, 1, 0),
+(37, 1, 0, 1, 0),
+(38, 2, 0, 1, 0),
+(39, 3, 1, 1, 0),
+(40, 3, 1, 1, 0),
+(41, 3, 1, 1, 0),
+(42, 1, 1, 1, 0),
+(43, 1, 1, 1, 0),
+(44, 4, 1, 1, 0),
+(45, 4, 1, 1, 0),
+(46, 3, 1, 1, 0),
+(47, 3, 1, 1, 0),
+(48, 6, 1, 1, 0),
+(49, 6, 1, 1, 0),
+(50, 5, 1, 1, 0),
+(51, 6, 2, 1, 0),
+(52, 6, 1, 1, 0),
+(53, 6, 1, 1, 0),
+(54, 2, 0.83, 1, 0),
+(55, 6, 1, 1, 0),
+(56, 6, 1, 1, 0),
+(57, 6, 1, 1, 0),
+(58, 6, 1, 1, 0),
+(59, 5, 1, 1, 0),
+(60, 6, 1, 1, 0),
+(61, 1, 3.67, 1, 0),
+(62, 6, 1, 1, 0),
+(63, 6, 1.17, 1, 0),
+(64, 6, 1.17, 1, 0),
+(65, 6, 1.5, 1, 0),
+(66, 1, 3.67, 1, 0),
+(67, 6, 1.17, 1, 0),
+(68, 6, 1.17, 1, 0),
+(69, 6, 1, 1, 0),
+(70, 5, 4.5, 1, 0),
+(71, 5, 6, 1, 0),
+(72, 5, 6, 1, 0),
+(73, 2, 1, 5, 0),
+(74, 0, 1, 5, 0),
+(75, 2, 1, 5, 0),
+(76, 2, 1, 5, 0),
+(77, 2, 1, 6, 2),
+(78, 2, 1, 6, 2),
+(79, 2, 1, 6, 2),
+(80, 5, 2.17, 1, 2),
+(81, 14, 3.38, 7, 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
