@@ -868,6 +868,10 @@ button[type=submit] {
   margin-top: 20px;
 }
 
+#correct-option {
+  margin: 30px 20px;
+}
+
 /*______________general_css________________*/
 body {
   font-family: "Exo 2", sans-serif;

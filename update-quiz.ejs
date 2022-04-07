@@ -27,21 +27,16 @@
                 <!-- loop with DB insertions begins -->
                 
                 <div class="line" id="line"></div>
+                
+                <button type="button" id="btn-next-question">Next Question</button>
+
                 <div class="new__section new__question dflex">
                     <div>
-                        <label for="new-question" class="count-question">Question 1</label> <br>
+                        <label for="new-question" class="count-question"></label> <br>
                         <textarea name="new-question" id="new-question" placeholder="Enter the question"></textarea> <br>
                         <label for="img-question">Question photo</label>
                         <input type="file" name="img-question" id="img-question"> <br> <br>
                         <img src="" alt="" id="img-update">
-                        <label for="correct-option" class="label-img">Correct option</label>
-                        <select name="correct-option" id="correct-option">
-                            <option value="">--0--</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
                     </div>
                     <div>
                         <label for="option1">Option 1</label>
@@ -52,6 +47,14 @@
                         <input type="text" id="3" placeholder="Type 3rd answer" required> <br>
                         <label for="option4">Option 4</label>
                         <input type="text" id="4" placeholder="Type 4th answer" required> <br>
+                        <label for="correct-option" class="label-img">Correct option</label>
+                        <select name="correct-option" id="correct-option">
+                            <option value="">--0--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
                     </div>
                 </div>
 
