@@ -440,7 +440,7 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
 .container.login .bloc2 .btn-secondary.sign {
   width: 40%;
   background-color: #0d263a;
-  margin: 0 auto;
+  margin-top: 30px;
 }
 
 .container.login .bloc1 .btn-secondary.sign:hover,
@@ -850,6 +850,14 @@ button[type=submit] {
   margin-left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+#test {
+  margin: 0 auto;
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
 /*______________general_css________________*/
