@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 08 avr. 2022 à 10:01
+-- Généré le : ven. 08 avr. 2022 à 12:24
 -- Version du serveur : 8.0.21
 -- Version de PHP : 7.4.27
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `Correct_Or_Not` tinyint(1) NOT NULL,
   `Question` int NOT NULL COMMENT 'Question_ID',
   PRIMARY KEY (`ANS_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=283 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=375 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `answer`
@@ -300,7 +300,82 @@ INSERT INTO `answer` (`ANS_ID`, `Answer`, `Option_Number`, `Correct_Or_Not`, `Qu
 (236, 'One', 0, 0, 58),
 (237, 'Infinity, or undefined', 0, 1, 58),
 (238, 'One tenth', 0, 0, 58),
-(247, 'Add impurities', 0, 1, 60);
+(314, 'The Sims', 0, 0, 73),
+(313, 'Bejeweled', 0, 0, 73),
+(312, 'Minecraft', 0, 0, 73),
+(311, 'Tetris', 0, 1, 73),
+(310, 'Nintendo', 0, 1, 72),
+(309, 'Bethesda', 0, 0, 72),
+(308, 'Fromsoftware', 0, 0, 72),
+(307, 'Blizzard', 0, 0, 72),
+(306, 'Mega man', 0, 0, 71),
+(305, 'Metroid', 0, 0, 71),
+(304, 'Halo CE', 0, 1, 71),
+(303, 'Fortnite', 0, 0, 71),
+(302, 'Halo', 0, 0, 70),
+(301, 'Call of Duty', 0, 1, 70),
+(300, 'Battlefield ', 0, 0, 70),
+(299, 'Skyrim', 0, 0, 70),
+(315, 'Zelda', 0, 0, 74),
+(316, 'Gannon', 0, 0, 74),
+(317, 'Link', 0, 1, 74),
+(318, 'Midna', 0, 0, 74),
+(319, 'Mega Man', 0, 0, 75),
+(320, 'Snake', 0, 0, 75),
+(321, 'Dark Souls', 0, 1, 75),
+(322, 'Genshin Impact', 0, 0, 75),
+(323, 'Mario', 0, 1, 76),
+(324, 'Hitman', 0, 0, 76),
+(325, 'Sonic', 0, 0, 76),
+(326, 'Spider-Man', 0, 0, 76),
+(327, 'The Sims', 0, 0, 77),
+(328, 'FIFA', 0, 1, 77),
+(329, 'MADDEN NFL', 0, 0, 77),
+(330, 'Battlefield', 0, 0, 77),
+(331, 'Starcraft', 0, 0, 78),
+(332, 'Overwatch', 0, 0, 78),
+(333, 'Diablo', 0, 0, 78),
+(334, 'World of Warcraft', 0, 1, 78),
+(335, 'Fortnite', 0, 0, 79),
+(336, 'Doki Doki Literature Club', 0, 0, 79),
+(337, 'Call of Duty Warzone', 0, 0, 79),
+(338, 'PUBG', 0, 1, 79),
+(339, 'Chlorine', 0, 0, 84),
+(340, 'Lithium', 0, 1, 84),
+(341, 'Sulphur', 0, 0, 84),
+(342, 'Xenon', 0, 0, 84),
+(343, 'Reduce impurities', 0, 0, 85),
+(344, 'Add impurities', 0, 1, 85),
+(345, 'Increase pressure', 0, 0, 85),
+(346, 'Reduce pressure', 0, 0, 85),
+(347, '14 billion years', 0, 1, 86),
+(348, '185 million years', 0, 0, 86),
+(349, '25 billion years', 0, 0, 86),
+(350, '59 million years', 0, 0, 86),
+(351, 'Nerve', 0, 0, 87),
+(352, 'Vein', 0, 0, 87),
+(353, 'Muscle', 0, 1, 87),
+(354, 'Bone', 0, 0, 87),
+(355, 'Mercury', 0, 0, 88),
+(356, 'Lead', 0, 0, 88),
+(357, 'Helium', 0, 0, 88),
+(358, 'Water', 0, 1, 88),
+(359, 'A quarter', 0, 1, 89),
+(360, 'A third', 0, 0, 89),
+(361, 'A half', 0, 0, 89),
+(362, 'Two thirds', 0, 0, 89),
+(363, 'Stellacula', 0, 0, 90),
+(364, 'Orbitry', 0, 0, 90),
+(365, 'Bangor', 0, 0, 90),
+(366, 'Astrometry', 0, 1, 90),
+(367, 'Al', 0, 0, 91),
+(368, 'Ca', 0, 0, 91),
+(369, 'C', 0, 1, 91),
+(370, 'Na', 0, 0, 91),
+(371, 'The Mpemba effect', 0, 1, 92),
+(372, 'The China syndrome', 0, 0, 92),
+(373, 'The Odessa file', 0, 0, 92),
+(374, 'Antiperistasis', 0, 0, 92);
 
 -- --------------------------------------------------------
 
@@ -330,7 +405,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `Answer` int NOT NULL COMMENT 'ANS_ID',
   `Quiz_ID` int NOT NULL,
   PRIMARY KEY (`Question_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `question`
@@ -390,7 +465,26 @@ INSERT INTO `question` (`Question_ID`, `Question`, `Question_Photo`, `Answer`, `
 (55, 'What is the cube of 100?', '/assets/img/img-question/quiz-maths-3.jpg', 0, 8),
 (56, 'The internal angles of a rectangle add up to how many degrees?', '/assets/img/img-question/quiz-maths-4.jpg', 0, 8),
 (57, 'Which of these is not a prime number?', '/assets/img/img-question/quiz-maths-5.jpg', 0, 8),
-(58, 'What is the mathematical result of dividing any real number other than zero, by zero?', '/assets/img/img-question/quiz-maths-6.jpg', 0, 8);
+(58, 'What is the mathematical result of dividing any real number other than zero, by zero?', '/assets/img/img-question/quiz-maths-6.jpg', 0, 8),
+(70, 'Let\'s start easy! Which game is the game series company Activision the most known for?', '/assets/img/img-question/Activision-Two military soldiers.jpg', 0, 11),
+(71, 'Which of those games first featured rechargeable shields?', '/assets/img/img-question/Masterchief-John-117.jpg', 0, 11),
+(72, 'Who owns the game IP of Pokemon?', '/assets/img/img-question/Pokeballs.jpg', 0, 11),
+(73, 'Which game is about aligning falling blocks to form rows?', '/assets/img/img-question/VarietyBlocks.jpg', 0, 11),
+(74, 'Who is the main protagonist of \"The legend of Zelda\" games?', '/assets/img/img-question/Legends-of-zelda.jpg', 0, 11),
+(75, 'Which of these series is renowned for being infamously difficult by game journalists?', '/assets/img/img-question/Fromsoftware.jpg', 0, 11),
+(76, 'Who has the most games named after him?', '/assets/img/img-question/Tetris.jpg', 0, 11),
+(77, 'Which series is EA most profitable game series?', '/assets/img/img-question/EAlogo.jpg', 0, 11),
+(78, 'Which game was Blizzard known for ? ', '/assets/img/img-question/Gameclasses.jpg', 0, 11),
+(79, 'Which game popularized the battle royal Genre?', '/assets/img/img-question/WinnerWiner.jpg', 0, 11),
+(84, 'Which of these is a metal?', '/assets/img/img-question/quiz-science-1.jpg', 0, 13),
+(85, 'What can be done to water to make it freeze at a lower temperature than normal?', '/assets/img/img-question/quiz-science-2.jpg', 0, 13),
+(86, 'What is the approximate calculated age of the Universe?', '/assets/img/img-question/quiz-science-3.jpg', 0, 13),
+(87, 'In the human body, adductors and abductors are types of what?', '/assets/img/img-question/quiz-science-4.jpg', 0, 13),
+(88, 'What becomes less dense as it solidifies?', '/assets/img/img-question/quiz-science-5.jpg', 0, 13),
+(89, 'What proportion of the 206 bones in the human body is contained in the hands and feet?', '/assets/img/img-question/quiz-science-6.jpg', 0, 13),
+(90, 'What is the name for the branch of astronomy that relates to precise measurements and explanations of the positions and movements of celestial bodies?', '/assets/img/img-question/quiz-science-7.jpg', 0, 13),
+(91, 'What is the next in the series H, He, Li, Be, B ...?', '/assets/img/img-question/quiz-science-8.jpg', 0, 13),
+(92, 'The fact that hot water freezes more quickly than cold water is known as what?', '/assets/img/img-question/quiz-science-9.jpg', 0, 13);
 
 -- --------------------------------------------------------
 
@@ -406,7 +500,7 @@ CREATE TABLE IF NOT EXISTS `quiz` (
   `Quiz_Photo` text NOT NULL,
   `Score` int NOT NULL COMMENT 'SC_ID',
   PRIMARY KEY (`Quiz_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `quiz`
@@ -418,7 +512,9 @@ INSERT INTO `quiz` (`Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo`, `S
 (3, 'Personalities', 'World\'s top influencers and personalities: do you know them?', '/assets/img/img-quiz/quiz-personality.jpg', 0),
 (4, 'Anime', 'Enjoy Japanese anime movies? Let\'s find out if you know the well!', '/assets/img/img-quiz/quiz-anime.jpg', 0),
 (7, 'General knowledge', 'Test your knowledge on physics, maths, politics, geography, etc...', '/assets/img/img-quiz/quiz-general.jpg', 0),
-(8, 'Maths', 'Place where you\'ll finally need to remember Sin and Cos... Or not.', '/assets/img/img-quiz/quiz-maths.jpg', 0);
+(8, 'Maths', 'Place where you\'ll finally need to remember Sin and Cos... Or not.', '/assets/img/img-quiz/quiz-maths.jpg', 0),
+(11, 'Video Game triva (Easy)', 'Try and complete this quiz of video game trivia that even the most casual gamers can enjoy!', '/assets/img/img-quiz/Gaming-desktop.jpg', 0),
+(13, 'Science', 'Chemistry, biology, physics and everything. Test your knowledge!', '/assets/img/img-quiz/quiz-science.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -434,7 +530,7 @@ CREATE TABLE IF NOT EXISTS `score` (
   `Quiz` int NOT NULL COMMENT 'Quiz_ID',
   `AC_ID` int NOT NULL,
   PRIMARY KEY (`SC_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `score`
@@ -522,7 +618,11 @@ INSERT INTO `score` (`SC_ID`, `Total_Score`, `Total_Time`, `Quiz`, `AC_ID`) VALU
 (79, 2, 1, 6, 2),
 (80, 5, 2.17, 1, 2),
 (81, 14, 3.38, 7, 2),
-(82, 6, 2.17, 8, 2);
+(82, 6, 2.17, 8, 2),
+(83, 4, 2.33, 1, 3),
+(84, 10, 3.2, 11, 3),
+(85, 8, 5.78, 13, 2),
+(86, 6, 6.1, 11, 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
