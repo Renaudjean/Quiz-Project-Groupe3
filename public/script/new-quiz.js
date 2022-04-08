@@ -129,7 +129,7 @@ submitQuizBtn.addEventListener('click', (e) => {
         validQuizInput[1].correct = 0;
     }
 
-    if (quizPhoto = inputQuizPhoto.value.match(/([a-zA-Z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i)) {
+    if (quizPhoto = inputQuizPhoto.value.match(/([a-zA-Z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i)) {
         inputGreen(inputQuizPhoto);
         validQuizInput[2].correct = 1;
     } else {
@@ -157,7 +157,7 @@ submitQuizBtn.addEventListener('click', (e) => {
     // verify all question img inputs
     let correctQuestionImgInputs = 0;
     for (let i = 0; i < allQuestionImgInputs.length; i++) {
-        if (questionPhoto = allQuestionImgInputs[i].value.match(/([a-zA-Z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i)) {
+        if (questionPhoto = allQuestionImgInputs[i].value.match(/([a-zA-Z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i)) {
             inputGreen(allQuestionImgInputs[i]);
             correctQuestionImgInputs++;
         } else {
