@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 07 avr. 2022 à 14:33
+-- Généré le : ven. 08 avr. 2022 à 10:01
 -- Version du serveur : 8.0.21
 -- Version de PHP : 7.4.27
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `Correct_Or_Not` tinyint(1) NOT NULL,
   `Question` int NOT NULL COMMENT 'Question_ID',
   PRIMARY KEY (`ANS_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=215 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=283 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `answer`
@@ -275,7 +275,32 @@ INSERT INTO `answer` (`ANS_ID`, `Answer`, `Option_Number`, `Correct_Or_Not`, `Qu
 (211, '8', 0, 0, 52),
 (212, '12', 0, 0, 52),
 (213, '24', 0, 1, 52),
-(214, '120', 0, 0, 52);
+(214, '120', 0, 0, 52),
+(215, '5 minutes', 0, 0, 53),
+(216, '10 minutes', 0, 1, 53),
+(217, '20 minutes', 0, 0, 53),
+(218, '60 minutes', 0, 0, 53),
+(219, '4096', 0, 0, 54),
+(220, '2401', 0, 0, 54),
+(221, '1296', 0, 1, 54),
+(222, '968', 0, 0, 54),
+(223, '10,000,000', 0, 0, 55),
+(224, '1,000', 0, 0, 55),
+(225, '100,000', 0, 0, 55),
+(226, '1,000,000', 0, 1, 55),
+(227, '360', 0, 1, 56),
+(228, '180', 0, 0, 56),
+(229, '1080', 0, 0, 56),
+(230, '540', 0, 0, 56),
+(231, '59', 0, 0, 57),
+(232, '69', 0, 1, 57),
+(233, '79', 0, 0, 57),
+(234, '89', 0, 0, 57),
+(235, 'Zero', 0, 0, 58),
+(236, 'One', 0, 0, 58),
+(237, 'Infinity, or undefined', 0, 1, 58),
+(238, 'One tenth', 0, 0, 58),
+(247, 'Add impurities', 0, 1, 60);
 
 -- --------------------------------------------------------
 
@@ -305,7 +330,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `Answer` int NOT NULL COMMENT 'ANS_ID',
   `Quiz_ID` int NOT NULL,
   PRIMARY KEY (`Question_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `question`
@@ -359,7 +384,13 @@ INSERT INTO `question` (`Question_ID`, `Question`, `Question_Photo`, `Answer`, `
 (49, 'Meat is usually \"hung\" after the animal is killed to improve tenderness and flavour. The recommended time differs according to the meat; how long is the usual minimum for which beef is \"hung\"?', '/assets/img/img-question/quiz-general-13.jpg', 0, 7),
 (50, 'Which of these has had the most influence on the architecture of Barcelona?', '/assets/img/img-question/quiz-general-14.jpg', 0, 7),
 (51, 'Which of these seas is not on the coast of Asia?', '/assets/img/img-question/quiz-general-15.jpg', 0, 7),
-(52, 'What number is the factorial of 4?', '/assets/img/img-question/quiz-general-16.jpg', 0, 7);
+(52, 'What number is the factorial of 4?', '/assets/img/img-question/quiz-general-16.jpg', 0, 7),
+(53, 'How long does it take to travel 10 km at 60 kilometres per hour?', '/assets/img/img-question/quiz-maths-1.jpg', 0, 8),
+(54, 'What is the next number in the series 1, 16, 81, 256, 625?', '/assets/img/img-question/quiz-maths-2.jpg', 0, 8),
+(55, 'What is the cube of 100?', '/assets/img/img-question/quiz-maths-3.jpg', 0, 8),
+(56, 'The internal angles of a rectangle add up to how many degrees?', '/assets/img/img-question/quiz-maths-4.jpg', 0, 8),
+(57, 'Which of these is not a prime number?', '/assets/img/img-question/quiz-maths-5.jpg', 0, 8),
+(58, 'What is the mathematical result of dividing any real number other than zero, by zero?', '/assets/img/img-question/quiz-maths-6.jpg', 0, 8);
 
 -- --------------------------------------------------------
 
@@ -375,7 +406,7 @@ CREATE TABLE IF NOT EXISTS `quiz` (
   `Quiz_Photo` text NOT NULL,
   `Score` int NOT NULL COMMENT 'SC_ID',
   PRIMARY KEY (`Quiz_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `quiz`
@@ -386,7 +417,8 @@ INSERT INTO `quiz` (`Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo`, `S
 (2, 'Movies', 'Love movies? Me too! Let\'s see if you pay attention while watching!', '/assets/img/img-quiz/quiz-movies.jpg', 0),
 (3, 'Personalities', 'World\'s top influencers and personalities: do you know them?', '/assets/img/img-quiz/quiz-personality.jpg', 0),
 (4, 'Anime', 'Enjoy Japanese anime movies? Let\'s find out if you know the well!', '/assets/img/img-quiz/quiz-anime.jpg', 0),
-(7, 'General knowledge', 'Test your knowledge on physics, maths, politics, geography, etc...', '/assets/img/img-quiz/quiz-general.jpg', 0);
+(7, 'General knowledge', 'Test your knowledge on physics, maths, politics, geography, etc...', '/assets/img/img-quiz/quiz-general.jpg', 0),
+(8, 'Maths', 'Place where you\'ll finally need to remember Sin and Cos... Or not.', '/assets/img/img-quiz/quiz-maths.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -402,7 +434,7 @@ CREATE TABLE IF NOT EXISTS `score` (
   `Quiz` int NOT NULL COMMENT 'Quiz_ID',
   `AC_ID` int NOT NULL,
   PRIMARY KEY (`SC_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `score`
@@ -489,7 +521,8 @@ INSERT INTO `score` (`SC_ID`, `Total_Score`, `Total_Time`, `Quiz`, `AC_ID`) VALU
 (78, 2, 1, 6, 2),
 (79, 2, 1, 6, 2),
 (80, 5, 2.17, 1, 2),
-(81, 14, 3.38, 7, 2);
+(81, 14, 3.38, 7, 2),
+(82, 6, 2.17, 8, 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
