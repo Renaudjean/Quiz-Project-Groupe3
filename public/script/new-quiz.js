@@ -10,6 +10,7 @@ let nodeCounter = 0;
 let allQuestionInputs = [];
 let allQuestionImgInputs = [];
 let allAnswerInputs = [];
+let allCheckboxInputs = [];
 
 addQuestBtn.addEventListener('click', () => {
     // click on btn -> clones the whole new question section and the dividing line
@@ -60,36 +61,22 @@ addQuestBtn.addEventListener('click', () => {
     //         checkArr[i*4+3].checked = false;
     //     }
     // }
+
     allQuestionInputs = document.querySelectorAll('.question-input');
     allQuestionImgInputs = document.querySelectorAll('.question-img-input');
     allAnswerInputs = document.querySelectorAll('.answer-option');
     allCheckboxInputs = document.querySelectorAll('.checkbox');
-    console.log(allCheckboxInputs);
 })
 
 
 // ________________part that sends the data into DB _________________
 
-// elements getting the quiz, ..
+// elements getting the quiz imputs (since they are unique on the page)
 const inputQuizName = document.getElementById('name-quiz'),
       inputQuizPhoto = document.getElementById('img-quiz'),
-      inputQuizDesc = document.getElementById('description-quiz'),
-// ..questions, ..
-      inputQuestionTxt = document.getElementById('new-question'),
-      inputQuestionPhoto = document.getElementById('img-question');
-// ..answers 
-let option1 = document.querySelectorAll('input[type=text][data-id="1"]');
-let option2 = document.querySelectorAll('input[type=text][data-id="2"]');
-let option3 = document.querySelectorAll('input[type=text][data-id="3"]');
-let option4 = document.querySelectorAll('input[type=text][data-id="4"]');
-let bool1 = document.querySelectorAll('input[type=checkbox][data-id="1"]');
-let bool2 = document.querySelectorAll('input[type=checkbox][data-id="2"]');
-let bool3 = document.querySelectorAll('input[type=checkbox][data-id="3"]');
-let bool4 = document.querySelectorAll('input[type=checkbox][data-id="4"]');
+      inputQuizDesc = document.getElementById('description-quiz');
 // main submit button
 const submitQuizBtn = document.getElementById('submit-quiz-btn');
-
-
 
 //variables to use in query
 let quizName,
@@ -99,10 +86,10 @@ let quizName,
     questionPhoto,
     questionQuizId,
     answerOption,
-    // optionNumber,
     correctOrNot,
     questionId;
 
+// array of objects to verify if inputs are correctly filled in
 let validQuizInput = [
     { e: quizName, correct: 0 },
     { e: quizDesc, correct: 0 },
@@ -142,7 +129,7 @@ submitQuizBtn.addEventListener('click', (e) => {
         validQuizInput[1].correct = 0;
     }
 
-    if (quizPhoto = inputQuizPhoto.value.match(/([a-zA-Z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i)) {
+    if (quizPhoto = inputQuizPhoto.value.match(/([a-zA-Z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i)) {
         inputGreen(inputQuizPhoto);
         validQuizInput[2].correct = 1;
     } else {
@@ -170,7 +157,7 @@ submitQuizBtn.addEventListener('click', (e) => {
     // verify all question img inputs
     let correctQuestionImgInputs = 0;
     for (let i = 0; i < allQuestionImgInputs.length; i++) {
-        if (questionPhoto = allQuestionImgInputs[i].value.match(/([a-zA-Z\-_0-9\/\:\.]*\.(jpg|jpeg|png))/i)) {
+        if (questionPhoto = allQuestionImgInputs[i].value.match(/([a-zA-Z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i)) {
             inputGreen(allQuestionImgInputs[i]);
             correctQuestionImgInputs++;
         } else {
@@ -263,11 +250,10 @@ submitQuizBtn.addEventListener('click', (e) => {
                     }) 
                     .then((res) => {
                         listOfQuestIds.push(res);
-                        console.log(listOfQuestIds);
                     })
                 }
 
-                // *************************************************************
+                // fetch to insert answer options in DB
 
                 let a = 0; // this variable will ++ every time the answer dataset id === 1 -> meaning that it is the next question
                 for (let i = 0; i < allAnswerInputs.length; i++) {
@@ -315,7 +301,7 @@ submitQuizBtn.addEventListener('click', (e) => {
                 }
             })
         // if data successfully sent, redirection to the admin page in 300ms
-        // setTimeout(() => {document.location.href = "/admin/"}, 300);
+        setTimeout(() => {document.location.href = "/admin/"}, 300);
     }
 })
 
