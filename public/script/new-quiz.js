@@ -242,6 +242,8 @@ submitQuizBtn.addEventListener('click', (e) => {
                 for (let i = 0; i < allQuestionInputs.length; i++) {
                     questionTxt = allQuestionInputs[i].value;
                     questionPhoto = "/assets/img/img-question/" + allQuestionImgInputs[i].files[0].name;
+
+                    console.log('quiz id = ' + res + ' and question text is: ' + questionTxt);
     
                     fetch('/new-quiz/', {
                         method: "POST",
@@ -289,6 +291,8 @@ submitQuizBtn.addEventListener('click', (e) => {
                         // .... so to understand what question ID we should insert to the first 4 answer options, we take 'last inserted question id' minus 'number of questions inserted during this quiz (+ a, so that every time answer id 1 happens -> we pass to a next question)'
                         questionId = quest[0].Question_ID - allQuestionImgInputs.length + a;
                         answerOption = allAnswerInputs[i].value;
+
+                        console.log('quest id = ' + questionId + ' and answer text is: ' + answerOption);
 
                         // final insertion of answer options
                         fetch('/new-quiz/', {
