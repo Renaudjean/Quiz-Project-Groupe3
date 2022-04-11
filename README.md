@@ -18,6 +18,11 @@ Using JavaScript to a large extent, a team of three junior developers should cre
 * On the profile page, see the best scores for the already made quizes
 
 ## Technologies used
+*  Embedded Javascript (EJS)
+*  Node JS (Express)
+    - Nodemon
+*  Syntactically awesome stylesheets (Sass)
+
 
 ## Design concept
 [Figma design file](https://www.figma.com/file/EzpOYkQGeSrncB4BOx913e/QuizzDom-Project?node-id=0%3A1)
