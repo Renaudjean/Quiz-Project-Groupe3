@@ -20,7 +20,7 @@ body {
 * {
     &::selection {
         color: $dark;
-        background: rgba($white, 0.75);
+        background: $yellow;
     }
 }
 
@@ -117,6 +117,30 @@ h3 {
     pointer-events: none;
 }
 
+.timer-red {
+    color: rgb(255, 49, 49);
+    font-weight: 800;
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 1);
+    animation: pulse-red 1s infinite;
+    border-radius: 50%;
+}
+
+@keyframes pulse-red {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 20px rgba(255, 82, 82, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+    }
+  }
 
 // ______________________
 

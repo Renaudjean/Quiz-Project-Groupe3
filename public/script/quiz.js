@@ -135,6 +135,8 @@ const cleanOptionStyles = (arr) => {
 
 const load = (a) => {
 
+    timeLeft.classList.remove('timer-red');
+
     // timer on every load() launch
     timeLeft.innerText = '20';
     let timeCounter = 19;
@@ -145,6 +147,11 @@ const load = (a) => {
 
     timeLeft.innerText = `${seconds}`;
     timeCounter = timeCounter <= 0 ? 0 : timeCounter - 1;
+
+        if (seconds === "05") {
+            timeLeft.classList.add('timer-red');
+        }
+
     // stop timer if the time is up, all options get blocked, are marked as wrong
     if (seconds === "00") {
         clearInterval(timerFunction);
