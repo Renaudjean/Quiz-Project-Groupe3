@@ -65,7 +65,7 @@ let validInput = [
 // recovery of user data
 
 btnUp.addEventListener("click", (e) => {
-
+        e.preventDefault()
             if (
                 (firstName = inputFirstName.value.match(/^[a-zA-Z\ ]{3,50}$/i))
             ) {

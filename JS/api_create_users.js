@@ -7,11 +7,16 @@ module.exports.sign_up_create_users = (req, response) => {
     let dataChooseName = req.body.chooseName
     let dataMail = req.body.mail
     let dataChoosePass = req.body.choosePass
-    console.log(dataFirstName);
+  
+
+    db.query("INSERT INTO `account`(`FirstName`, `LastName`, `UserName`, `Email`, `Password`, `AccountType`) VALUES (?, ?, ?, ?, ?, 0)", [dataFirstName, dataLasteName, dataChooseName, dataMail, dataChoosePass],(err,row)=>{
+            console.log(dataFirstName);
     console.log(dataLasteName);
     console.log(dataChooseName);
     console.log(dataMail);
-    console.log(dataChoosePass);
-
-    db.query("INSERT INTO `account`(`FirstName`, `LastName`, `UserName`, `Email`, `Password`, `AccountType`) VALUES (?, ?, ?, ?, ?, 0)", [dataFirstName, dataLasteName, dataChooseName, dataMail, dataChoosePass]) 
+    console.log(dataChoosePass); 
+    if (err) throw err;
+        response.render("../index"); 
+    })
+ 
 }
