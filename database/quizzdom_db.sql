@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 11 avr. 2022 à 07:18
+-- Généré le : lun. 11 avr. 2022 à 09:00
 -- Version du serveur : 8.0.21
 -- Version de PHP : 7.4.27
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `Correct_Or_Not` tinyint(1) NOT NULL,
   `Question` int NOT NULL COMMENT 'Question_ID',
   PRIMARY KEY (`ANS_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=407 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=423 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `answer`
@@ -407,7 +407,23 @@ INSERT INTO `answer` (`ANS_ID`, `Answer`, `Option_Number`, `Correct_Or_Not`, `Qu
 (403, 'GTA V', 0, 0, 100),
 (404, 'Fallout 4 ', 0, 0, 100),
 (405, 'Watch Dogs', 0, 0, 100),
-(406, 'Minecraft', 0, 1, 100);
+(406, 'Minecraft', 0, 1, 100),
+(407, 'New York', 0, 0, 101),
+(408, 'Los Angeles', 0, 0, 101),
+(409, 'Washington', 0, 1, 101),
+(410, 'Chicago', 0, 0, 101),
+(411, 'Ottawa', 0, 1, 102),
+(412, 'Vancouver', 0, 0, 102),
+(413, 'Montreal', 0, 0, 102),
+(414, 'Toronto', 0, 0, 102),
+(415, 'Sydney', 0, 0, 103),
+(416, 'Melbourne', 0, 0, 103),
+(417, 'Canberra', 0, 1, 103),
+(418, 'Perth', 0, 0, 103),
+(419, 'Pretoria', 0, 0, 104),
+(420, 'Cape Town', 0, 0, 104),
+(421, 'Bloemfontein', 0, 0, 104),
+(422, 'All three above', 0, 1, 104);
 
 -- --------------------------------------------------------
 
@@ -437,7 +453,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `Answer` int NOT NULL COMMENT 'ANS_ID',
   `Quiz_ID` int NOT NULL,
   PRIMARY KEY (`Question_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `question`
@@ -524,7 +540,11 @@ INSERT INTO `question` (`Question_ID`, `Question`, `Question_Photo`, `Answer`, `
 (97, 'Which Assassin\'s Creed game is the most sold? (2022)', '/assets/img/img-question/Ubisoft.jpg', 0, 14),
 (98, 'Which game has the most awaited sequel release that won\'t happen?', '/assets/img/img-question/Gameover.jpg', 0, 14),
 (99, 'Which of these games is not of the same genre', '/assets/img/img-question/zombie.jpg', 0, 14),
-(100, 'Which is the most popular open world game?', '/assets/img/img-question/OpenWorld.jpg', 0, 14);
+(100, 'Which is the most popular open world game?', '/assets/img/img-question/OpenWorld.jpg', 0, 14),
+(101, 'What is the capital of the USA?', '/assets/img/img-question/question-7-usa.jpg', 0, 1),
+(102, 'What is the capital of Canada?', '/assets/img/img-question/question-8-canada.jpg', 0, 1),
+(103, 'What is the capital of Australia?', '/assets/img/img-question/question-9-aus.jpg', 0, 1),
+(104, 'What is the capital of South Africa?', '/assets/img/img-question/question-10-sa.jpg', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -571,7 +591,7 @@ CREATE TABLE IF NOT EXISTS `score` (
   `Quiz` int NOT NULL COMMENT 'Quiz_ID',
   `AC_ID` int NOT NULL,
   PRIMARY KEY (`SC_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `score`
@@ -665,7 +685,9 @@ INSERT INTO `score` (`SC_ID`, `Total_Score`, `Total_Time`, `Quiz`, `AC_ID`) VALU
 (85, 8, 5.78, 13, 2),
 (86, 6, 6.1, 11, 2),
 (87, 7, 3.38, 14, 0),
-(88, 4, 4.75, 14, 0);
+(88, 4, 4.75, 14, 0),
+(89, 9, 4.11, 13, 2),
+(90, 10, 1.8, 1, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
