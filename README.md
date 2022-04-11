@@ -18,9 +18,13 @@ Using JavaScript to a large extent, a team of three junior developers should cre
 * On the profile page, see the best scores for the already made quizes
 
 ## Technologies used
-*  Embedded Javascript (EJS)
+*  Javascript
+*  MySQL
 *  Node JS (Express)
 *  Syntactically awesome stylesheets (Sass)
+*  Embedded Javascript (EJS)
+*  Figma (Modelling/WireFrame)
+*  Github
 
 
 ## Design concept
