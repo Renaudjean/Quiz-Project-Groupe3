@@ -20,7 +20,6 @@ Using JavaScript to a large extent, a team of three junior developers should cre
 ## Technologies used
 *  Embedded Javascript (EJS)
 *  Node JS (Express)
-    - Nodemon
 *  Syntactically awesome stylesheets (Sass)
 
 
