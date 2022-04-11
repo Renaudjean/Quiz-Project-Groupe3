@@ -148,9 +148,14 @@ const load = (a) => {
     timeLeft.innerText = `${seconds}`;
     timeCounter = timeCounter <= 0 ? 0 : timeCounter - 1;
 
-        if (seconds === "05") {
-            timeLeft.classList.add('timer-red');
-        }
+    if (seconds === "09") {
+        timeLeft.classList.add('timer-orange');
+    }
+
+    if (seconds === "05") {
+        timeLeft.classList.remove('timer-orange');
+        timeLeft.classList.add('timer-red');
+    }
 
     // stop timer if the time is up, all options get blocked, are marked as wrong
     if (seconds === "00") {

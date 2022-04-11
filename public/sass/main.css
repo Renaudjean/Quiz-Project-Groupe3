@@ -982,11 +982,63 @@ h3 {
   pointer-events: none;
 }
 
-.timer-red {
-  color: #ff3131;
+.timer-orange {
+  color: #ff7a0e;
   font-weight: 800;
-  -webkit-box-shadow: 0 0 0 0 #ff5252;
-          box-shadow: 0 0 0 0 #ff5252;
+  -webkit-box-shadow: 0 0 0 0 #ff7a0e;
+          box-shadow: 0 0 0 0 #ff7a0e;
+  -webkit-animation: pulse-orange 1s infinite;
+          animation: pulse-orange 1s infinite;
+  border-radius: 50%;
+}
+
+@-webkit-keyframes pulse-orange {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 122, 14, 0.7);
+            box-shadow: 0 0 0 0 rgba(255, 122, 14, 0.7);
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 0 0 0 10px rgba(255, 121, 63, 0);
+            box-shadow: 0 0 0 10px rgba(255, 121, 63, 0);
+  }
+  100% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 121, 63, 0);
+            box-shadow: 0 0 0 0 rgba(255, 121, 63, 0);
+  }
+}
+
+@keyframes pulse-orange {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 122, 14, 0.7);
+            box-shadow: 0 0 0 0 rgba(255, 122, 14, 0.7);
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 0 0 0 10px rgba(255, 121, 63, 0);
+            box-shadow: 0 0 0 10px rgba(255, 121, 63, 0);
+  }
+  100% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 121, 63, 0);
+            box-shadow: 0 0 0 0 rgba(255, 121, 63, 0);
+  }
+}
+
+.timer-red {
+  color: #ff3d3d;
+  font-weight: 800;
+  -webkit-box-shadow: 0 0 0 0 #ff3d3d;
+          box-shadow: 0 0 0 0 #ff3d3d;
   -webkit-animation: pulse-red 1s infinite;
           animation: pulse-red 1s infinite;
   border-radius: 50%;
@@ -996,8 +1048,8 @@ h3 {
   0% {
     -webkit-transform: scale(0.95);
             transform: scale(0.95);
-    -webkit-box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
-            box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 61, 61, 0.75);
+            box-shadow: 0 0 0 0 rgba(255, 61, 61, 0.75);
   }
   70% {
     -webkit-transform: scale(1);
@@ -1017,8 +1069,8 @@ h3 {
   0% {
     -webkit-transform: scale(0.95);
             transform: scale(0.95);
-    -webkit-box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
-            box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 61, 61, 0.75);
+            box-shadow: 0 0 0 0 rgba(255, 61, 61, 0.75);
   }
   70% {
     -webkit-transform: scale(1);
