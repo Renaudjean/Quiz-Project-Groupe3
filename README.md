@@ -34,3 +34,6 @@ Using JavaScript to a large extent, a team of three junior developers should cre
 * [Renaud Goubelle](https://github.com/Renaudjean) - SCRUM Master, Back-End
 * [Anastasiia Alekseenko](https://github.com/anastasiiaal) - Front-End, Back-End
 * [Eric Oriez](https://github.com/ericoriez) - Front-End, Back-End
+
+## Copyright
+This project is for non-commercial purposes, images taken from the free stock [Pixabay](https://pixabay.com/) and [Unsplash](https://unsplash.com/)
