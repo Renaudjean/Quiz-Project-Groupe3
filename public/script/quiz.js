@@ -135,6 +135,8 @@ const cleanOptionStyles = (arr) => {
 
 const load = (a) => {
 
+    timeLeft.classList.remove('timer-red');
+
     // timer on every load() launch
     timeLeft.innerText = '20';
     let timeCounter = 19;
@@ -145,6 +147,16 @@ const load = (a) => {
 
     timeLeft.innerText = `${seconds}`;
     timeCounter = timeCounter <= 0 ? 0 : timeCounter - 1;
+
+    if (seconds === "09") {
+        timeLeft.classList.add('timer-orange');
+    }
+
+    if (seconds === "05") {
+        timeLeft.classList.remove('timer-orange');
+        timeLeft.classList.add('timer-red');
+    }
+
     // stop timer if the time is up, all options get blocked, are marked as wrong
     if (seconds === "00") {
         clearInterval(timerFunction);
@@ -383,16 +395,22 @@ btnQuiz.addEventListener('click', () => {
             .then(res => res.json())
             .then(res => {
                 scoreCollect = res;
-             
+             if(scoreCollect.length == 0){
+                avrPercent.innerHTML = "Youre the first to complete the quiz making YOU the status quo!"
+                avrRespPercent.innerHTML = "We need YOU to send the quiz to your friends so we can make a global avrage!"
+             }
+             else{
                 for(let i= 0 ; i < scoreCollect.length ; i++) {     
                     avrScore += scoreCollect[i].Total_Score;
-                    avrPercent.innerHTML = Math.round((avrScore * 100) / (scoreCollect.length * nOfQuestions));
+                    avrPercent.innerHTML = Math.round((avrScore * 100) / (scoreCollect.length * nOfQuestions)) + "%";
                }
+               
                 for(let i= 0 ; i < scoreCollect.length ; i++) {     
                     avrTime += scoreCollect[i].Total_Time;
                     avrRespPercent.innerHTML = (((avrTime / i).toFixed(2) )); 
                     
             }
+        }
         })
 
             // localStorage.setItem('Score', correctAnswers);
