@@ -9,7 +9,7 @@
     <main>
         <div class="container new__container">
             <h2>Let's <span>update</span>  that quiz!</h2>
-            <form method="POST" action="#" class="new__wrapper" id="new-quiz-form">
+            <form method="POST" action="#" class="new__wrapper" id="new-quiz-form" enctype="multipart/form-data">
                 <div class="new__section new__quiz dflex">
                     <div>
                         <label for="name-quiz">Name of quiz</label> <br>
@@ -47,21 +47,19 @@
                         <input type="text" id="3" placeholder="Type 3rd answer" required> <br>
                         <label for="option4">Option 4</label>
                         <input type="text" id="4" placeholder="Type 4th answer" required> <br>
-                        <label for="correct-option" class="label-img">Correct option</label>
-                        <select name="correct-option" id="correct-option">
-                            <option value="">--0--</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
+                        <div class="checkboxes update">
+                            <input type="checkbox" data-id="1" value="option1" name="boolean" class="checkbox">
+                            <input type="checkbox" data-id="2" value="option2" name="boolean" class="checkbox">
+                            <input type="checkbox" data-id="3" value="option3" name="boolean" class="checkbox">
+                            <input type="checkbox" data-id="4" value="option4" name="boolean" class="checkbox">
+                        </div>
                     </div>
                 </div>
 
                 <!-- loop ends -->
 
             </form>
-            <button type="submit" form="new-quiz-form" class="btn-primary">Save changes</button>
+            <button type="submit" form="new-quiz-form" class="btn-primary update">Save changes</button>
         </div>
     </main>
 
