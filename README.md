@@ -1,5 +1,5 @@
 # Quiz-Project :sparkles:
-Study project of Junior Devs | Made in Annecy-le-Vieux, March-April, 2022
+Study project of Junior Devs | Made with :heart: in Annecy-le-Vieux, March-April, 2022
 
 ## General information
 
@@ -8,7 +8,7 @@ Using JavaScript to a large extent, a team of three junior developers should cre
 ### The game should: 
 * Have various quizes and a user-friendly UI
 * Display a timer to encourage users to respond quickly
-* Record the scores in the database to access to the afterwards on the account page
+* Record the scores in the database to access to them afterwards on the account page
 * Have a responsive design (Desktop, Tablet, Mobile)
 
 ### Users of the final product should be able to:
@@ -18,7 +18,7 @@ Using JavaScript to a large extent, a team of three junior developers should cre
 * On the profile page, see the best scores for the already made quizes
 
 ## Technologies used
-*  Javascript
+*  Java Script
 *  MySQL
 *  Node JS (Express)
 *  Syntactically awesome stylesheets (Sass)
