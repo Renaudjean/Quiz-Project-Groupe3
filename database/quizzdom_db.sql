@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 08 avr. 2022 à 12:24
+-- Généré le : lun. 11 avr. 2022 à 07:18
 -- Version du serveur : 8.0.21
 -- Version de PHP : 7.4.27
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `Correct_Or_Not` tinyint(1) NOT NULL,
   `Question` int NOT NULL COMMENT 'Question_ID',
   PRIMARY KEY (`ANS_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=375 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=407 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `answer`
@@ -375,7 +375,39 @@ INSERT INTO `answer` (`ANS_ID`, `Answer`, `Option_Number`, `Correct_Or_Not`, `Qu
 (371, 'The Mpemba effect', 0, 1, 92),
 (372, 'The China syndrome', 0, 0, 92),
 (373, 'The Odessa file', 0, 0, 92),
-(374, 'Antiperistasis', 0, 0, 92);
+(374, 'Antiperistasis', 0, 0, 92),
+(375, 'The Last of Us ', 0, 0, 93),
+(376, 'HALO', 0, 0, 93),
+(377, 'Final Fantasy', 0, 1, 93),
+(378, 'The Last Stand', 0, 0, 93),
+(379, '8', 0, 0, 94),
+(380, '6', 0, 0, 94),
+(381, '7', 0, 1, 94),
+(382, '5', 0, 0, 94),
+(383, 'XBOX', 0, 0, 95),
+(384, 'Nintendo Switch', 0, 0, 95),
+(385, 'PS2', 0, 1, 95),
+(386, 'Nintendo DS', 0, 0, 95),
+(387, 'Command and Conquer: Conflit du Tiberium', 0, 1, 96),
+(388, 'Red Alert ', 0, 0, 96),
+(389, 'Shogun: Total War', 0, 0, 96),
+(390, 'Warcraft', 0, 0, 96),
+(391, 'Assassin\'s Creed Black Flag', 0, 0, 97),
+(392, 'Assassin\'s Creed 2', 0, 0, 97),
+(393, 'Assassin\'s Creed Unity', 0, 0, 97),
+(394, 'Assassin\'s Creed Valhalla', 0, 1, 97),
+(395, 'Half-life ', 0, 1, 98),
+(396, 'Destiny', 0, 0, 98),
+(397, 'Dota 2', 0, 0, 98),
+(398, 'Battlefied', 0, 0, 98),
+(399, 'Left 4 Dead', 0, 0, 99),
+(400, 'World War Z', 0, 0, 99),
+(401, 'The Walking Dead ', 0, 1, 99),
+(402, 'Back 4 blood', 0, 0, 99),
+(403, 'GTA V', 0, 0, 100),
+(404, 'Fallout 4 ', 0, 0, 100),
+(405, 'Watch Dogs', 0, 0, 100),
+(406, 'Minecraft', 0, 1, 100);
 
 -- --------------------------------------------------------
 
@@ -405,7 +437,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `Answer` int NOT NULL COMMENT 'ANS_ID',
   `Quiz_ID` int NOT NULL,
   PRIMARY KEY (`Question_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `question`
@@ -484,7 +516,15 @@ INSERT INTO `question` (`Question_ID`, `Question`, `Question_Photo`, `Answer`, `
 (89, 'What proportion of the 206 bones in the human body is contained in the hands and feet?', '/assets/img/img-question/quiz-science-6.jpg', 0, 13),
 (90, 'What is the name for the branch of astronomy that relates to precise measurements and explanations of the positions and movements of celestial bodies?', '/assets/img/img-question/quiz-science-7.jpg', 0, 13),
 (91, 'What is the next in the series H, He, Li, Be, B ...?', '/assets/img/img-question/quiz-science-8.jpg', 0, 13),
-(92, 'The fact that hot water freezes more quickly than cold water is known as what?', '/assets/img/img-question/quiz-science-9.jpg', 0, 13);
+(92, 'The fact that hot water freezes more quickly than cold water is known as what?', '/assets/img/img-question/quiz-science-9.jpg', 0, 13),
+(93, 'Which game was meant to be the last game of  SQUARE?', '/assets/img/img-question/Cataclysm.jpg', 0, 14),
+(94, 'How many times was The Elder Scrolls: Skyrim released (as of 2022)? ', '/assets/img/img-question/skyrim.jpg', 0, 14),
+(95, 'Which game console is the best selling game console of all time?', '/assets/img/img-question/nintendo-switch-console-test__w1200.jpg', 0, 14),
+(96, 'Which of those games came first ?', '/assets/img/img-question/C&C-Red-Alert.jpg', 0, 14),
+(97, 'Which Assassin\'s Creed game is the most sold? (2022)', '/assets/img/img-question/Ubisoft.jpg', 0, 14),
+(98, 'Which game has the most awaited sequel release that won\'t happen?', '/assets/img/img-question/Gameover.jpg', 0, 14),
+(99, 'Which of these games is not of the same genre', '/assets/img/img-question/zombie.jpg', 0, 14),
+(100, 'Which is the most popular open world game?', '/assets/img/img-question/OpenWorld.jpg', 0, 14);
 
 -- --------------------------------------------------------
 
@@ -500,7 +540,7 @@ CREATE TABLE IF NOT EXISTS `quiz` (
   `Quiz_Photo` text NOT NULL,
   `Score` int NOT NULL COMMENT 'SC_ID',
   PRIMARY KEY (`Quiz_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `quiz`
@@ -513,8 +553,9 @@ INSERT INTO `quiz` (`Quiz_ID`, `Quiz_Name`, `Quiz_Description`, `Quiz_Photo`, `S
 (4, 'Anime', 'Enjoy Japanese anime movies? Let\'s find out if you know the well!', '/assets/img/img-quiz/quiz-anime.jpg', 0),
 (7, 'General knowledge', 'Test your knowledge on physics, maths, politics, geography, etc...', '/assets/img/img-quiz/quiz-general.jpg', 0),
 (8, 'Maths', 'Place where you\'ll finally need to remember Sin and Cos... Or not.', '/assets/img/img-quiz/quiz-maths.jpg', 0),
-(11, 'Video Game triva (Easy)', 'Try and complete this quiz of video game trivia that even the most casual gamers can enjoy!', '/assets/img/img-quiz/Gaming-desktop.jpg', 0),
-(13, 'Science', 'Chemistry, biology, physics and everything. Test your knowledge!', '/assets/img/img-quiz/quiz-science.jpg', 0);
+(11, 'Video Game Trivia pt.1', 'Try and complete this quiz of video game trivia that even the most casual gamers can enjoy!', '/assets/img/img-quiz/Gaming-desktop.jpg', 0),
+(13, 'Science', 'Chemistry, biology, physics and everything. Test your knowledge!', '/assets/img/img-quiz/quiz-science.jpg', 0),
+(14, 'Video Game Trivia pt.2', 'The difficulty is turned up with now more cult knowledge of some games. Will you be able to answer them all?', '/assets/img/img-quiz/GamingMedium.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -530,7 +571,7 @@ CREATE TABLE IF NOT EXISTS `score` (
   `Quiz` int NOT NULL COMMENT 'Quiz_ID',
   `AC_ID` int NOT NULL,
   PRIMARY KEY (`SC_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `score`
@@ -622,7 +663,9 @@ INSERT INTO `score` (`SC_ID`, `Total_Score`, `Total_Time`, `Quiz`, `AC_ID`) VALU
 (83, 4, 2.33, 1, 3),
 (84, 10, 3.2, 11, 3),
 (85, 8, 5.78, 13, 2),
-(86, 6, 6.1, 11, 2);
+(86, 6, 6.1, 11, 2),
+(87, 7, 3.38, 14, 0),
+(88, 4, 4.75, 14, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
