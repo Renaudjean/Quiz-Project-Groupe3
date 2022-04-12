@@ -17,11 +17,13 @@ let btnNextQuestion = document.getElementById("btn-next-question");
 const labelQuestion = document.querySelector('.count-question');
 allCheckboxInputs = document.querySelectorAll('.checkbox');
 let btnSave = document.querySelector('.btn-primary.update');
-labelQuestion.innerHTML = "Question 1";
+
+// variables
 let questID;
 let reponses;
 let reponse;
 let correct;
+labelQuestion.innerHTML = "Question 1";
 
 // A l'ouverture de la fenetre va chercher les donner de la db et les inserts dans les inputs quiz
 window.addEventListener("load", () =>{
@@ -187,7 +189,6 @@ btnSave.addEventListener('click', (e) => {
     fetch('update/quiz',{
         method : 'POST',
         headers: {
-            
             // Accept: "application/json",
             // "Content-Type": "multipart/form-data",
         },

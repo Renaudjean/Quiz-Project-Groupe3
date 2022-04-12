@@ -38,8 +38,8 @@ router.post('/login/check', sign_check);
 router.get('/login/up', sign_up_check_mail);
 router.get('/login/logout', sign_logout);
 router.post('/login/createUsers', sign_up_create_users);
-// new quiz
 
+// new quiz
 router.post('/update', apiUpdate.get_quiz);
 router.post('/update/quiz', apiUpdate.update_quiz)
 router.post('/update/question', apiUpdate.update_question);
