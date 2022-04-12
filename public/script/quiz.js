@@ -134,7 +134,7 @@ const cleanOptionStyles = (arr) => {
 // _____loading : set question, answers, timer_____________________________
 
 const load = (a) => {
-
+    timeLeft.classList.remove('timer-orange');
     timeLeft.classList.remove('timer-red');
 
     // timer on every load() launch
@@ -153,7 +153,7 @@ const load = (a) => {
     }
 
     if (seconds === "05") {
-        timeLeft.classList.remove('timer-orange');
+        
         timeLeft.classList.add('timer-red');
     }
 
