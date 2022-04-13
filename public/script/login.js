@@ -62,7 +62,7 @@ let validInput = [
     { e: inputChoosePass, correct: 0 },
 ];
 
-// recovery of user data
+// au click du bouton sign up verifie les regex et modifie la couleur de l'input vert ok rouge non
 
 btnUp.addEventListener("click", (e) => {
         e.preventDefault()
@@ -111,7 +111,7 @@ btnUp.addEventListener("click", (e) => {
                 inputChoosePass.style.backgroundColor = "#A95649";
                 validInput[4].correct = 0;
             }
-            // verifie si tout les inputs son valide et redirige a la page index
+            // verifie si tout les inputs son valide 
             if (
                 validInput[0].correct == 1 &&
                 validInput[1].correct == 1 &&
@@ -125,6 +125,7 @@ btnUp.addEventListener("click", (e) => {
                 mail = inputMail.value;
                 choosePass = inputChoosePass.value;
 
+                // envoie en base de donnée
                 fetch('/login/createUsers', {
                     method: "POST",
                     headers: {
