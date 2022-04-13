@@ -404,6 +404,17 @@ p.p-regular #stats__questions-left, p.p-regular #stats__time-left {
   padding: 50px 50px 50px;
 }
 
+.container.login .bloc1 .form.login .toast,
+.container.login .bloc2 .form.login .toast {
+  padding: 1rem;
+  margin: 2rem;
+  border: 1px solid #b5b5b5;
+  border-left: 3px solid #F7C14D;
+  border-right: 3px solid #F7C14D;
+  background-color: #156E74;
+  border-radius: 15px;
+}
+
 .container.login .bloc1 .form.login input,
 .container.login .bloc2 .form.login input {
   font-family: "Exo 2", sans-serif;

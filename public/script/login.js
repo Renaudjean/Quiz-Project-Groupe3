@@ -142,8 +142,25 @@ btnUp.addEventListener("click", (e) => {
                     .then((res) => {
                         console.log(res);
                     })
-                
-                document.location.href = "/";
+                    
+                    // creer une div "user create" a la validation du formulaire
+                    const notification = document.createElement('div');
+                    notification.classList.add('toast');
+                    notification.innerText = "User created, please log in on the left"
+                    form.appendChild(notification);
+
+                    // reset la couleur, le formulaire et enleve la div "user create" au bout de 5 sec
+                    setTimeout(function(){
+                        notification.remove();
+                        form.reset();
+                        inputFirstName.style.backgroundColor = "#314657";
+                        inputLastName.style.backgroundColor = "#314657";
+                        inputChooseName.style.backgroundColor = "#314657";
+                        inputMail.style.backgroundColor = "#314657";
+                        inputChoosePass.style.backgroundColor = "#314657";
+                    }, 5000);
+
+                // document.location.href = "/";
             } else {
                 // reset les inputs non valide apres 3 sec
                 window.setTimeout(function () {
@@ -154,6 +171,7 @@ btnUp.addEventListener("click", (e) => {
                     });
                 }, 3000);
             }
+
         });
 
 
