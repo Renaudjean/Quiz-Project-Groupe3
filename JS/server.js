@@ -6,7 +6,6 @@ let port = process.env.PORT || 5000;
 let app = express();
 let router = require('./router.js');
 let db = require('../database/database');
-const conn = require('../database/database');
 const { read } = require('fs');
 const { response } = require('express');
 
