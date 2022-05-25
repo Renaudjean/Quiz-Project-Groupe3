@@ -7,8 +7,15 @@
     }
 
     // index page ________________
+
+    p.p-quiz {
+        opacity: 1;
+    }
+
     .quizz {
         flex-direction: column;
+        justify-content: start;
+        // height: fit-content;
 
         .img-quiz {
             width: 100%;
@@ -118,6 +125,10 @@
     .quizz {
         width: 100%;
     }
+
+    .flex-quiz {
+        margin: 50px 30px;
+    }
     
     // quiz page ________________
     .stats {
@@ -126,6 +137,24 @@
                 font-size: 14px;
             }
         }
+    }
+
+    #quiz__main .container {
+        padding: 40px 30px;
+    }
+
+    .question {
+        h2  {
+            padding: 15px 0 10px;
+        }
+
+        button#question-btn {
+            min-width: 190px;
+        }
+    }
+
+    .question__photo {
+        margin: 10px auto;
     }
 
     // end-game page ________________
@@ -208,10 +237,43 @@
         right: 5%;
     }
 
+    // index page ________________
+
+    .fond {
+        margin-top: 20px;
+    }
+
+    .flex-quiz {
+        margin: 30px 15px;
+    }
+
     // quiz page ________________
+
+    #quiz__main .container {
+        padding: 20px 15px 40px;
+        margin-top: 20px;
+    }
+
     .stats {
         &__time, &__questions {
-            width: 30%;
+            width: 32%;
+        }
+
+        &__counter {
+            padding: 0 15px;
+        }
+    }
+
+    .question__option {
+        padding: 15px 25px;
+        margin: 8px 0;
+    }
+
+    .question__wrapper {
+        padding-bottom: 30px;
+
+        .question__photo {
+            width: 100%;
         }
     }
 
@@ -220,10 +282,15 @@
         display: flex;
         flex-direction: column-reverse;
         align-items: center;
+        margin: 50px auto;
 
         a.p-regular {
             margin: 30px auto 0;
         }
+    }
+
+    #endgame__main .container {
+        padding: 60px 20px 40px;
     }
 
     // admin page ________________

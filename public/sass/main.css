@@ -1103,11 +1103,17 @@ h3 {
   .container {
     width: 850px;
   }
+  p.p-quiz {
+    opacity: 1;
+  }
   .quizz {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
   }
   .quizz .img-quiz {
     width: 100%;
@@ -1200,8 +1206,23 @@ h3 {
   .quizz {
     width: 100%;
   }
+  .flex-quiz {
+    margin: 50px 30px;
+  }
   .stats__time p.p-regular, .stats__questions p.p-regular {
     font-size: 14px;
+  }
+  #quiz__main .container {
+    padding: 40px 30px;
+  }
+  .question h2 {
+    padding: 15px 0 10px;
+  }
+  .question button#question-btn {
+    min-width: 190px;
+  }
+  .question__photo {
+    margin: 10px auto;
   }
   .endgame__stats h3 {
     font-size: 22px;
@@ -1266,8 +1287,31 @@ h3 {
   .login__menu {
     right: 5%;
   }
+  .fond {
+    margin-top: 20px;
+  }
+  .flex-quiz {
+    margin: 30px 15px;
+  }
+  #quiz__main .container {
+    padding: 20px 15px 40px;
+    margin-top: 20px;
+  }
   .stats__time, .stats__questions {
-    width: 30%;
+    width: 32%;
+  }
+  .stats__counter {
+    padding: 0 15px;
+  }
+  .question__option {
+    padding: 15px 25px;
+    margin: 8px 0;
+  }
+  .question__wrapper {
+    padding-bottom: 30px;
+  }
+  .question__wrapper .question__photo {
+    width: 100%;
   }
   .endgame__buttons {
     display: -webkit-box;
@@ -1280,9 +1324,13 @@ h3 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    margin: 50px auto;
   }
   .endgame__buttons a.p-regular {
     margin: 30px auto 0;
+  }
+  #endgame__main .container {
+    padding: 60px 20px 40px;
   }
   #modal-delete {
     min-width: 90%;
