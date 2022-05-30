@@ -102,7 +102,11 @@
         margin-bottom: 30px;
     }
 
-    
+    .new__section .checkboxes {
+        height: 60%;
+        top: 274px;
+    }
+
 
     // login page __________________
     .container.login {
@@ -111,6 +115,12 @@
             width: 100%;
             margin-bottom: 50px;
         }
+    }
+
+    // update quiz page ________________
+    .new__section .checkboxes.update {
+        height: 42%;
+        top: 510px;
     }
 
 }
@@ -229,6 +239,10 @@
         visibility: hidden;
     }
 
+    #header .logo {
+        transform: scale(0.9) translate(-60%, 0);
+    }
+
     a.login__link > p {
         display: none;
     }
@@ -294,7 +308,7 @@
     }
 
     // admin page ________________
-     #modal-delete {
+    #modal-delete {
         min-width: 90%;
         max-width: 90%;
 
@@ -304,6 +318,15 @@
         }
     }
 
+    .fond .cont_add-new_quiz {
+        padding: 50px 0;
+    }
+
+    .fond .p_admin {
+        padding: 10px 20px;
+        text-align: center;
+    }
+
     // new-quiz page ________________
     .new__container.container {
         padding: 60px 50px;
@@ -311,6 +334,36 @@
 
     .new__section .checkboxes {
         right: -35px;
+    }
+
+    // login page ________________
+    .container.login .bloc1, 
+    .container.login .bloc2 {
+        padding: 60px 20px;
+    }
+
+    .container.login .bloc1 .form.login, 
+    .container.login .bloc2 .form.login {
+        padding: 30px 10px;
+    }
+
+    .container.login .bloc1 .btn-secondary.sign,
+    .container.login .bloc2 .btn-secondary.sign {
+        padding: 13px 17px 12px;
+    }
+
+    // update quiz page ________________
+    .new__container.container {
+        padding: 50px 20px;
+    }
+
+    .new__section .checkboxes {
+        right: -25px;
+    }
+
+    button[type=submit] {
+        min-width: 180px;
+        max-width: 180px;
     }
 }
 

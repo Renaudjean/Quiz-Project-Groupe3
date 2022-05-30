@@ -1186,6 +1186,10 @@ h3 {
   .new__question > div:first-child {
     margin-bottom: 30px;
   }
+  .new__section .checkboxes {
+    height: 60%;
+    top: 274px;
+  }
   .container.login {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1195,6 +1199,10 @@ h3 {
   .container.login .bloc1, .container.login .bloc2 {
     width: 100%;
     margin-bottom: 50px;
+  }
+  .new__section .checkboxes.update {
+    height: 42%;
+    top: 510px;
   }
 }
 
@@ -1281,6 +1289,10 @@ h3 {
   #header__back {
     visibility: hidden;
   }
+  #header .logo {
+    -webkit-transform: scale(0.9) translate(-60%, 0);
+            transform: scale(0.9) translate(-60%, 0);
+  }
   a.login__link > p {
     display: none;
   }
@@ -1340,11 +1352,40 @@ h3 {
     margin-right: 0;
     margin-bottom: 20px;
   }
+  .fond .cont_add-new_quiz {
+    padding: 50px 0;
+  }
+  .fond .p_admin {
+    padding: 10px 20px;
+    text-align: center;
+  }
   .new__container.container {
     padding: 60px 50px;
   }
   .new__section .checkboxes {
     right: -35px;
+  }
+  .container.login .bloc1,
+  .container.login .bloc2 {
+    padding: 60px 20px;
+  }
+  .container.login .bloc1 .form.login,
+  .container.login .bloc2 .form.login {
+    padding: 30px 10px;
+  }
+  .container.login .bloc1 .btn-secondary.sign,
+  .container.login .bloc2 .btn-secondary.sign {
+    padding: 13px 17px 12px;
+  }
+  .new__container.container {
+    padding: 50px 20px;
+  }
+  .new__section .checkboxes {
+    right: -25px;
+  }
+  button[type=submit] {
+    min-width: 180px;
+    max-width: 180px;
   }
 }
 /*# sourceMappingURL=main.css.map */
