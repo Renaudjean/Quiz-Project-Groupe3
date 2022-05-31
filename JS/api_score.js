@@ -4,6 +4,10 @@ module.exports.send_Scores = (req, response) => {
     let time = req.body.averageTime
     let quizId = req.body.quizId
     let userID = req.body.user
+    if (userID == '') {
+        userID = 0;
+    } 
+    console.log(userID);
     db.query("INSERT INTO `score`(`Total_Score`, `Total_Time`, `Quiz`, `AC_ID`) VALUES (?, ?, ?, ?)", [score, time, quizId, userID])
 
 }

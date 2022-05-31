@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `account` (
   `Password` varchar(255) NOT NULL,
   `AccountType` int NOT NULL COMMENT 'PER_ID',
   PRIMARY KEY (`AC_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `account`
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `account_quiz` (
   `AC_ID` int NOT NULL,
   `QUIZ_ID` int NOT NULL,
   PRIMARY KEY (`AQ_ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `Correct_Or_Not` tinyint(1) NOT NULL,
   `Question` int NOT NULL COMMENT 'Question_ID',
   PRIMARY KEY (`ANS_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=423 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=423 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `answer`
@@ -437,7 +437,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `Account_Type` varchar(255) NOT NULL,
   `Account_ID` int NOT NULL COMMENT 'AC_ID',
   PRIMARY KEY (`PER_ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -453,7 +453,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `Answer` int NOT NULL COMMENT 'ANS_ID',
   `Quiz_ID` int NOT NULL,
   PRIMARY KEY (`Question_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=105 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `question`
@@ -560,7 +560,7 @@ CREATE TABLE IF NOT EXISTS `quiz` (
   `Quiz_Photo` text NOT NULL,
   `Score` int NOT NULL COMMENT 'SC_ID',
   PRIMARY KEY (`Quiz_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `quiz`
@@ -591,7 +591,7 @@ CREATE TABLE IF NOT EXISTS `score` (
   `Quiz` int NOT NULL COMMENT 'Quiz_ID',
   `AC_ID` int NOT NULL,
   PRIMARY KEY (`SC_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `score`
